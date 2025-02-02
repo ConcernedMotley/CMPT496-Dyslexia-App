@@ -1,0 +1,16 @@
+
+/* COLORS */
+
+:root {
+    --word-container-color-01: #f3d31e;
+    --word-container-text-color: #000;
+}
+
+/* CLASSES */
+
+.wordDiv {
+
+     /* ATTRIBUTES */
+    background-color: var(--word-container-color-01);
+    color: var(--word-container-text-color);
+}

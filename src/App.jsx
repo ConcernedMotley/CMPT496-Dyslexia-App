@@ -1,13 +1,17 @@
 import './styles/App.css'
-import { Button01, Button02 } from './components/Buttons'
+import { Word } from './components/Words'
 
 function App() {
 
   return (
     <>
-    <h1>Testing</h1>
-    <Button01 buttonText="Hello World!"/>
-    <Button02 buttonText="Hello World Again!" secondText="World"/>
+    <h1>Dyslexia App</h1>
+
+    <h2>CLICK ME!!!</h2>
+
+    <Word wordText = "Mip" />
+    <Word wordText = "Blon" />
+    <Word wordText = "Gup" />
     </>
   )
 }
