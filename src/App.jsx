@@ -7,7 +7,7 @@ function App() {
     <>
     <h1>Testing</h1>
     <Button01 buttonText="Hello World!"/>
-    <Button02 buttonText="Hello World Again!" />
+    <Button02 buttonText="Hello World Again!" secondText="World"/>
     </>
   )
 }
