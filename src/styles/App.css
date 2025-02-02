@@ -6,9 +6,5 @@
 }
 
 @media only screen and (max-width: 600px) {
-  
-#root {
-  background-color: orange; /* tester color to verify that media query is working */
-}
 
 }
