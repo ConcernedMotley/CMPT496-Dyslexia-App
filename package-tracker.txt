@@ -4,3 +4,6 @@ Feb 5th:
 npm install react-router-dom
 npm install react-dnd react-dnd-html5-backend
 npm install react-dnd-touch-backend
+
+Feb 13th:
+npm install mongodb
