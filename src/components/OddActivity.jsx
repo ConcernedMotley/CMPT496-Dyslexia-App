@@ -23,9 +23,8 @@ function OddActivity() {
 
       } else {
         alert('Try again!'); //else nothing happens 
-      }
-    };
-  
+      }};
+
     return (
       <div className="odd-one-out-container">
         <h2>Find the Odd One Out!</h2>
@@ -42,7 +41,6 @@ function OddActivity() {
         </div>
         <button onClick={checkAnswer}>Check</button>
       </div>
-    );
-  }
+    );}
 
 export default OddActivity;
