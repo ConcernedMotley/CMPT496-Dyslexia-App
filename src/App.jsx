@@ -5,9 +5,12 @@ import { DndProvider } from 'react-dnd';
 import { TouchBackend } from 'react-dnd-touch-backend';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import LandingPage from './components/LandingPage';
 import DragActivity from './components/DragActivity';
 import SoundActivity from './components/SoundActivity';
+import OddActivity from './components/OddActivity';
+
 
 // Detect if the device supports touch
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -20,6 +23,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/DragActivity" element={<DragActivity />} />
           <Route path="/SoundActivity" element={<SoundActivity />} />
+          <Route path="/OddActivity" element={<OddActivity />} />
         </Routes>
       </Router>
     </DndProvider>

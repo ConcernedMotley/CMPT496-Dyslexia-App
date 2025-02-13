@@ -13,6 +13,9 @@ function LandingPage() {
       <Link to="/SoundActivity">
         <button className="landing-button">Go to Sound Activity Page</button>
       </Link>
+      <Link to="/OddActivity">
+        <button className="landing-button">Go to Odd one Out Activity Page</button>
+      </Link>
     </div>
   );
 }
