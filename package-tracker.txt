@@ -7,3 +7,6 @@ npm install react-dnd-touch-backend
 
 Feb 13th:
 npm install mongodb
+npm install mongoose dotenv
+npm install express dotenv mongoose
+npm install cors

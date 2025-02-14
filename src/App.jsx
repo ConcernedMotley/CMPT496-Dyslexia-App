@@ -10,6 +10,7 @@ import LandingPage from './components/LandingPage';
 import DragActivity from './components/DragActivity';
 import SoundActivity from './components/SoundActivity';
 import OddActivity from './components/OddActivity';
+import WordCollection from './components/WordCollection';
 
 
 // Detect if the device supports touch
@@ -24,6 +25,7 @@ function App() {
           <Route path="/DragActivity" element={<DragActivity />} />
           <Route path="/SoundActivity" element={<SoundActivity />} />
           <Route path="/OddActivity" element={<OddActivity />} />
+          <Route path="/WordCollection" element={<WordCollection />} />
         </Routes>
       </Router>
     </DndProvider>
