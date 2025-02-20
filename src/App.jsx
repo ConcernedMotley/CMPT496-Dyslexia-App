@@ -6,7 +6,12 @@ import { TouchBackend } from 'react-dnd-touch-backend';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import HomePage from './components/HomePage';
+import RegisterPage from './components/RegisterPage';
+import LoginPage from './components/LoginPage';
 import LandingPage from './components/LandingPage';
+import PlayPage from './components/PlayPage';
+import LevelLibrary from './components/LevelLibrary';
 import DragActivity from './components/DragActivity';
 import SoundActivity from './components/SoundActivity';
 import OddActivity from './components/OddActivity';
@@ -21,7 +26,13 @@ function App() {
     <DndProvider backend={isTouchDevice ? TouchBackend : HTML5Backend}>
       <Router basename='/CMPT496-Dyslexia-App'>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/HomePage" element={<HomePage />} />
+          <Route path="/RegisterPage" element={<RegisterPage />} />
+          <Route path="/LoginPage" element={<LoginPage />} />
+          <Route path="/LandingPage" element={<LandingPage />} />
+          <Route path="/PlayPage" element={<PlayPage />} />
+          <Route path="/LevelLibrary" element={<LevelLibrary />} />
           <Route path="/DragActivity" element={<DragActivity />} />
           <Route path="/SoundActivity" element={<SoundActivity />} />
           <Route path="/OddActivity" element={<OddActivity />} />
@@ -36,28 +47,3 @@ export default App;
 
 
 
-
-
-
-
-
-
-{/*import './styles/App.css'
-import { Word } from './components/Words'
-
-function App() {
-
-  return (
-    <>
-    <h1>Dyslexia App</h1>
-
-    <h2>CLICK ME!!!</h2>
-
-    <Word wordText = "Mip" />
-    <Word wordText = "Blon" />
-    <Word wordText = "Gup" />
-    </>
-  )
-}
-
-export default App*/}

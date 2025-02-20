@@ -7,15 +7,10 @@ function LandingPage() {
     <div className="landing-container">
       <h1>Dyslexia App</h1>
       <h1>Welcome to the Landing Page</h1>
-      <Link to="/DragActivity">
-        <button className="landing-button">Go to Drag Activity Page</button>
+      <Link to="/PlayPage">
+        <button className="landing-button">Go to Play Page</button>
       </Link>
-      <Link to="/SoundActivity">
-        <button className="landing-button">Go to Sound Activity Page</button>
-      </Link>
-      <Link to="/OddActivity">
-        <button className="landing-button">Go to Odd one Out Activity Page</button>
-      </Link>
+      
       <Link to="/WordCollection">
         <button className="landing-button">View Word Collection</button>
       </Link>
