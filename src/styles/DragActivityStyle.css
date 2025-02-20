@@ -25,8 +25,8 @@
   }
   
   .target-rectangle {
-    width: 300px;
-    height: 150px;
+    width: 400px;
+    height: 350px;
     margin: 0 auto;
     border: 3px dashed #333;
     display: flex;
@@ -41,7 +41,7 @@
   }
   
   .dropped-boxes {
-    margin-top: 20px;
+    margin-top: 50px;
   }
   
   .dropped-box {
@@ -49,6 +49,13 @@
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
-    margin: 5px;
+    margin: 20px;
+    display: flex ;
+  }
+
+  .undo-button {
+    margin: 0px;
+    padding: 5px 10px;
+    background-color: #ff4400;
   }
   
