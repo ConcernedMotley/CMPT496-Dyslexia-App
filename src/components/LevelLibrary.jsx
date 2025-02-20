@@ -18,6 +18,10 @@ function LevelLibrary() {
         <button className="library-button">Go to Odd one Out Activity Page</button>
       </Link>
 
+      <Link to="/LetterDraggingGame">
+        <button className="library-button">Letter Dragging Game</button>
+      </Link>
+
       <Link to="/PlayPage">
         <button className="play-button">Back to Play Page!</button>
       </Link>
