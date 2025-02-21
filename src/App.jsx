@@ -16,7 +16,7 @@ import DragActivity from './components/DragActivity';
 import SoundActivity from './components/SoundActivity';
 import OddActivity from './components/OddActivity';
 import WordCollection from './components/WordCollection';
-import LetterDraggingGame from './components/LetterDraggingGame';
+import DraggingGame from './components/DraggingGame';
 
 
 // Detect if the device supports touch
@@ -38,7 +38,7 @@ function App() {
           <Route path="/SoundActivity" element={<SoundActivity />} />
           <Route path="/OddActivity" element={<OddActivity />} />
           <Route path="/WordCollection" element={<WordCollection />} />
-          <Route path="/LetterDraggingGame" element={<LetterDraggingGame />}/> 
+          <Route path="/DraggingGame" element={<DraggingGame />}/> 
         </Routes>
       </Router>
     </DndProvider>
