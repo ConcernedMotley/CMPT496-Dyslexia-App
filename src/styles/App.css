@@ -1,7 +1,7 @@
 #root, html {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 24px 32px;
   text-align: center;
   background-color: #FAF5EA;
   color: black;
@@ -10,6 +10,13 @@
 
 .icon {
   border-radius: 100%;
+}
+
+button {
+  padding: 16px;
+  width: fit-content;
+  border-radius: 10px;
+  border-width: 0px;
 }
 
 @media only screen and (max-width: 600px) {
