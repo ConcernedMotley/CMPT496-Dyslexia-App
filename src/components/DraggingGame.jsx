@@ -13,24 +13,20 @@ export default function DraggingGame() {
     setActiveLetter(event.active.id);
   };
 
-  const handleDragEnd = (event) => {
-    const { over, active } = event;
-    if (over) {
-      console.log(`Letter ${active.id} dropped on ${over.id}`);
-    }
+  const handleDragEnd = () => {
     setActiveLetter(null);
   };
 
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="vertical-flex">
+      <div className="vertical-flex" style={{ touchAction: 'none' }}>
         <AudioIcon />
         <LetterGrid />
         <DroppableBox />
         <button>Done</button>
       </div>
 
-      {/* Enables free movement */}
+      {/* Drag overlay for better movement */}
       <DragOverlay>
         {activeLetter ? (
           <div className="letter-box dragging">

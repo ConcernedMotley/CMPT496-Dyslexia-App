@@ -20,4 +20,3 @@ export default function DroppableBox({ count = 4 }) {
       </div>
     );
   }
-  
