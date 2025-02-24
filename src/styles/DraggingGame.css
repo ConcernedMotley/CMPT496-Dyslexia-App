@@ -1,5 +1,6 @@
 :root {
   --letter-unselected-background: #8CDCE4;
+  --letter-selected-background: rgb(225, 247, 249);
 }
 
 .letter-grid {
@@ -45,8 +46,8 @@
   left: 0;
   pointer-events: none;
   opacity: 0.8;
-  background-color: #f0f0f0;
-  border: 2px dashed #555;
-  transform: scale(1.1);
+  background-color: var(--letter-selected-background);
+  border: 4px dashed black;
+  /* transform: scale(1.1); */
   z-index: 999;
 }
