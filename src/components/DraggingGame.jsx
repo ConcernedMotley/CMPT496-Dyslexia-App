@@ -20,7 +20,7 @@ export default function DraggingGame() {
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="vertical-flex" style={{ touchAction: 'none' }}>
-        <AudioIcon />
+        {/* <AudioIcon /> */}
         <LetterGrid />
         <DroppableBox />
         <button>Done</button>
