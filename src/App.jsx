@@ -25,7 +25,7 @@ const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 function App() {
   return (
     <DndProvider backend={isTouchDevice ? TouchBackend : HTML5Backend}>
-      <Router basename='/CMPT496-Dyslexia-App'>
+      <Router basename='/ateam4'>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/HomePage" element={<HomePage />} />

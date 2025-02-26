@@ -15,7 +15,7 @@ export default function LetterGrid() {
   return (
     <DndContext onDragStart={(event) => setActiveLetter(event.active.data.current.letter)}
                 onDragEnd={() => setActiveLetter(null)}>
-      <WordPlaceHolder word={currentWord} />
+      {/* <WordPlaceHolder word={currentWord} /> */}
       <div className="letter-grid">
         {letters.map((char, index) => (
           <Letter key={index} character={char} id={`letter-${index}`} />

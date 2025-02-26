@@ -9,8 +9,22 @@
 }
 
 .icon {
-  border-radius: 100%;
+  display: flex; /* Ensures proper alignment */
+  justify-content: center;
+  align-items: center;
+  width: 48px; /* Must be same as height for a perfect circle */
+  height: 48px;
+  background-color: black; /* Black background */
+  border-radius: 50%; /* Makes it fully circular */
 }
+
+.icon img {
+  width: 32px; /* Smaller to fit inside */
+  height: 32px;
+  border-radius: 50%; /* Ensures image is circular */
+  object-fit: contain; /* Keeps entire image visible */
+}
+
 
 button {
   padding: 16px;
