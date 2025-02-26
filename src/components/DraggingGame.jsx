@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DndContext, DragOverlay } from '@dnd-kit/core';
 import LetterGrid from './draggingGame/LetterGrid';
 import DroppableBox from './draggingGame/DroppableBox';
@@ -8,6 +8,11 @@ import '../styles/pageStyle.css';
 
 export default function DraggingGame() {
   const [activeLetter, setActiveLetter] = useState(null);
+  const [currentWord, setCurrentWord] = useState("");
+
+  useEffect(() => {
+    setCurrentWord(RandomWord()); // Set a new word when the component mounts
+  }, []);
 
   const handleDragStart = (event) => {
     setActiveLetter(event.active.id);
@@ -20,8 +25,8 @@ export default function DraggingGame() {
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="vertical-flex" style={{ touchAction: 'none' }}>
-        <AudioIcon />
-        <LetterGrid />
+        <AudioIcon word={currentWord} /> {/* Pass the current word */}
+        <LetterGrid currentWord={currentWord} />
         <DroppableBox />
         <button>Done</button>
       </div>
@@ -36,4 +41,19 @@ export default function DraggingGame() {
       </DragOverlay>
     </DndContext>
   );
+}
+
+function RandomWord() {
+  // const wordsList = [
+  //   'book', 'tree', 'game', 'star', 'lamp',
+  //   'fish', 'door', 'snow', 'rock', 'jump',
+  //   'blue', 'fire', 'moon', 'wind', 'ship',
+  //   'frog', 'ring', 'sand', 'wave', 'path',
+  // ];
+
+  const wordsList = [
+    'book', 'tree', 'game', 'star', 'lamp'];
+
+  const wordIndex = Math.floor(Math.random() * wordsList.length);
+  return wordsList[wordIndex];
 }

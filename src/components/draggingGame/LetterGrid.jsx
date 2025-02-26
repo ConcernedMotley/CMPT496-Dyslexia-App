@@ -1,28 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { DndContext, useDraggable, DragOverlay } from '@dnd-kit/core';
 
-export default function LetterGrid() {
-  const [currentWord, setCurrentWord] = useState('');
+export default function LetterGrid({ currentWord }) {
   const [letters, setLetters] = useState([]);
   const [activeLetter, setActiveLetter] = useState(null); // Track the active dragged letter
 
   useEffect(() => {
-    const newWord = RandomWord();
-    setCurrentWord(newWord);
-    setLetters(LettersList(newWord));
-  }, []);
+    setLetters(LettersList(currentWord)); // Update letters when the word changes
+  }, [currentWord]);
 
   return (
-    <DndContext onDragStart={(event) => setActiveLetter(event.active.data.current.letter)}
-                onDragEnd={() => setActiveLetter(null)}>
-      {/* <WordPlaceHolder word={currentWord} /> */}
+    <DndContext
+      onDragStart={(event) => setActiveLetter(event.active.data.current.letter)}
+      onDragEnd={() => setActiveLetter(null)}
+    >
       <div className="letter-grid">
         {letters.map((char, index) => (
           <Letter key={index} character={char} id={`letter-${index}`} />
         ))}
       </div>
 
-      {/* Show the dragged letter instead of the ID */}
+      {/* Drag overlay for better movement */}
       <DragOverlay>
         {activeLetter ? (
           <div className="letter-box dragging">
@@ -43,9 +41,10 @@ function Letter({ character, id }) {
   return (
     <div
       ref={setNodeRef}
-      {...listeners}
-      {...attributes}
+      {...listeners} // Ensures the element is draggable
+      {...attributes} // Includes necessary drag properties
       className="letter-box"
+      tabIndex={0} // Allows keyboard interactions
     >
       <p className="letter-font">{character}</p>
     </div>
@@ -67,25 +66,4 @@ function LettersList(word) {
   }
 
   return letterArray;
-}
-
-function RandomWord() {
-  const wordsList = [
-    'book', 'tree', 'game', 'star', 'lamp',
-    'fish', 'door', 'snow', 'rock', 'jump',
-    'blue', 'fire', 'moon', 'wind', 'ship',
-    'frog', 'ring', 'sand', 'wave', 'path',
-  ];
-
-  const wordIndex = Math.floor(Math.random() * wordsList.length);
-  return wordsList[wordIndex];
-}
-
-export function WordPlaceHolder({ word }) {
-  return (
-    <div>
-      <h1>{word.toUpperCase()}</h1>
-      <p>The text above is a placeholder, will be replace with a play sound button once Audio is integreted.</p>
-    </div>
-  );
 }
