@@ -5,86 +5,81 @@ import '../styles/OddActivityStyle.css';
 
 function OddActivity() {
 
-  const [movies, setMovies] = useState([]);
-  const [gameMovies, setGameMovies] = useState([]); // Stores the three selected movies
+  const [words, setWords] = useState([]);
+  const [gameWords, setGameWords] = useState([]); //stores the three selected words
   const [selectedBox, setSelectedBox] = useState(null); //tracks the box user selects, null at init
   const [oddOneOutIndex, setOddOneOutIndex] = useState(null); //stores the index of the random "odd" box, init null
 
   //get the words from backend
-  const fetchMovies = async () => {
+  const fetchWords = async () => {
     try {
       //this works when accessing on the same device 
       //const response = await fetch('http://localhost:5001/api/movies');
 
       //trying to add my IP in so it goes to the network i am hosting on not local
-      const response = await fetch('http://192.168.1.71:5001/api/movies'); //worked!!!!
+      const response = await fetch('http://192.168.1.71:5001/api/odd-one-out?level=1'); //update level dynamically?
 
       if (!response.ok) {
-        throw new Error('Failed to fetch');
+        throw new Error('Failed to fetch words');
       }
       const data = await response.json();
-      setMovies(data);
+      setWords(data);
     } catch (error) {
-        console.error('Error fetching movies:', error);
+        console.error('Error fetching words:', error);
       }
   };
 
-  //function to start a new game
+  //function to start a new round
   const generateNewGame = () => {
-    if (movies.length < 3) {
-        console.error("Not enough movies to generate a game.");
+    if (words.length < 3) {
+        console.error("Not enough words to generate a game.");
         return;
     }
 
-    // Group movies by genre
-    const genreMap = {};
-    movies.forEach((movie) => {
-        const genreKey = movie.genres[0] || "Unknown"; // Use first genre
-        if (!genreMap[genreKey]) genreMap[genreKey] = [];
-        genreMap[genreKey].push(movie);
+    // Group words by the rhyme tag
+    const tagMap = {};
+    words.forEach((word) => {
+        const tagKey = word.tag; 
+        if (!tagMap[tagKey]) tagMap[tagKey] = [];
+        tagMap[tagKey].push(word);
     });
 
-    // Pick a genre that has at least 2 movies
-    const genreKeys = Object.keys(genreMap).filter(key => genreMap[key].length >= 2);
-    if (genreKeys.length === 0) {
-        console.error("Not enough genres with at least 2 movies.");
-        return;
+    // Pick a tag that has at least 2 words
+    const validTags = Object.keys(tagMap).filter((key) => tagMap[key].length >= 2);
+    if (validTags.length === 0) {
+      console.error("Not enough words with the same rhyme tag.");
+      return;
     }
 
-    const sameGenre = genreKeys[Math.floor(Math.random() * genreKeys.length)];
-    const sameGenreMovies = genreMap[sameGenre].slice(0, 2); // Pick 2 movies from this genre
+    const sameTag = validTags[Math.floor(Math.random() * validTags.length)];
+    const sameTagWords = tagMap[sameTag].slice(0, 2); // Pick 2 words from this tag
 
-    // Pick an "odd" movie from a different genre
-    const differentGenres = Object.keys(genreMap).filter(key => key !== sameGenre);
-    if (differentGenres.length === 0) {
-        console.error("No different genres available.");
-        return;
+    // Pick an "odd" word from a different tag
+    const differentTags = Object.keys(tagMap).filter((key) => key !== sameTag);
+    if (differentTags.length === 0) {
+      console.error("No different tags available.");
+      return;
     }
+    const oddTag = differentTags[Math.floor(Math.random() * differentTags.length)];
+    const oddWord = tagMap[oddTag][0]; // Pick one word from this tag
 
-    const oddGenre = differentGenres[Math.floor(Math.random() * differentGenres.length)];
-    const oddMovie = genreMap[oddGenre][0]; // Pick one movie from this genre
-
-    // Combine and shuffle the movies
-    const selectedMovies = [...sameGenreMovies, oddMovie].sort(() => Math.random() - 0.5);
-    setGameMovies(selectedMovies);
-    setOddOneOutIndex(selectedMovies.indexOf(oddMovie));
+    // Combine and shuffle words
+    const selectedWords = [...sameTagWords, oddWord].sort(() => Math.random() - 0.5);
+    setGameWords(selectedWords);
+    setOddOneOutIndex(selectedWords.indexOf(oddWord));
     setSelectedBox(null);
 
-  console.log("Selected Movies:", selectedMovies);
-  console.log("Odd One Out Index:", oddOneOutIndex);
+  console.log("Selected words:", selectedWords);
 
 };
 
   useEffect(() => {
-      fetchMovies(); // Automatically loads movies on page load
+      fetchWords(); // Automatically loads movies on page load
   }, []);
   useEffect(() => {
-    console.log("Movies fetched:", movies);
-}, [movies]); // This will log whenever `movies` updates
-
-  useEffect(() => {
-    if (movies.length > 0) generateNewGame();
-  }, [movies]);
+    if (words.length > 0) generateNewGame();
+    console.log("words fetched:", words);
+}, [words]); // This will log whenever `movies` updates
   
   
   const checkAnswer = () => {
@@ -92,7 +87,8 @@ function OddActivity() {
       alert('Correct! You found the odd one out.');
       generateNewGame();
     } else {
-      alert('Try again!');
+      alert('Incorrect. Try again!'); //TODO idk i guess move onto new word
+      generateNewGame();
     }
   };
 
@@ -101,13 +97,13 @@ function OddActivity() {
       <h2>Find the Odd One Out!</h2>
       
       <div className="boxes">
-        {gameMovies.map((movie, index) => (
+        {gameWords.map((word, index) => (
           <div
-            key={movie._id}
+            key={word.word}
             className={`box ${selectedBox === index ? 'selected' : ''}`}
             onClick={() => setSelectedBox(index)}
           >
-            {movie.title} ({movie.genres[0]}) {/* Display title and first genre */}
+            {word.word} {/* Display just the word */}
           </div>
         ))}
       </div>
