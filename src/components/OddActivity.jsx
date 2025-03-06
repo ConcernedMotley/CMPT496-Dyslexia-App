@@ -1,9 +1,10 @@
 // src/components/OddActivity.jsx
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../styles/OddActivityStyle.css';
 
 function OddActivity() {
+  const { level, type } = useParams();
 
   const [words, setWords] = useState([]);
   const [gameWords, setGameWords] = useState([]); //stores the three selected words
@@ -17,7 +18,14 @@ function OddActivity() {
       //const response = await fetch('http://localhost:5001/api/movies');
 
       //trying to add my IP in so it goes to the network i am hosting on not local
-      const response = await fetch('http://192.168.1.71:5001/api/odd-one-out?level=1'); //update level dynamically?
+      //const response = await fetch('http://192.168.1.71:5001/api/odd-one-out?level=1'); //update level dynamically?
+      //const response = await fetch('http://10.60.71.195:5001/api/odd-one-out?level=4');
+
+      //odd path
+      //const response = await fetch('http://192.168.1.71:5001/api/odd-non-word?level=4');
+
+      const response = await fetch(`http://192.168.1.71:5001/api/${type}?level=${level}`);
+
 
       if (!response.ok) {
         throw new Error('Failed to fetch words');
@@ -36,7 +44,7 @@ function OddActivity() {
         return;
     }
 
-    // Group words by the rhyme tag
+    //group by the rhyme tag
     const tagMap = {};
     words.forEach((word) => {
         const tagKey = word.tag; 
@@ -44,7 +52,7 @@ function OddActivity() {
         tagMap[tagKey].push(word);
     });
 
-    // Pick a tag that has at least 2 words
+    //tag with at least 2 word (all should have but just incase)
     const validTags = Object.keys(tagMap).filter((key) => tagMap[key].length >= 2);
     if (validTags.length === 0) {
       console.error("Not enough words with the same rhyme tag.");
@@ -52,18 +60,18 @@ function OddActivity() {
     }
 
     const sameTag = validTags[Math.floor(Math.random() * validTags.length)];
-    const sameTagWords = tagMap[sameTag].slice(0, 2); // Pick 2 words from this tag
+    const sameTagWords = tagMap[sameTag].slice(0, 2); //pick 2 words from this tag
 
-    // Pick an "odd" word from a different tag
+    //pick an "odd" word from a different tag
     const differentTags = Object.keys(tagMap).filter((key) => key !== sameTag);
     if (differentTags.length === 0) {
       console.error("No different tags available.");
       return;
     }
     const oddTag = differentTags[Math.floor(Math.random() * differentTags.length)];
-    const oddWord = tagMap[oddTag][0]; // Pick one word from this tag
+    const oddWord = tagMap[oddTag][0]; //pick one word from this tag
 
-    // Combine and shuffle words
+    //combine and shuffle words
     const selectedWords = [...sameTagWords, oddWord].sort(() => Math.random() - 0.5);
     setGameWords(selectedWords);
     setOddOneOutIndex(selectedWords.indexOf(oddWord));
@@ -74,7 +82,7 @@ function OddActivity() {
 };
 
   useEffect(() => {
-      fetchWords(); // Automatically loads movies on page load
+      fetchWords(); //auto loads movies on page load
   }, []);
   useEffect(() => {
     if (words.length > 0) generateNewGame();
@@ -94,19 +102,26 @@ function OddActivity() {
 
   return (
     <div className="odd-one-out-container">
+      <h1>Odd Activity ({type}) - Level {level}</h1>
       <h2>Find the Odd One Out!</h2>
-      
-      <div className="boxes">
+
+      <div className='plate-container'>
+        <div className="dot">
+
+        <div className="boxes">
         {gameWords.map((word, index) => (
           <div
             key={word.word}
-            className={`box ${selectedBox === index ? 'selected' : ''}`}
+            className={`box box-${index} ${selectedBox === index ? 'selected' : ''}`}
             onClick={() => setSelectedBox(index)}
           >
             {word.word} {/* Display just the word */}
           </div>
         ))}
       </div>
+      </div>
+      </div>
+  
   
       <button onClick={checkAnswer}>Check</button>
       <Link to="/PlayPage">

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import '../styles/wordcollectionstyle.css';
 
+//TODO get it to pull not from movies now 
 function WordCollection() {
     const [movies, setMovies] = useState([]);
 

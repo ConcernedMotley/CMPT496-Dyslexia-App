@@ -2,7 +2,7 @@
 //word snap game
 import React, { useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../styles/DragActivityStyle.css';
 
 const ItemType = 'box'; // Identifier for draggable items
@@ -70,9 +70,11 @@ function DraggableBox({ id, text }) {
 
 function DragActivity() {
   const [droppedBoxes, setDroppedBoxes] = useState([]); // Manage dropped boxes in the parent
+  const { level } = useParams();
 
   return (
     <div className="activity-container">
+      <h1>Drag Activity - Level {level}</h1>
       <h1>Drag 3 Boxes into the Goal Area!</h1>
       <button>Audio</button>
       <div className="boxes-container">
