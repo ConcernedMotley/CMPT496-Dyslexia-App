@@ -4,22 +4,64 @@
   }
   
   .boxes {
-    display: flex;
+    display:flex-block;
     justify-content: center;
     gap: 15px;
     margin: 20px 0;
   }
   
   .box {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid black;
     cursor: pointer;
     font-size: 24px;
+    position: absolute;
+    transform-origin: center;
   }
+
+  .plate-container {
+    position: relative;
+    width: 700px;
+    height: 700px;
+    margin: auto;
+  }
+  
+
+  .dot {
+    height: 700px; /*TODO change width and height umm may have to adjust how it scales*/
+    width: 700px;
+    background-color: rgb(151, 164, 230);
+    border-radius: 50%;
+    animation: rotation 60s infinite linear; /*change the #s for slower faster rotation */
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  /*TODO the boxes may need to be different tags 
+  and then each box will rotate as the circle also rotates
+  */
+  /* Positioning the boxes evenly around the plate */
+.box-0 { top: 50px; left: 275px; }  /* Top */
+.box-1 { top: 300px; left: 50px; }  /* Left */
+.box-2 { top: 400px; left: 500px; } /* Right */
+
+/*Apply counter-rotation to each box 
+TODO the rate at which they go is off a bit
+ALSO when i get the new word the plate is still at the other position so the new words load 
+in awkwardly will have to see how to streamline it idk maybe no spin if cant figure it out....*/
+.dot .box {
+  animation: rotation 60s infinite linear reverse;
+}
   
   .selected {
     background-color: lightblue;

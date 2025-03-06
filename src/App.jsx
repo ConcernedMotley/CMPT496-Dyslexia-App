@@ -33,12 +33,12 @@ function App() {
           <Route path="/LoginPage" element={<LoginPage />} />
           <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/PlayPage" element={<PlayPage />} />
-          <Route path="/LevelLibrary" element={<LevelLibrary />} />
-          <Route path="/DragActivity" element={<DragActivity />} />
-          <Route path="/SoundActivity" element={<SoundActivity />} />
-          <Route path="/OddActivity" element={<OddActivity />} />
+          <Route path="/LevelLibrary/:level" element={<LevelLibrary />} />
+          <Route path="/DragActivity/:level" element={<DragActivity />} />
+          <Route path="/SoundActivity/:level" element={<SoundActivity />} />
+          <Route path="/OddActivity/:level/:type" element={<OddActivity />} />
           <Route path="/WordCollection" element={<WordCollection />} />
-          <Route path="/DraggingGame" element={<DraggingGame />}/> 
+          <Route path="/DraggingGame/:level" element={<DraggingGame />}/> 
         </Routes>
       </Router>
     </DndProvider>

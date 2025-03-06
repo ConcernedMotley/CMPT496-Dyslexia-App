@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DndContext, DragOverlay } from '@dnd-kit/core';
+import { Link, useParams } from 'react-router-dom';
 import LetterGrid from './draggingGame/LetterGrid';
 import DroppableBox from './draggingGame/DroppableBox';
 import AudioIcon from './AudioIcon';
@@ -7,6 +8,7 @@ import '../styles/DraggingGame.css';
 import '../styles/pageStyle.css';
 
 export default function DraggingGame() {
+  const { level } = useParams();
   const [activeLetter, setActiveLetter] = useState(null);
   const [currentWord, setCurrentWord] = useState("");
 
@@ -24,6 +26,7 @@ export default function DraggingGame() {
 
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+      <h1>Drag Activity - Level {level}</h1>
       <div className="vertical-flex" style={{ touchAction: 'none' }}>
         <AudioIcon word={currentWord} /> {/* Pass the current word */}
         <LetterGrid currentWord={currentWord} />
