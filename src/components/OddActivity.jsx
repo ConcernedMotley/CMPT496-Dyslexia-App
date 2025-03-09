@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import '../styles/OddActivityStyle.css';
+import API_BASE_URL from '../config'; //for connecting to backend
+
 
 function OddActivity() {
   const { level, type } = useParams();
@@ -24,7 +26,14 @@ function OddActivity() {
       //odd path
       //const response = await fetch('http://192.168.1.71:5001/api/odd-non-word?level=4');
 
-      const response = await fetch(`http://192.168.1.71:5001/api/${type}?level=${level}`);
+      //const response = await fetch(`http://192.168.1.71:5001/api/${type}?level=${level}`);
+
+      //for hosted backend on render
+      //https://cmpt496-dyslexia-app.onrender.com
+      //const response = await fetch(`https://cmpt496-dyslexia-app.onrender.com/api/${type}?level=${level}`);
+      //using the define
+      console.log(import.meta.env.VITE_API_URL);
+      const response = await fetch(`${API_BASE_URL}/api/${type}?level=${level}`);
 
 
       if (!response.ok) {
