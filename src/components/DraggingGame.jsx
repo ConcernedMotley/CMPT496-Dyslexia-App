@@ -59,9 +59,9 @@ export default function DraggingGame() {
     if (formedWord === currentWord) {
       setPopupMessage("Correct word");
       alert("Correct word");
-      // setCurrentWord(RandomWord());
-      // setBoxContents(Array(4).fill(''));
-      window.location.reload();
+      setCurrentWord(RandomWord());
+      setBoxContents(Array(4).fill(''));
+      // window.location.reload();
     } else {
       alert("Incorrect word");
     }
