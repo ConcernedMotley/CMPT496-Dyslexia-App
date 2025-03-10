@@ -18,7 +18,7 @@ export default function DraggingGame() {
   }, []);
 
   const handleDragStart = (event) => {
-    setActiveLetter(event.active.id);
+    setActiveLetter(event.active.id.split('-')[1]);
   };
 
   const handleDragOver = (event) => {

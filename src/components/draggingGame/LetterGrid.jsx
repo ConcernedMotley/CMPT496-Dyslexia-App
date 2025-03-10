@@ -20,7 +20,7 @@ export default function LetterGrid({ currentWord, arraySize }) {
         {/* Grid containing letters */}
       <div className="letter-grid">
         {letters.map((char, index) => (
-          <Letter key={index} character={char} id={`${char}-${index}`} />
+          <Letter key={index} character={char} id={`letter-${char}-${index}`} />
         ))}
       </div>
 

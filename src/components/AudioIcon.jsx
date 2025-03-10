@@ -3,7 +3,7 @@ import "../styles/App.css";
 export default function AudioIcon({ word }) {
     const playSound = () => {
         if (!word) return; // Prevent errors if word is not set
-        console.log("clicked sound"); // Log the click
+        console.log(`clicked sound for ${word}`); // Log the click
         const audio = new Audio(`${import.meta.env.BASE_URL}audio/words/${word}.wav`);
         audio.play();
     };

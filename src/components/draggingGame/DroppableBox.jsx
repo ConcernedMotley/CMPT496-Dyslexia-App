@@ -14,7 +14,7 @@ export default function DroppableBox({ count = 4, maxCount = 6 }) {
     return <div className="horizontal-flex">{dropBoxes}</div>;
   }
   
-  function DropBox({boxId}) {
+  function DropBox({props, boxId}) {
 
     const {isOver, setNodeRef} = useDroppable({
       id: `dropBox-${boxId}`,
