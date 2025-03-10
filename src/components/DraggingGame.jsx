@@ -29,7 +29,7 @@ export default function DraggingGame() {
       <h1>Drag Activity - Level {level}</h1>
       <div className="vertical-flex" style={{ touchAction: 'none' }}>
         <AudioIcon word={currentWord} /> {/* Pass the current word */}
-        <LetterGrid currentWord={currentWord} />
+        <LetterGrid currentWord={currentWord} arraySize={16} />
         <DroppableBox />
         <button>Done</button>
       </div>

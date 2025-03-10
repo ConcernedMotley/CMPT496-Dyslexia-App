@@ -1,6 +1,6 @@
 :root {
   --letter-unselected-background: #8CDCE4;
-  --letter-selected-background: rgb(225, 247, 249);
+  --letter-selected-background: rgb(205, 249, 253);
 }
 
 .letter-grid {
@@ -48,6 +48,6 @@
   opacity: 0.8;
   background-color: var(--letter-selected-background);
   border: 4px dashed black;
-  /* transform: scale(1.1); */
+  transform: scale(1.1);
   z-index: 999;
 }
