@@ -1,0 +1,67 @@
+/*Page colour F5F5F5*/
+:root {
+	--color-purple: rgba(100,71,161,1);
+	--color-cream: rgba(250,245,234,1);
+	--color-orange: rgba(238,117,93,1);
+	--color-turquise: rgba(31,126,142,1);
+	--color-blue: rgba(140,220,228,1);
+	--color-green: rgba(147,161,71,1);
+	--color-black: rgba(0,0,0,1);
+}
+.text-style-lexend-regular {
+	font-size: 25px;
+	font-family: Lexend;
+	font-weight: 400;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+.text-style-lexend-bold {
+	font-size: 25px;
+	font-family: Lexend;
+	font-weight: 700;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.purple-text{
+    color: var(--color-purple);
+}
+.turquoise-text {
+    color: var(--color-turquise);
+  }
+  
+  /* HomePage container */
+  .home-container {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-cream);
+  }
+  /* HomePage buttons */
+.home-button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Button colors */
+  .purple-button {
+    background-color: var(--color-purple);
+  }
+  
+  .purple-button:hover {
+    background-color: var(--color-orange);
+  }
+  
+  .turquise-button {
+    background-color: var(--color-turquise);
+  }
+  
+  .turquise-button:hover {
+    background-color: var(--color-blue);
+  }
