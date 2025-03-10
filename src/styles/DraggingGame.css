@@ -5,16 +5,16 @@
 
 .letter-grid {
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
   gap: 10px;
   justify-content: center;
 }
 
 .letter-box {
   display: flex;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background-color: var(--letter-unselected-background);
   padding: 16px;
   align-items: center;
@@ -29,8 +29,8 @@
 
 .drop-box {
   display: flex;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background-color: white;
   padding: 16px;
   align-items: center;
