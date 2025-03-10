@@ -11,6 +11,7 @@ export default function DraggingGame() {
   const { level } = useParams();
   const [activeLetter, setActiveLetter] = useState(null);
   const [currentWord, setCurrentWord] = useState("");
+  const [dragOverMessage, setDragOverMessage] = useState("");
 
   useEffect(() => {
     setCurrentWord(RandomWord()); // Set a new word when the component mounts
@@ -20,17 +21,35 @@ export default function DraggingGame() {
     setActiveLetter(event.active.id);
   };
 
-  const handleDragEnd = () => {
+  const handleDragOver = (event) => {
+    // if (event.over) {
+    //   if (event.over.id.split('-')[0] === "dropBox")
+    //     setDragOverMessage(`Dragging over ${event.over.id}`);
+    // } else {
+    //   setDragOverMessage("");
+    // }
+  };
+
+  const handleDragEnd = (event) => {
     setActiveLetter(null);
+    setDragOverMessage("");
+
+    if (event.over.id.split('-')[0] === "dropBox") {
+      const dropBoxId = event.over.id.split('-')[1];
+      const letter = event.active.data.current.letter;
+      console.log(`${letter} on box ${dropBoxId}`);
+    }
+
   };
 
   return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DndContext onDragStart={handleDragStart} onDragOver={handleDragOver} onDragEnd={handleDragEnd}>
       <h1>Drag Activity - Level {level}</h1>
       <div className="vertical-flex" style={{ touchAction: 'none' }}>
         <AudioIcon word={currentWord} /> {/* Pass the current word */}
         <LetterGrid currentWord={currentWord} arraySize={16} />
         <DroppableBox />
+        <p>{dragOverMessage}</p> {/* Display drag over message */}
         <button>Done</button>
       </div>
 
@@ -38,7 +57,7 @@ export default function DraggingGame() {
       <DragOverlay>
         {activeLetter ? (
           <div className="letter-box dragging">
-            <p className="letter-font">{activeLetter.split('-')[1]}</p>
+            <p className="letter-font">{activeLetter.split('-')[0]}</p>
           </div>
         ) : null}
       </DragOverlay>

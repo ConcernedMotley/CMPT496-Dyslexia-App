@@ -1,3 +1,4 @@
+import {useDroppable} from '@dnd-kit/core';
 
 export default function DroppableBox({ count = 4, maxCount = 6 }) {
     const dropBoxes = [];
@@ -14,8 +15,13 @@ export default function DroppableBox({ count = 4, maxCount = 6 }) {
   }
   
   function DropBox({boxId}) {
+
+    const {isOver, setNodeRef} = useDroppable({
+      id: `dropBox-${boxId}`,
+    });
+
     return (
-      <div className="drop-box" id={boxId}>
+      <div className="drop-box" id={boxId} key={boxId} ref={setNodeRef}>
         
       </div>
     );

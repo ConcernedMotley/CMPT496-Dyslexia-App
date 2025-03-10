@@ -12,27 +12,19 @@ export default function LetterGrid({ currentWord, arraySize }) {
   return (
 
     // dnd kit tag
-    <DndContext
-      onDragStart={(event) => setActiveLetter(event.active.data.current.letter)}
-      onDragEnd={() => setActiveLetter(null)}
+    <
+      // onDragStart={(event) => setActiveLetter(event.active.data.current.letter)}
+      // onDragEnd={() => setActiveLetter(null)}
     >
 
         {/* Grid containing letters */}
       <div className="letter-grid">
         {letters.map((char, index) => (
-          <Letter key={index} character={char} id={`letter-${index}`} />
+          <Letter key={index} character={char} id={`${char}-${index}`} />
         ))}
       </div>
 
-      
-      <DragOverlay>
-        {activeLetter ? (
-          <div className="letter-box dragging">
-            <p className="letter-font">{activeLetter}</p>
-          </div>
-        ) : null}
-      </DragOverlay>
-    </DndContext>
+    </>
   );
 }
 
