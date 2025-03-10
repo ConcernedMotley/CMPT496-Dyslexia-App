@@ -1,28 +1,34 @@
-import {useDroppable} from '@dnd-kit/core';
+import React from 'react';
+import { useDroppable } from '@dnd-kit/core';
 
-export default function DroppableBox({ count = 4, maxCount = 6 }) {
-    const dropBoxes = [];
+export default function DroppableBox({ count = 4, maxCount = 6, boxContents, updateBoxContent }) {
+  // Max count
+  if (count > maxCount) count = maxCount;
 
-    //Max count
-    if (count > maxCount) count = maxCount;
-  
-    // Generate DropBox components dynamically
-    for (let i = 0; i < count; i++) {
-      dropBoxes.push(<DropBox key={i} boxId={i}/>);
-    }
-  
-    return <div className="horizontal-flex">{dropBoxes}</div>;
-  }
-  
-  function DropBox({props, boxId}) {
-
-    const {isOver, setNodeRef} = useDroppable({
-      id: `dropBox-${boxId}`,
-    });
-
-    return (
-      <div className="drop-box" id={boxId} key={boxId} ref={setNodeRef}>
-        
-      </div>
+  // Generate DropBox components dynamically
+  const dropBoxes = [];
+  for (let i = 0; i < count; i++) {
+    dropBoxes.push(
+      <DropBox
+        key={i}
+        boxId={i}
+        content={boxContents[i]}
+        updateContent={updateBoxContent}
+      />
     );
   }
+
+  return <div className="horizontal-flex">{dropBoxes}</div>;
+}
+
+function DropBox({ boxId, content, updateContent }) {
+  const { isOver, setNodeRef } = useDroppable({
+    id: `dropBox-${boxId}`,
+  });
+
+  return (
+    <div className="drop-box" id={boxId} key={boxId} ref={setNodeRef}>
+      {content}
+    </div>
+  );
+}
