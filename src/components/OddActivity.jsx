@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import '../styles/OddActivityStyle.css';
+
 import API_BASE_URL from '../config'; //for connecting to backend
 
 
@@ -52,6 +53,7 @@ function OddActivity() {
         console.error("Not enough words to generate a game.");
         return;
     }
+    //TODO i would like to have a better randomization for the words
 
     //group by the rhyme tag
     const tagMap = {};
