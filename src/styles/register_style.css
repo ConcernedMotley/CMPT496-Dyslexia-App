@@ -1,205 +1,468 @@
-h1 {
-    position: absolute;
-    top: 149px; /*set the position y:476 since figma has the sprinkles*/
-    left: 50%; /*center title horizontally*/
-    transform: translateX(-50%); /*adjust to centre*/
-    width: 401px;
-    height: 38px;
-    font-size: 30px;
-    font-family: Lexend, sans-serif;  /* Reusing Lexend font */
-    font-weight: 700;
-    word-wrap: break-word;
-    
+/*TODO need to work on the responsiveness of the site it looks good on ipad (what designers built for)
+      but on the tablet its super wonky i think because fignma gives absolute code vs responsive dynamic*/
+.create{
+  /* Lets create a new account */
+  position: absolute;
+  width: 401px;
+  height: 38px;
+  left: 230px;
+  top: 149px;
+
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  /* identical to box height */  
+  }
+
+/* Greeting text (keeps the fields from covering the header)*/
+.greeting {
+  text-align: center;
+  margin-bottom: 230px; /* Add margin to avoid overlap */
+}
+
+/*TODO need to get the star png this is the style*/
+.star{
+    /* Vector */
+
+  position: absolute;
+  left: 16.55%;
+  right: 74.58%;
+  top: 9.13%;
+  bottom: 84.17%;
+  background: #3D7B8C;
+
   }
 
 .reg-desc{
-    position: absolute;
-    top: 215px;/*203 but it was so close idk*/
-    left: 177px;
-    width: 480px;
-    height: 25px;
-    color: #696969;
-    font-size: 20px;
-    font-family: Lexend;
-    font-weight: 600;
-    word-wrap: break-word;
-    padding: 0px;
-    text-align: center;
-    margin-bottom: 20px;
+  /* Create an account by filling in the boxes below */
+  position: absolute;
+  width: 480px;
+  height: 25px;
+  left: calc(50% - 480px/2);
+  top: 203px;
 
-
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  /* identical to box height */
+  color: #696969;
 }
 
 /* General styles for the container */
 .registration-container {
-    padding: 40px 20px; /* Adjusting padding to create space */
-    /*top: 149px;*/
-    max-width: 543px;
-    margin: 0 auto;
-    font-family: Lexend, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin-top: 150px; /* Give it some margin to avoid overlapping */
-  }
-
-  /* Greeting text */
-.greeting {
-    text-align: center;
-    margin-bottom: 230px; /* Add margin to avoid overlap */
-  }
-
-.register-form{
-    
+  padding: 40px 140px; /* Adjusting padding to create space */ /*TODO trying to align the C in create and E in email*/
+  /*top: 149px;*/
+  max-width: 543px;
+  margin: 0 auto;
+  font-family: Lexend, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px; /* Give it some margin to avoid overlapping */
+  
 }
 
 /* First Input Field Style */
 .field {
-    width: 543px; /*TODO need to align C in create with like the E in Email...*/
-    height: 91px;
-    position: relative;
-    margin-bottom: 65px; /* TODO Space between fields */
+  width: 495px;/*543px TODO trying to have the w in below with some space (this extends the input box)*/
+  height: 91px;
+  position: relative;
+  margin-bottom: 65px; /* TODO Space between fields */
+}
 
-  }
-  
-  .input-background {
-    width: 100%;
-    height: 100px; /* TODO not really sure Adjust based on input size */
-    background: white;
-    border-radius: 20px;
-    border: 1px solid #5B5B5B;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Ensure it's behind the text */
-  }
+.input-background {
+  width: 10%;
+  height: 100%; /* TODO not really sure Adjust based on input size */
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #5B5B5B;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: 1; /* Ensure it's behind the text */
+}
 
-  /* Input field styling */
+/* Input field styling */
 .field input {
-    width: 100%;
-    height: 100%;
-    padding-left: 23px;
-    padding-right: 20px;
-    padding-top: 10px; /* TODO idk Align text vertically */
-    padding-bottom: 10px; /* TODO idk Align text vertically */
-    border: none;
-    border-radius: 20px;
-    font-size: 25px;
-    font-family: Lexend, sans-serif;
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* Label inside the input field */
+  width: 100%;
+  height: 100%;
+  padding-left: 23px;
+  padding-right: 20px;
+  padding-top: 10px; /* TODO idk Align text vertically */
+  padding-bottom: 10px; /* TODO idk Align text vertically */
+  border: none;
+  border-radius: 20px;
+  font-size: 25px;
+  font-family: 'Lexend', sans-serif;
+  position: relative;
+  /*z-index: 2;*/
+  border: 1px solid #5B5B5B;
+  border-radius: 20px;
+}
+
+/* Label inside the input field */
 .input-label {
-    position: absolute;
-    top: 50%;
-    left: 23px;
-    transform: translateY(-50%);
-    color: black; /*TODO idk it is still grey*/
-    font-size: 25px;
-    font-weight: 400;
-    z-index: 1;
-  }
+  position: absolute;
+  top: 50%;
+  left: 23px;
+  transform: translateY(-50%);
+  color : black; /*TODO idk it is still grey*/
+  font-size: 25px;
+  font-weight: 400;
+  /*z-index: 1;*/
+}
   
   /* Create Account button */
 .signup-button {
-    width: 585px; /*543px in figma but its short?*/
-    height: 93px;
-    background-color: #1F7E8E;
-    color: white;
-    font-size: 30px;
-    font-weight: 700;
-    border-radius: 20px;
-    border: none;
-    margin-top: 0px; /*TODO the space between last field and submit button*/
-    margin-bottom: 30px;
-    display: inline flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
- /* Button styling 
-.signup-button {
-    width: 100%;
-    height: 60px;
-    background-color: #1F7E8E;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 20px;
-    border: none;
-    margin-top: 20px;
-  }*/
-  
-  /* Links and other buttons */
-  .terms-link {
-    margin-top: 20px;
-    text-align: center;
-  }
-  .form-buttons {
-    /*position: relative;*/
-    display: flex;
-    gap: 50px; /*between difference again idk on figma its like 298*/
-    justify-content: center;
-    /*justify-content: space-between;*/
-    margin-inline: 20px auto;
-    
-    /*margin-top: 20px;*/
-  }
-  .apple-button, .google-button {
-    /*width: 48%;*/
-    width: 245px;
-    height: 93px;
-    background-color: white;
-    color: grey;
-    font-size: 16px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
- 
-  
-  
-  .register-text {
-    position: relative;
-    color: white;
-    font-size: 30px;
-    font-family: Lexend;
-    font-weight: 700;
-    word-wrap: break-word;
-  }
-  
-  /* Other Description Text Style */
-  .other-reg-desc {
-    /*position: absolute;
-    top: 833px;
-    left: 316px;
-    width: 192px;
-    height: 31px;*/
-    position: relative;
-    color: #696969;
-    font-size: 25px;
-    font-family: Lexend;
-    font-weight: 600;
-    word-wrap: break-word;
-    text-align: center;
-    padding-bottom: 25px; /*75px padding on figma but that seems too big*/
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  /* Remove excessive padding */
+  padding: 10px; 
+  /* Prevent text from breaking into two lines */
+  white-space: nowrap;
 
-  }
-  
-  .other-reg-desc .first-part {
-    color: #696969;
-    font-size: 25px;
-    font-family: Lexend;
-    font-weight: 600;
-    word-wrap: break-word;
-   
-  }
-  
-  .other-reg-desc .second-part {
-    color: #959595;
-    font-size: 25px;
-    font-family: Century Gothic;
-    font-weight: 700;
-    word-wrap: break-word;
-  }
+  position: absolute;
+  width: 543px;
+  height: 93px;
+  left: 146px;
+  top: 698px;
+  margin-top: 30px; /*TODO the space between last field and submit button*/
+
+  /* Turquise */
+  border-radius: 20px;
+  /* Create Account */
+
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  /* identical to box height */
+  color: #FFFFFF;
+}
+
+/* Other Description Text Style */
+.other-reg-desc {
+  /* Or sign up with */
+  position: absolute;
+  width: 192px;
+  height: 31px;
+  left: 316px;
+  top: 833px;
+  padding-top: 15px;/*TODO looked too close to button gave padding*/
+
+  font-family: 'Lexend', sans-serif; /*TODO ask about the part one part two?? why is it mixed???*/
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 31px;
+
+  color: #696969;
+}
+
+/*ask here**************************************
+.other-reg-desc .first-part {
+  color: #696969;
+  font-size: 25px;
+  font-family: Lexend;
+  font-weight: 600;
+  word-wrap: break-word;
+ 
+}
+
+.other-reg-desc .second-part {
+  color: #959595;
+  font-size: 25px;
+  font-family: Century Gothic; 
+  font-weight: 700;
+  word-wrap: break-word;
+}*********************************************/
+ 
+.apple-button{
+  position: absolute;
+  width: 245px;
+  height: 93px;
+  left: 146px;
+  top: 906px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+}
+/*TODO get the apple img? */
+.apple-img{
+  /* download-1 1 */
+  position: absolute;
+  width: 142px;
+  height: 48px;
+  left: 197px;
+  top: 927px;
+
+  background: url(download-1.png);/*would i just change the name or give path or what maybe import it in jsx*/
+}
+
+.google-button {
+  /* Rectangle 85 */
+  position: absolute;
+  width: 245px;
+  height: 93px;
+  left: 444px;
+  top: 906px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+
+}
+/*TODO get the google img? */
+.google-img{
+position: absolute;
+width: 122px;
+height: 41px;
+left: 505px;
+top: 937px;
+background: url(download.png);/*would i just change the name or give path or what maybe import it in jsx*/
+}
+
+
+  /* Links and other buttons */
+.terms-link {
+    /*margin-top: 20px;
+    text-align: center;*/
+    /* Our Policy and Terms & Conditions */
+
+  position: absolute;
+  width: 400px;
+  height: 30px;
+  left: 250px; /*TODO idk it looked off with calc(50% - 401px/2 - 4.5px) BUT maybe would be diff if proper font idk*/
+  top: 1062px;
+
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height */
+  text-decoration-line: underline;
+
+  color: #696969;
+}
+
+/*TODO idk didnt change it maybe need to restart server*/
+input[type="password"] {
+  -webkit-text-security: 'asterisk'; /* Use "disc" for dots, "asterisk" for * */
+}
+
+/*TODO clean up commented code and what not leftover from fiddling around*/
+/*Privacy Disclaimer*/
+.popup-overlay {
+  /* Rectangle 124 */
+  position: absolute;
+  width: 834px;
+  height: 1194px;
+  left: 0px;
+  top: -2px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-box {
+  /* Rectangle 99 */
+  background: #F9F5EB; /*TODO WHY NOT OTHER CREAM*/
+  border-radius: 20px;
+  /* Group 82 */
+  position: absolute;
+  width: 498px;
+  height: 453px;
+  /*left: calc(50% - 498px/2);
+  top: calc(50% - 453px/2 + 0.5px);*/
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centers the popup */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Adds space inside the box */
+  text-align: center;
+}
+
+.disclaimer{
+/* Privacy Disclaimer */
+/*position: absolute;
+width: 240px;
+height: 31px;
+left: 297px;
+top: 417px;*/
+
+/* Lexend Bold */
+font-family: 'Lexend', sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 25px;
+line-height: 31px;
+color: #60489C;
+
+margin-bottom: 10px; /* Adds spacing */
+
+}
+
+.terms{
+  /*position: absolute;
+  width: 409px;
+  height: 143px;
+  left: 212px;
+  top: 469px;*/
+
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: rgba(0, 0, 0, 0.65);
+
+  max-width: 90%;
+  margin-bottom: 20px;
+
+}
+
+.do-you{
+  /* Do you accept? */
+
+  /*position: absolute;
+  width: 409px;
+  height: 23px;
+  left: calc(50% - 409px/2 + 0.5px);
+  top: 641px;*/
+
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  /* identical to box height */
+  text-align: center;
+  color: rgba(0, 0, 0, 0.65);
+
+  max-width: 90%;
+  margin-bottom: 20px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+/*TODO ask if buttons are supposed to both be just the border and on click fill?*/
+.accept-button, .decline-button {
+  /*padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;*/
+  width: 182px;
+  height: 50px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.accept-button {
+  /*width: 51px;
+height: 38px;*/
+
+font-family: 'Lexend', sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 38px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+/*padding: 28px 203px 28px 205px;*/
+gap: 8px;
+
+/*position: absolute;
+left: 436px;
+top: 702px;*/
+width: 182px;
+height: 81px;
+
+/* Turquise */
+background: #1F7E8E;
+border-radius: 20px;
+
+
+}
+
+.decline-button {
+  width: 44px;
+height: 38px;
+
+font-family: 'Lexend', sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 38px;
+/* identical to box height */
+
+color: #3D7B8C;
+background-color: #F9F5EB;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+/*padding: 28px 203px 28px 205px;*/
+gap: 8px;
+
+/*position: absolute;
+left: 216px;
+top: 702px;*/
+width: 182px;
+height: 81px;
+
+border: 5px solid #3D7B8C;
+border-radius: 20px;
+
+
+}

@@ -1,68 +1,123 @@
 .title {
   /*position: relative;*/
+  /*word-wrap: break-word;*/
+
+  /* LumoLearn */
   position: absolute;
-  top: 476px; /*set the position y:476 since figma has the sprinkles*/
-  left: 50%; /*center title horizontally*/
-  transform: translateX(-50%); /*adjust to centre*/
-  font-size: 100px;
-  font-family: "Fredoka One", sans-serif;
-  font-weight: 400;
-  word-wrap: break-word;
   width: 541px;
   height: 121px;
+  /*left: calc(50% - 541px/2 - 0.5px); this threw it way over to the left?*/
+  left: 50%; /*center the title horizontally*/
+  top: 476px;
+  transform: translateX(-50%); /*adjust to centre if dont have this it goes to the right??*/ 
+
+  font-family: 'Fredoka One', sans-serif;; /*TODO dont think have access to this?*/
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 121px;
+  
+  /* identical to box height */
+
+  color: #60489C;
+}
+
+/* yellow raccoon TODO need the png */
+.left-rac{
+  position: absolute;
+  position: absolute;
+  width: 204.1px;
+  height: 267.21px;
+  left: 78.61px;
+  top: 850.96px;
+  
+  transform: rotate(-16.47deg);
+
+}
+
+/* purple raccoon TODO need the png */
+.right-rac{
+  position: absolute;
+  width: 158.31px;
+  height: 194.62px;
+  left: 584.79px;
+  top: 859.68px;
+
+  transform: rotate(7.1deg);
+
+
 }
 
 .login-button {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 75px;
+  gap: 8px;
   position: absolute;
+  width: 275px;
+  height: 93px;
+  left: calc(50% - 275px/2 - 158.5px);
   top: 999px;
-  left: 121px;
-    width: 275px;
-    height: 93px;
-    padding: 28px 75px;
-    background: #6447A1;
-    border-radius: 20px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 30px;
-    font-family: Lexend, sans-serif;
-    font-weight: 700;
-    color: white;
-    word-wrap: break-word;
-    text-align: center;
+  border-radius: 20px;
+
+  /*Text values*/
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  /* identical to box height */
+  color: #FFFFFF;
+
+  /*TODO do i need these idk!*/
+  text-align: center;
+  cursor: pointer;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+} 
+
+.register-button {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  width: 283px;
+  height: 93px;
+  left: calc(50% - 283px/2 + 164.5px);
+  top: 999px;
+  border-radius: 20px;
+  /* Remove excessive padding */
+  padding: 10px; 
+
+  /* Prevent text from breaking into two lines */
+  white-space: nowrap;
+
+  /* text values */
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 38px;
+  word-wrap: break-word; /*todo word on one line*/
+  /* identical to box height */
+  color: #FFFFFF;
+
+  /*TODO do i need these idk!*/
+  text-align: center;
+  cursor: pointer;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
   }
   
-  /*.login-button:hover {
-    background: #533A86; 
-  }*/
-  .register-button {
-    position: absolute;
-    top: 999px;
-    left: 440px;
-    width: 283px;
-    height: 93px;
-    padding: 28px 75px;
-    background: #1F7E8E;
-    border-radius: 20px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 30px;
-    font-family: Lexend, sans-serif;
-    font-weight: 700;
-    color: white;
-    word-wrap: break-word;
-    text-align: center;
-  }
-  
-  /*.register-button:hover {
-    background: #186673; 
-  }*/
   
   

@@ -4,7 +4,14 @@ import { Link, useParams } from 'react-router-dom';
 import '../styles/OddActivityStyle.css';
 
 import API_BASE_URL from '../config'; //for connecting to backend
-
+//TODO
+//remove rotation
+//space boxes more how desn have it
+//colours theme
+//counter to go with the top bit
+//after 10 rounds ask if they want to play again or not
+//drag the box instead of click
+//random algorithm could be better 
 
 function OddActivity() {
   const { level, type } = useParams();

@@ -1,3 +1,5 @@
+/*This is for that table i made for movie query i was thinking maybe i hook up the DB to this, 
+can be used in the researcher portal can add a way to edit words in the future etc  */
 .table-container {
     max-height: 400px; /* Set a max height */
     overflow-y: auto;  /* Enable vertical scrolling */
