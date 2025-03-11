@@ -36,17 +36,17 @@
     width: 700px;
     background-color: rgb(151, 164, 230);
     border-radius: 50%;
-    animation: rotation 60s infinite linear; /*change the #s for slower faster rotation */
+   /* animation: rotation 60s infinite linear; /*change the #s for slower faster rotation, no longer doing rotate */
   }
 
-  @keyframes rotation {
+  /*@keyframes rotation {
     from {
       transform: rotate(0deg);
     }
     to {
       transform: rotate(359deg);
     }
-  }
+  } For rotation no longer doing */
   /*TODO the boxes may need to be different tags 
   and then each box will rotate as the circle also rotates
   */
@@ -59,9 +59,9 @@
 TODO the rate at which they go is off a bit
 ALSO when i get the new word the plate is still at the other position so the new words load 
 in awkwardly will have to see how to streamline it idk maybe no spin if cant figure it out....*/
-.dot .box {
+/*.dot .box {
   animation: rotation 60s infinite linear reverse;
-}
+}*/
   
   .selected {
     background-color: lightblue;
