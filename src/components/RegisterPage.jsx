@@ -4,6 +4,13 @@ import { useState } from "react";
 import '../styles/general_style.css';
 import '../styles/register_style.css';
 
+import star from '../assets/star.svg';
+import leftSprinkle from '../assets/left-sprinkle.svg';
+import rightSprinkle from '../assets/right-sprinkle.svg';
+import appleIcon from '../assets/apple.svg';
+import googleIcon from '../assets/google.svg';
+
+
 const RegisterPage = () => {
 
   const [formData, setFormData] = useState({username: "", password: "", repeatPassword: "" });
@@ -36,14 +43,16 @@ const RegisterPage = () => {
 
 
   return (
-    <><div className='greeting'>
+    <><div className='greeting-container'>
+      <img className='star' src={star} alt="star"  />
       <h1 className="create purple-text">Lets create a new account</h1>
       <p className='reg-desc'>Create an account by filling in the boxes below</p>
-    </div><div className='registration-container'>
+    </div>
+    <div className='registration-container'>
         <form onSubmit={handleSubmit} className="register-form">
           <div className='field'>
             <div className="input-background"></div>
-            <label htmlFor="username" className="input-label">Email or Username</label>
+            <label htmlFor="username" className="input-label"></label>
             <input
               type="text"
               id="username"
@@ -56,7 +65,7 @@ const RegisterPage = () => {
 
           <div className="field">
             <div className="input-background"></div>
-            <label htmlFor="password" className="input-label">Password</label>
+            <label htmlFor="password" className="input-label"></label>
             <input
               type="password"
               id="password"
@@ -69,7 +78,7 @@ const RegisterPage = () => {
 
           <div className="field">
             <div className="input-background"></div>
-            <label htmlFor="repeatPassword" className="input-label">Repeat Password</label>
+            <label htmlFor="repeatPassword" className="input-label"></label>
             <input
               type="password"
               id="repeatPassword"
@@ -86,12 +95,20 @@ const RegisterPage = () => {
         <div >
           <p className='other-reg-desc'>Or sign up with</p>
           <div className="form-buttons">
-          <button type="button" className="apple-button">Apple</button>
-          <button type="button" className="google-button">Google</button>
+          <button type="button" className="apple-button">
+          <img className="apple-img" src={appleIcon} alt="Sign in with Apple" />
+          </button>
+          <button type="button" className="google-button">
+          <img className="google-img" src={googleIcon} alt="Sign in with Google" />
+          </button>
           </div>
         </div>
         <div className="terms-link">
           <Link to="/terms-and-conditions">Our Policy and Terms & Conditions</Link>
+        </div>
+        <div className='bottomSprinkles'>
+        <img className="left-sprinkle" src={leftSprinkle} alt="Sprinkles" />
+        <img className="right-sprinkle" src={rightSprinkle} alt="Sprinkles" />
         </div>
 
 

@@ -1,50 +1,99 @@
-.title {
-  /*position: relative;*/
-  /*word-wrap: break-word;*/
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 93vh; /* Allow content to extend beyond the viewport */ /*TODO will make the page longer or not so will shift things*/
+  overflow-y: auto; /* Allow scrolling */
 
-  /* LumoLearn */
-  position: absolute;
-  width: 541px;
-  height: 121px;
-  /*left: calc(50% - 541px/2 - 0.5px); this threw it way over to the left?*/
-  left: 50%; /*center the title horizontally*/
-  top: 476px;
-  transform: translateX(-50%); /*adjust to centre if dont have this it goes to the right??*/ 
+  justify-content: space-between; /* Push buttons down */
+  /*padding-bottom: 100px; /* Extra space for buttons */
+  padding-bottom: 0vh; /* Relative padding for better scaling */
 
-  font-family: 'Fredoka One', sans-serif;; /*TODO dont think have access to this?*/
-  font-style: normal;
-  font-weight: 400;
-  font-size: 100px;
-  line-height: 121px;
-  
-  /* identical to box height */
-
-  color: #60489C;
 }
 
-/* yellow raccoon TODO need the png */
+.sprinkles{
+  position: absolute;
+  /*chat and my fiddlings*/
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  left: -20px;
+  top: 0;
+
+}
+
+.title {
+  /* LumoLearn */
+  position: absolute;
+  left: 50%; /*center the title horizontally*/
+  width: 80%; /*text to scale with different screens*/
+  /*TODO adjust the posotion of the title!!*/
+  top: 33vh; /*adjust based on screen height*/
+  transform: translateX(-50%); /*adjust to centre if dont have this it goes to the right??*/ 
+
+  /*TODO make font size bigger???*/
+  font-size: clamp(60px, 13vw, 140px); /* Responsive font size */
+  text-align: center;
+  font-family: 'Fredoka One', sans-serif;; /*TODO dont think have access to this?*/
+}
+
+/* Adjust the raccoons' positions */
+.left-rac, .right-rac {
+  position: absolute;
+  z-index: 1; /* Ensure they stay behind the buttons */
+
+  max-width: 100%; /* Prevents images from overflowing */
+  height: auto; /* Maintains aspect ratio */
+}
+
 .left-rac{
-  position: absolute;
-  position: absolute;
-  width: 204.1px;
-  height: 267.21px;
-  left: 78.61px;
-  top: 850.96px;
-  
-  transform: rotate(-16.47deg);
+  /*clamp(min, preferred, max)
+  min->smallest a value can be
+  pref->ideal value
+  max->biggest a value can be*/
+  left: clamp(6vw, 8vw, 10vw);
+  top: clamp(60vh, 64.5vh, 66vh);
+ /*Trying to make it work for the screens BUT the tails on the raccoons make it tough to hide behind buttons*/
 
 }
 
 /* purple raccoon TODO need the png */
 .right-rac{
-  position: absolute;
-  width: 158.31px;
-  height: 194.62px;
-  left: 584.79px;
-  top: 859.68px;
+  /*i like this with him sitting on top LOL and it looks good on the small screen too...*/
+  right: clamp(8.5vw, 10.5vw, 12vw);
+  top: clamp(69vh, 70vh, 73vh); /* Adjust for different screen sizes */
 
-  transform: rotate(7.1deg);
+}
 
+.button-container {
+  margin-top: auto; /*push the buttons to the bottom*/
+  z-index: 2; /* Ensure buttons stay in front */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Keep buttons centered */
+  align-items: center; /* Ensure alignment */
+  gap: clamp(40px, 6vw, 180px); /* Increase space between buttons */
+  width: 100%;
+  padding-bottom: 5vh; /* Push buttons lower */
+  flex-wrap: nowrap; /* Prevent stacking */
+  
+}
+
+.login-button, .register-button {
+  width: clamp(150px, 40vw, 250px); /* Keep them large but responsive */
+  height: clamp(50px, 10vh, 93px); /* Scale height */
+  font-size: clamp(18px, 3vw, 30px); /* Scale text */
+  padding: 1.5vh 4vw; /* Adjust padding */
+  text-decoration: none;
+
+  border: none; /* Remove normal border */
+  outline: 6px solid rgba(250, 245, 234, 1); /* Adds a border effect outside */
+  outline-offset: 0px; /* Adjust spacing from the button */
+
+
+  white-space: nowrap; /* Prevent text from breaking */
+  flex-shrink: 0; /* Prevent buttons from resizing too much */
+  
 
 }
 
@@ -56,12 +105,13 @@
   align-items: center;
   padding: 28px 75px;
   gap: 8px;
-  position: absolute;
+  /*position: absolute;*/
   width: 275px;
   height: 93px;
   left: calc(50% - 275px/2 - 158.5px);
   top: 999px;
   border-radius: 20px;
+  
 
   /*Text values*/
   font-family: 'Lexend', sans-serif;
@@ -88,7 +138,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  position: absolute;
+  /*position: absolute;*/
   width: 283px;
   height: 93px;
   left: calc(50% - 283px/2 + 164.5px);
@@ -119,5 +169,32 @@
   flex-grow: 0;
   }
   
+  @media (max-width: 700px) { /* Adjust for smaller screens */
+    .left-rac {
+      left: clamp(0vw, .2vw, 3vw); /* Move it slightly left */
+      top: clamp(56vh, 58vh, 60vh); /* Raise it up */
+    }
   
-  
+    .right-rac {
+      right: clamp(4vw, 5vw, 10vw); /* Move it slightly right */
+      top: clamp(66vh, 67vh, 69vh); /* Raise it up */
+    }
+
+    .button-container {
+      gap: clamp(100px, 25vw, 200px); /* Adjust space between buttons */
+      padding-bottom: 5.5vh; /* Move buttons slightly lower */
+    }
+    
+    /* Adjust buttons for smaller screens */
+    .login-button, .register-button {
+      width: clamp(150px, 70vw, 250px); /* Make buttons slightly bigger */
+      height: clamp(50px, 9vh, 80px); /* Increase height */
+      font-size: clamp(14px, 3.5vw, 24px);
+    }
+    .login-button {
+      margin-right: clamp(20px, 5vw, 80px); /* Pushes it left */
+    }
+
+}
+
+

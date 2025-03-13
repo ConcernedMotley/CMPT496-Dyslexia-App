@@ -1,89 +1,97 @@
 /*TODO need to work on the responsiveness of the site it looks good on ipad (what designers built for)
       but on the tablet its super wonky i think because fignma gives absolute code vs responsive dynamic*/
+.greeting-container {
+  display: flex; /* Align items in a row */
+  align-items: center; /* Align vertically */
+  justify-content: center; /* Center the items */
+  gap: clamp(10px, 2vw, 20px); /* Space between text and star */
+  margin-top: clamp(20px, 5vh, 50px);
+  flex-wrap: wrap; /* Allows items to wrap if needed */
+}
 .create{
   /* Lets create a new account */
-  position: absolute;
-  width: 401px;
-  height: 38px;
-  left: 230px;
-  top: 149px;
+
+  position: relative; /* Remove absolute positioning */
+  width: auto; /* Let it adapt */
+  text-align: center; /* Center it */
+  font-size: clamp(20px, 4vw, 30px); /* Adjust size between 20px-30px */
+  margin-top: clamp(20px, 5vh, 50px);
+
+  font-size: clamp(20px, 4vw, 30px); /* Responsive font size */
+  font-weight: 700;
+  text-align: center;
 
   font-family: 'Lexend', sans-serif;
   font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
   line-height: 38px;
-  /* identical to box height */  
+
   }
 
 /* Greeting text (keeps the fields from covering the header)*/
 .greeting {
   text-align: center;
-  margin-bottom: 230px; /* Add margin to avoid overlap */
+  margin-bottom: 2px; /* Add margin to avoid overlap */
 }
 
 /*TODO need to get the star png this is the style*/
 .star{
-    /* Vector */
-
-  position: absolute;
-  left: 16.55%;
-  right: 74.58%;
-  top: 9.13%;
-  bottom: 84.17%;
-  background: #3D7B8C;
-
+  /*position: auto;*/
+  width: clamp(30px, 7vw, 50px); /* Responsive size */
+  height: auto;
   }
 
 .reg-desc{
   /* Create an account by filling in the boxes below */
-  position: absolute;
-  width: 480px;
-  height: 25px;
-  left: calc(50% - 480px/2);
-  top: 203px;
-
+  position: relative;
+  width: 90%; /* Instead of fixed 480px */
+  max-width: 500px;
+  text-align: center;
+  font-size: clamp(16px, 2vw, 20px);
+  margin: -30px 0 auto; /*move the description higher or lower*/
   font-family: 'Lexend', sans-serif;
-  font-style: normal;
+  font-style: 'SemiBold';
   font-weight: 600;
-  font-size: 20px;
   line-height: 25px;
-  /* identical to box height */
   color: #696969;
 }
 
 /* General styles for the container */
 .registration-container {
-  padding: 40px 140px; /* Adjusting padding to create space */ /*TODO trying to align the C in create and E in email*/
-  /*top: 149px;*/
-  max-width: 543px;
-  margin: 0 auto;
-  font-family: Lexend, sans-serif;
+  padding: clamp(20px, 5vw, 40px); /* Responsive padding */
+  max-width: 100vw; /* Allow it to shrink */
+  width: 100%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  margin-top: 150px; /* Give it some margin to avoid overlapping */
+  align-items: flex-start;/*elements will align to the left*/
+  margin-left: 14vw;/*move elements to the right */
+  font-family: 'Lexend', sans-serif;
   
+  /*margin-top: clamp(30px, 8vh, 80px); /* Push form down */
 }
 
 /* First Input Field Style */
 .field {
-  width: 495px;/*543px TODO trying to have the w in below with some space (this extends the input box)*/
-  height: 91px;
-  position: relative;
-  margin-bottom: 65px; /* TODO Space between fields */
+
+  width: clamp(480px, 100%, 1000px); /* Shrinks down on small screens */
+  height: clamp(50px, 9vh, 91px);
+  /*right: clamp(4vw, 3vw, 10vw); /* TODO move it slightly right?? */
+  margin-bottom: clamp(20px, 4vh, 100px); /* TODO Space between fields seems off */
+
 }
 
+/* i think i dont need any of this?
 .input-background {
-  width: 10%;
-  height: 100%; /* TODO not really sure Adjust based on input size */
+  width: 0%;/*anything above 0 it has a box far left ???
+  height: 100%; /* TODO not really sure Adjust based on input size 
   background: white;
   border-radius: 20px;
   border: 1px solid #5B5B5B;
   position: absolute;
   top: 0;
   left: 0;
-  /*z-index: 1; /* Ensure it's behind the text */
-}
+  /*z-index: 1; /* Ensure it's behind the text 
+}*/
 
 /* Input field styling */
 .field input {
@@ -105,66 +113,44 @@
 
 /* Label inside the input field */
 .input-label {
-  position: absolute;
-  top: 50%;
-  left: 23px;
-  transform: translateY(-50%);
-  color : black; /*TODO idk it is still grey*/
-  font-size: 25px;
-  font-weight: 400;
-  /*z-index: 1;*/
+
+  color : black;
+  font-size: clamp(14px, 2vw, 25px);
 }
   
   /* Create Account button */
 .signup-button {
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  /* Remove excessive padding */
-  padding: 10px; 
-  /* Prevent text from breaking into two lines */
-  white-space: nowrap;
-
-  position: absolute;
-  width: 543px;
-  height: 93px;
-  left: 146px;
-  top: 698px;
-  margin-top: 30px; /*TODO the space between last field and submit button*/
-
-  /* Turquise */
-  border-radius: 20px;
-  /* Create Account */
+/*TODO on the small screen it is right leaning fields and button, or maybe the header is idk*/
+  /*TODO width of the button idk giving it the same as the fields it wasnt the same so???*/
+  width: clamp(525px, 100%, 1000px); /* Shrinks down on small screens */
+  height: clamp(50px, 9vh, 91px);
+  /*right: clamp(4vw, 3vw, 10vw); /* TODO move it slightly right?? */
+  margin-bottom: clamp(20px, 5vh, 100px); /* TODO Space between fields seems off */
 
   font-family: 'Lexend', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
   line-height: 38px;
-  /* identical to box height */
+  border-radius: 20px;
   color: #FFFFFF;
 }
 
 /* Other Description Text Style */
 .other-reg-desc {
   /* Or sign up with */
-  position: absolute;
-  width: 192px;
-  height: 31px;
-  left: 316px;
-  top: 833px;
-  padding-top: 15px;/*TODO looked too close to button gave padding*/
-
   font-family: 'Lexend', sans-serif; /*TODO ask about the part one part two?? why is it mixed???*/
   font-style: normal;
   font-weight: 600;
-  font-size: 25px;
   line-height: 31px;
-
   color: #696969;
+
+  width: 100%; /* Allow it to take full width */
+  max-width: 500px; /* Prevent it from stretching too wide */
+  text-align: center; /* Center the text */
+  font-size: clamp(20px, 5vw, 23px);/*TODO adjust size of font*/
+  margin: -40px auto 0; /* Space it below the button */
+  transform: translateX(20%); /* TODO move it right seems off ish */
 }
 
 /*ask here**************************************
@@ -184,76 +170,72 @@
   font-weight: 700;
   word-wrap: break-word;
 }*********************************************/
+
+
+.apple-button, .google-button {
+  width: clamp(280px, 50%, 500px);
+  height: clamp(60px, 7vh, 100px);
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Flex container for Apple & Google buttons */
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Centers the buttons */
+  gap: 40px; /* Space between buttons */
+  margin-top: 20px; /* Space below "Or sign up with" */
+  align-items: center;
+  width: 150%; /* Make sure it stretches *//*TODO i just jacked this up to get the buttons larger length LOL*/
+  max-width: 1000px; /* Prevents it from being too wide */ 
+  transform: translateX(0%);
+}
  
-.apple-button{
-  position: absolute;
-  width: 245px;
-  height: 93px;
-  left: 146px;
-  top: 906px;
-
-  background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-
-}
 /*TODO get the apple img? */
-.apple-img{
-  /* download-1 1 */
-  position: absolute;
-  width: 142px;
-  height: 48px;
-  left: 197px;
-  top: 927px;
-
-  background: url(download-1.png);/*would i just change the name or give path or what maybe import it in jsx*/
+.apple-img, .google-img{
+  width: 60%; /* Make icons responsive */
+  height: auto;
 }
-
-.google-button {
-  /* Rectangle 85 */
-  position: absolute;
-  width: 245px;
-  height: 93px;
-  left: 444px;
-  top: 906px;
-
-  background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-
-}
-/*TODO get the google img? */
-.google-img{
-position: absolute;
-width: 122px;
-height: 41px;
-left: 505px;
-top: 937px;
-background: url(download.png);/*would i just change the name or give path or what maybe import it in jsx*/
-}
-
 
   /* Links and other buttons */
 .terms-link {
-    /*margin-top: 20px;
-    text-align: center;*/
-    /* Our Policy and Terms & Conditions */
+  /* Our Policy and Terms & Conditions */
 
-  position: absolute;
-  width: 400px;
-  height: 30px;
-  left: 250px; /*TODO idk it looked off with calc(50% - 401px/2 - 4.5px) BUT maybe would be diff if proper font idk*/
-  top: 1062px;
-
+  position: relative;
+  width: auto;
   font-family: 'Lexend', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 30px;
-  /* identical to box height */
   text-decoration-line: underline;
-
   color: #696969;
+  text-align: center;
+  font-size: clamp(14px, 2vw, 24px);
+  margin-top: clamp(20px, 5vh, 40px);
+  transform: translateX(50%); /* TODO move it right seems very off ish */
+}
+
+.bottomSprinkles{
+
+  position: fixed; /* Ensures child elements position within this container */
+  width: auto; /* Adjust as needed */
+  height: auto; /* Adjust as needed */
+  bottom: 0;
+  z-index: 4; /* Sends them behind other content */
+
+}
+.left-sprinkle{
+  left: 0;
+  transform: translate(-90%, 10%); /* adjust into the corner */
+
+}
+.right-sprinkle{
+  right: 0;
+  transform: translate(180%, 10%); /* adjust into the corner */
 }
 
 /*TODO idk didnt change it maybe need to restart server*/
@@ -464,5 +446,42 @@ height: 81px;
 border: 5px solid #3D7B8C;
 border-radius: 20px;
 
+
+}
+
+@media (max-width: 700px) { /* Adjust for smaller screens */
+  .reg-desc {
+    top: clamp(0vh, 2vh, 6vh); /* Raise it up */
+  }
+
+  .greeting-container {
+     /* TODO Move it slightly right */
+    transform: translate(12%, 10%);
+  }
+  /*make the sprinkles more visible on smaller screen!!*/
+  .bottomSprinkles{
+    transform: scale(1.4);
+    transform-origin: bottom left; /* Ensures it scales from the bottom left */
+    position: fixed; /* Keeps it in place */
+
+  }
+  .left-sprinkle{
+    left: 0;
+    transform: translate(-50%, 10%); /* adjust into the corner */
+  
+  }
+  .right-sprinkle{
+    right: 0;
+    transform: translate(50%, 10%); /* adjust into the corner */
+  }
+  .other-reg-desc {
+    transform: translate(30%, 10%);
+  }
+  .form-buttons{
+    transform: translate(5%, 10%);
+  }
+  .popup-box{
+    transform: translate(-55%, -60%);
+  }
 
 }
