@@ -1,0 +1,52 @@
+.bottomSprinkles{
+
+    position: fixed; /* Ensures child elements position within this container */
+    width: auto; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    bottom: 0;
+    z-index: 4; /* Sends them behind other content */
+  
+  }
+  .left-sprinkle{
+    left: 0;
+    transform: translate(-90%, 10%); /* adjust into the corner */
+  
+  }
+  .right-sprinkle{
+    right: 0;
+    transform: translate(180%, 10%); /* adjust into the corner */
+  }
+
+  @media (max-width: 700px) { /* Adjust for smaller screens */
+    
+    /*make the sprinkles more visible on smaller screen!!*/
+    .bottomSprinkles{
+      transform: scale(1.0);
+      transform-origin: bottom left; /* Ensures it scales from the bottom left */
+      position: fixed; /* Keeps it in place */
+  
+    }
+    .left-sprinkle{
+      left: 0;
+      transform: translate(-28%, 5%); /* adjust into the corner */
+    
+    }
+    .right-sprinkle{
+      right: 0;
+      transform: translate(117%, 5%); /* adjust into the corner */
+    }
+    .other-reg-desc {
+      transform: translate(30%, 10%);
+    }
+    .form-buttons{
+      transform: translate(5%, 10%);
+    }
+    .popup-box{
+      transform: translate(-42%, -60%);
+    }
+    .popup-overlay{
+      transform: translate(-20%, -20%);
+  
+    }
+  
+  }

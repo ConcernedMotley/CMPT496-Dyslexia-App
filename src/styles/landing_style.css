@@ -1,0 +1,158 @@
+/*styles for the landing page AFTER login*/
+/* styles/landing_style.css */
+.landing-container {
+  display: flex; /* Align items in a row */
+  flex-direction: column;
+  align-items: center; /* Align vertically */
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden; /* Prevents content from overflowing */
+
+  /*margin-top: clamp(20px, 5vh, 50px);
+  flex-wrap: wrap; /* Allows items to wrap if needed */
+  
+  }
+.welcome{
+  /* Welcome Back! */
+  position: relative;
+  width: auto;
+  font-size: clamp(50px, 8vw, 70px); /* Adjust size between 40px-60px */
+  margin-top: clamp(20px, 5vh, 25px);
+  text-align: center;
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 75px;
+  transform: translate(0%, 120%);
+}
+.middle-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+  position: relative;
+  min-height: 60vh; /* Ensures it has enough space */
+  margin-top: clamp(30px, 6vh, 60px);
+  padding-bottom: 50px; /* Adds space for elements at the bottom */
+  
+  /*margin-top: clamp(30px, 6vh, 60px); /* Adjust spacing below Welcome Back */
+}
+.masc-rac{
+  position: absolute;
+  width: clamp(200px, 30vw, 314px);  /* Scales between 200px and 314px */
+  height: clamp(200px, 30vh, 323px); /* Scales between 200px and 323px */
+  transform: translate(0%, -60%);
+
+}
+.masc-back{
+  position: absolute;  /* Ensure it stays behind the mascot */
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -115%) scale(1.2); /*idk the circle seemed small....*/
+
+}
+.streak-counter{
+  /* 4 Days */
+  position: absolute;
+  /*top: calc(100% - 20px);  /* Places it right below mascot */
+  left: 50%;
+  transform: translate(-45%, -10%);/*idk positioning maybe off*/
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(18px, 2.5vw, 24px);
+  line-height: 30px;
+  /* Black */
+  color: #000000;
+}
+.streak-text{
+  /* Streak */
+  position: relative;
+  width: clamp(200px, 30vw, 314px);  /* Scales between 200px and 314px */
+  height: clamp(200px, 30vh, 323px); /* Scales between 200px and 323px */
+  left: clamp(10px, 20vw, 262px);   /* Adjusts based on viewport width */
+  top: clamp(50px, 20vh, 287px);    /* Adjusts based on viewport height */
+  transform: translate(-63%, 15%);/*idk positioning maybe off*/
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+}
+.week-streak {
+  display: flex;
+  justify-content: center; /* Centers the circles in a row */
+  align-items: center;
+  gap: clamp(20px, 6vw, 25px); /* Responsive spacing */
+  margin-top: 20px;
+  transform: translate(0%, -60%);
+}
+
+.day-circle {
+  width: clamp(40px, 6vw, 55px); /* Responsive size */
+  height: clamp(40px, 6vw, 55px);
+  transform: scale(1.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #FAF5EA; 
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: clamp(25px, 3vw, 37px);
+  font-size: clamp(20px, 2.5vw, 29.87px);
+  color: black;
+  border: 2.987px solid #FFCE51; /*TODO border colour is hard coded rn would need to change..*/
+  border-radius: 29.1281px;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2); /* idk just guessing idk how to pull from figma it pulls it all..*/
+}
+
+.streak-desc{
+  /* Practice each day so your streak won’t reset */
+  /*position: absolute;
+  width: 397px;
+  height: 62px;
+  left: calc(50% - 397px/2 + 9.5px);
+  top: 867px;*/
+
+  position: relative;
+  width: clamp(200px, 50vw, 397px);  /* Scales between 200px and 314px */
+  height: clamp(0px, 50vh, 62px); /* Scales between 200px and 323px */
+  /*left: clamp(10px, 20vw, 262px);   /* Adjusts based on viewport width */
+  /*top: clamp(50px, 20vh, 287px);    /* Adjusts based on viewport height */
+  transform: translate(0%, 0%);/*idk positioning maybe off*/
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(16px, 7vw, 25px);
+  line-height: 31px;
+  text-align: center;
+  color: #000000;
+}
+.play-button{
+  padding: 22px 45px;
+  border-radius: 20px;
+  font-family: 'Lexend';
+  font-style: normal;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  /* identical to box height */
+  text-align: center;
+  letter-spacing: 0.02em;
+  transform: translate(0%, 70%); /* adjust into the corner */
+
+
+}
+
+  .landing-sprinkles{
+    transform: translate(43%, 0%); /* adjust into the corner */
+}
+
+/*TODO responsiveness for xs screens*/

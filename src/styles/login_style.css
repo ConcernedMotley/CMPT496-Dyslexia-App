@@ -1,0 +1,73 @@
+/*used in login*/
+/*login mostly pulls from register_style but needed some tweaking*/
+
+.sign-greet{
+    transform: translateX(-3%); /* TODO move it right seems off ish */
+}
+
+.sign-desc{
+    transform: translateX(5%); /* TODO move it right seems off ish */
+}
+
+.login-field{
+    margin-bottom: clamp(20px, 7vh, 100px); /* TODO Space between fields seems off */
+
+}
+
+.other-sign-desc{
+    transform: translateX(2%);/*TODO move the desc left and right*/
+
+}
+
+.sign-buttons{
+  margin-top: 40px; /* Space below "Or sign in with" */
+  width: 80%; /* Make sure it stretches *//*TODO i just jacked this up to get the buttons larger length LOL*/
+  max-width: 1000px; /* Prevents it from being too wide */ 
+  transform: translate(15%, -10%);
+
+}
+.login-sprinkles{
+    transform: translate(45%, 0%); /* adjust into the corner */
+}
+
+.left-sign{
+    left: 0;
+    transform: translate(-5%, 10%); /* adjust into the corner */
+  
+  }
+  .right-sign{
+    right: 0;
+    transform: translate(270%, 10%); /* adjust into the corner */
+  }
+
+
+  @media (max-width: 700px) { /* Adjust for smaller screens */
+    .jump {
+      /* TODO Move it slightly right */
+      transform: translate(2%, 0%);
+    }
+    .star{
+        transform: translate(-10%, 0%);
+    }
+    .login-field{
+        transform: translate(0%, 0%);
+
+    }
+    .login-button{
+        transform: translate(0%, 0%);
+    }
+    /*make the sprinkles more visible on smaller screen!!*/
+    .login-sprinkles{
+        transform: translate(12%, 0%); /* adjust into the corner */
+    }
+    
+    .form-buttons{
+      transform: translate(25%, -13%);
+    }
+    .apple-button, .google-button {
+        transform: translateX(-20%);
+    
+      }
+    
+  
+  }
