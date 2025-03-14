@@ -1,3 +1,4 @@
+/*dont delete do use for colours here and there*/
 /*Page colour F5F5F5*/
 :root {
 	--color-purple: rgba(100,71,161,1);
@@ -8,6 +9,11 @@
 	--color-green: rgba(147,161,71,1);
 	--color-black: rgba(0,0,0,1);
 }
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 .text-style-lexend-regular {
 	font-size: 25px;
 	font-family: Lexend;
@@ -64,4 +70,17 @@
   
   .turquise-button:hover {
     background-color: var(--color-blue);
+  }
+
+  /* Remove default link styles */
+a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Keeps text color from parent element */
+  }
+  
+  /* If you want to target only buttons inside links */
+  a button {
+    all: unset; /* Resets all button styles */
+    display: inline-block; /* Ensures it behaves like a button */
+    cursor: pointer; /* Makes it clear it's clickable */
   }

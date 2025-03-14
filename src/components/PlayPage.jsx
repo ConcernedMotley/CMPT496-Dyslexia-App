@@ -1,7 +1,7 @@
 // src/components/PlayPage.jsx
 //page with the levels to pick
 import { Link } from 'react-router-dom';
-import '../styles/LandingPageStyle.css';
+//import '../styles/LandingPageStyle.css';
 
 function PlayPage() {
   return (

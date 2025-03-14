@@ -1,3 +1,6 @@
+/*DONT delete used for reg page and login*/
+/*i think can use this for login too*/
+
 /*TODO need to work on the responsiveness of the site it looks good on ipad (what designers built for)
       but on the tablet its super wonky i think because fignma gives absolute code vs responsive dynamic*/
 .greeting-container {
@@ -17,7 +20,6 @@
   font-size: clamp(20px, 4vw, 30px); /* Adjust size between 20px-30px */
   margin-top: clamp(20px, 5vh, 50px);
 
-  font-size: clamp(20px, 4vw, 30px); /* Responsive font size */
   font-weight: 700;
   text-align: center;
 
@@ -217,25 +219,6 @@
   font-size: clamp(14px, 2vw, 24px);
   margin-top: clamp(20px, 5vh, 40px);
   transform: translateX(50%); /* TODO move it right seems very off ish */
-}
-
-.bottomSprinkles{
-
-  position: fixed; /* Ensures child elements position within this container */
-  width: auto; /* Adjust as needed */
-  height: auto; /* Adjust as needed */
-  bottom: 0;
-  z-index: 4; /* Sends them behind other content */
-
-}
-.left-sprinkle{
-  left: 0;
-  transform: translate(-90%, 10%); /* adjust into the corner */
-
-}
-.right-sprinkle{
-  right: 0;
-  transform: translate(180%, 10%); /* adjust into the corner */
 }
 
 /*TODO idk didnt change it maybe need to restart server*/
@@ -456,24 +439,20 @@ border-radius: 20px;
 
   .greeting-container {
      /* TODO Move it slightly right */
-    transform: translate(12%, 10%);
+    transform: translate(0%, 0%);
   }
-  /*make the sprinkles more visible on smaller screen!!*/
-  .bottomSprinkles{
-    transform: scale(1.4);
-    transform-origin: bottom left; /* Ensures it scales from the bottom left */
-    position: fixed; /* Keeps it in place */
+  .registration-container{
+    transform: translate(-10%, 0%);
+  }
+  
+  .apple-button, .google-button {
+    transform: translateX(-40%);
 
   }
-  .left-sprinkle{
-    left: 0;
-    transform: translate(-50%, 10%); /* adjust into the corner */
-  
+  .terms-link {
+    transform: translateX(60%);
   }
-  .right-sprinkle{
-    right: 0;
-    transform: translate(50%, 10%); /* adjust into the corner */
-  }
+ 
   .other-reg-desc {
     transform: translate(30%, 10%);
   }
@@ -481,7 +460,11 @@ border-radius: 20px;
     transform: translate(5%, 10%);
   }
   .popup-box{
-    transform: translate(-55%, -60%);
+    transform: translate(-44%, -60%);
+  }
+  .popup-overlay{
+    transform: translate(-20%, -20%);
+
   }
 
 }

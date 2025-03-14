@@ -4,9 +4,9 @@ import { useState } from "react";
 import '../styles/general_style.css';
 import '../styles/register_style.css';
 
+import BottomSprinkles from '../components/BottomSprinkles';
+
 import star from '../assets/star.svg';
-import leftSprinkle from '../assets/left-sprinkle.svg';
-import rightSprinkle from '../assets/right-sprinkle.svg';
 import appleIcon from '../assets/apple.svg';
 import googleIcon from '../assets/google.svg';
 
@@ -106,15 +106,9 @@ const RegisterPage = () => {
         <div className="terms-link">
           <Link to="/terms-and-conditions">Our Policy and Terms & Conditions</Link>
         </div>
-        <div className='bottomSprinkles'>
-        <img className="left-sprinkle" src={leftSprinkle} alt="Sprinkles" />
-        <img className="right-sprinkle" src={rightSprinkle} alt="Sprinkles" />
-        </div>
+        
+        <BottomSprinkles /> {/*added the sprinkles to a component... */}
 
-
-        {/*<Link to="/HomePage">
-        <button className="register-button">Go Back!</button>
-</Link>*/}
       {showPopup && (
                 <div className="popup-overlay">
                     <div className="popup-box">
