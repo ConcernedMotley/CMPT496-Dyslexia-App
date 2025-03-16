@@ -60,7 +60,7 @@
   position: absolute;
   /*top: calc(100% - 20px);  /* Places it right below mascot */
   left: 50%;
-  transform: translate(-45%, -10%);/*idk positioning maybe off*/
+  transform: translate(-45%, -70%);/*idk positioning maybe off*/
   font-family: 'Lexend';
   font-style: normal;
   font-weight: 400;
@@ -76,13 +76,14 @@
   height: clamp(200px, 30vh, 323px); /* Scales between 200px and 323px */
   left: clamp(10px, 20vw, 262px);   /* Adjusts based on viewport width */
   top: clamp(50px, 20vh, 287px);    /* Adjusts based on viewport height */
-  transform: translate(-63%, 15%);/*idk positioning maybe off*/
+  transform: translate(-63%, 17%);/*idk positioning maybe off*/
   font-family: 'Lexend';
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
 }
+
 .week-streak {
   display: flex;
   justify-content: center; /* Centers the circles in a row */
@@ -135,20 +136,24 @@
   color: #000000;
 }
 .play-button{
-  padding: 22px 45px;
+  padding: 20px 120px; /*refused to change idk had to force*/
+  max-width: 300px; /* Limits how wide the button can be */
+  min-width: 150px; /* Prevents it from getting too small */
+  width: fit-content; /* Adapts to content size */
   border-radius: 20px;
-  font-family: 'Lexend';
+  font-family: 'Lexend', sans-serif;
   font-style: normal;
   color: #FFFFFF;
   font-weight: 700;
-  font-size: 40px;
+  font-size: clamp(30px, 7vw, 50px);
   line-height: 50px;
   /* identical to box height */
-  text-align: center;
+  display: flex;
+  justify-content: center; /*justify for text horizontal */
+  text-align: center; /*for text vertical*/
+  white-space: nowrap;
   letter-spacing: 0.02em;
   transform: translate(0%, 70%); /* adjust into the corner */
-
-
 }
 
   .landing-sprinkles{
@@ -156,3 +161,34 @@
 }
 
 /*TODO responsiveness for xs screens*/
+@media (max-width: 700px) { /* Adjust for smaller screens */
+  .masc-rac{
+    transform: translate(0%, -57%);
+
+  }
+  .masc-back{
+    transform: translate(-50%, -115%);
+  }
+  .streak-counter{
+    transform: translate(-50%, -80%);
+  }
+  .streak-text{
+    transform: translate(-57%, 20%);
+  }
+  .week-streak{
+    transform: translate(0%, -60%);
+  }
+  .streak-desc{
+    transform: translate(0%, 0%);
+  }
+  .play-button{
+    white-space: nowrap;
+    /*transform: scale(0.5) !important;*/
+    transform: translate(0%, 40%) ;
+  }
+
+  .landing-sprinkles{
+    transform: translate(12%, 5%);
+  }
+
+}

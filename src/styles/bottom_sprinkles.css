@@ -1,11 +1,10 @@
 .bottomSprinkles{
-
-    position: fixed; /* Ensures child elements position within this container */
+    position: fixed; 
     width: auto; /* Adjust as needed */
     height: auto; /* Adjust as needed */
     bottom: 0;
-    z-index: 4; /* Sends them behind other content */
-  
+    z-index: 1000; /*sends them behind */ 
+    /*right now they are above the overlay for disclaimer but i kind like it*/
   }
   .left-sprinkle{
     left: 0;

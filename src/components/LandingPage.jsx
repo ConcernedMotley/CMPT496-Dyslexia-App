@@ -1,5 +1,6 @@
 // src/components/LandingPage.jsx
 /*The welcome screen AFTER user has logged in */
+//css for the most part done
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import '../styles/general_style.css';
@@ -25,7 +26,7 @@ function LandingPage() {
           {/*flame img behind TODO does this change with streak?*/}
           {/*streak counter TODO would have to pull from user DB*/}
           <p className='streak-counter'>{streakTotal} Days</p>{/* */}
-          <h2 className='streak-text purple-text'>Streak</h2>
+          <h1 className='streak-text purple-text'>Streak</h1>
           {/*week streak display*/}
           <div className="week-streak">
             <div className="day-circle">M</div>
@@ -41,7 +42,8 @@ function LandingPage() {
           <Link to="/PlayPage">
             <button className="play-button purple-button">Hop into a game</button>
           </Link>
-        </div>
+          </div>
+        
         </div>
 
         {/*<Link to="/WordCollection">

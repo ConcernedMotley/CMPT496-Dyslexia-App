@@ -14,23 +14,6 @@ html, body {
     width: 100%;
 }
 
-.text-style-lexend-regular {
-	font-size: 25px;
-	font-family: Lexend;
-	font-weight: 400;
-	font-style: normal;
-	text-decoration: none;
-	text-transform: none;
-}
-.text-style-lexend-bold {
-	font-size: 25px;
-	font-family: Lexend;
-	font-weight: 700;
-	font-style: normal;
-	text-decoration: none;
-	text-transform: none;
-}
-
 .purple-text{
     color: var(--color-purple);
 }
@@ -58,6 +41,7 @@ html, body {
   /* Button colors */
   .purple-button {
     background-color: var(--color-purple);
+    border-radius: 20px;
   }
   
   .purple-button:hover {
@@ -66,11 +50,28 @@ html, body {
   
   .turquise-button {
     background-color: var(--color-turquise);
+    border-radius: 20px;
   }
   
   .turquise-button:hover {
     background-color: var(--color-blue);
   }
+  .text-style-lexend-regular {
+	font-size: 25px;
+	font-family: Lexend;
+	font-weight: 400;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+.text-style-lexend-bold {
+	font-size: 25px;
+	font-family: Lexend;
+	font-weight: 700;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
+}
 
   /* Remove default link styles */
 a {
@@ -84,3 +85,164 @@ a {
     display: inline-block; /* Ensures it behaves like a button */
     cursor: pointer; /* Makes it clear it's clickable */
   }
+
+  /*todo responsive for small screen*/
+  /*general styles for the game instructions*/
+.popup-game-overlay {
+    /* Rectangle 124 */
+    position: absolute;
+    width: 834px;
+    height: 1194px;
+    left: 0px;
+    top: -2px;
+    background: #F9F5EB;
+
+    z-index: 900; 
+  }
+  
+  .popup-game-box {
+    /* Rectangle 99 */
+    background: #FFFFFF; 
+    border-radius: 20px;
+    /* Group 82 */
+    position: absolute;
+    width: 498px;
+    height: 453px;
+    /*left: calc(50% - 498px/2);
+    top: calc(50% - 453px/2 + 0.5px);*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Centers the popup */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Adds space inside the box */
+    text-align: center;
+  }
+  
+  .game-title{
+  
+  /* Lexend Bold */
+  font-family: 'Lexend', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: center;
+    letter-spacing: 0.02em;
+
+  color: #60489C;
+  
+  
+  
+  }
+  
+  .instruction{
+    /*position: absolute;
+    width: 409px;
+    height: 143px;
+    left: 212px;
+    top: 469px;*/
+  
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #000000;
+  
+    max-width: 90%;
+    margin-bottom: 20px;
+  
+  }
+  
+  
+  .popup-button {
+    
+    display: flex;
+    justify-content: space-between;
+    width: 40%; /*todo idk if centre*/
+    max-width: 400px;
+    margin-top: 20px;
+  }
+  
+  /*TODO ask if buttons are supposed to both be just the border and on click fill?*/
+  .next-button{
+    color: #FFFFFF;
+    width: 182px;
+    height: 81px;
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 38px;
+    border-radius: 20px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  
+  }
+
+  .tracker-container {
+    display: flex;
+    gap: 10px; /* Spacing between squares */
+    padding: 10px;
+}
+
+.tracker {
+    width: 30px; /* Adjust square size */
+    height: 30px;
+    background-color: rgb(183, 9, 9);
+    border: 2px solid black;
+}
+
+.done-button{
+    /*BUTTON for game submission general style*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 56px;
+    gap: 8px;
+
+    position: absolute;
+    width: 222px;
+    height: 93px;
+    left: calc(50% - 222px/2);
+    top: 1041px;
+
+    /* Purple */
+    background: #6447A1;
+    border-radius: 20px;
+
+
+    /* Done */
+
+    width: 108px;
+    height: 50px;
+
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+}
+  

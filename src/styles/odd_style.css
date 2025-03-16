@@ -32,10 +32,16 @@
   
 
   .dot {
-    height: 700px; /*TODO change width and height umm may have to adjust how it scales*/
-    width: 700px;
-    background-color: rgb(151, 164, 230);
+
+    position: absolute;
+    width: 476px;
+    height: 476px;
+    left: calc(50% - 476px/2);
+    top: 415px;
+    background: #1F7E8E;
+    opacity: 0.8;
     border-radius: 50%;
+    transform: translate(0%, -70%); /*TODO for now just moving so i can see it*/
    /* animation: rotation 60s infinite linear; /*change the #s for slower faster rotation, no longer doing rotate */
   }
 
@@ -67,8 +73,3 @@ in awkwardly will have to see how to streamline it idk maybe no spin if cant fig
     background-color: lightblue;
   }
   
-  button {
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-  }

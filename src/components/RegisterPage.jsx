@@ -107,7 +107,7 @@ const RegisterPage = () => {
           <Link to="/terms-and-conditions">Our Policy and Terms & Conditions</Link>
         </div>
         
-        <BottomSprinkles /> {/*added the sprinkles to a component... */}
+        <BottomSprinkles className="register-sprinkles"/> {/*added the sprinkles to a component... */}
 
       {showPopup && (
                 <div className="popup-overlay">
