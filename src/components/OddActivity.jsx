@@ -1,7 +1,13 @@
 // src/components/OddActivity.jsx
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import '../styles/OddActivityStyle.css';
+import { Link, useParams, useNavigate} from 'react-router-dom';
+
+import '../styles/odd_style.css';
+import '../styles/general_style.css';
+
+import BottomSprinkles from '../components/BottomSprinkles';
+import NavBar from '../components/NavBar'
+import TrackerSquares from '../components/TrackerSquares';
 
 import API_BASE_URL from '../config'; //for connecting to backend
 //TODO
@@ -16,10 +22,17 @@ import API_BASE_URL from '../config'; //for connecting to backend
 function OddActivity() {
   const { level, type } = useParams();
 
+  const [showPopup, setShowPopup] = useState(true); //Popup visibility state default showing
+
   const [words, setWords] = useState([]);
   const [gameWords, setGameWords] = useState([]); //stores the three selected words
   const [selectedBox, setSelectedBox] = useState(null); //tracks the box user selects, null at init
   const [oddOneOutIndex, setOddOneOutIndex] = useState(null); //stores the index of the random "odd" box, init null
+
+
+  const handleAccept = () => {
+    setShowPopup(false);
+  }
 
   //get the words from backend
   const fetchWords = async () => {
@@ -53,6 +66,7 @@ function OddActivity() {
         console.error('Error fetching words:', error);
       }
   };
+
 
   //function to start a new round
   const generateNewGame = () => {
@@ -118,34 +132,60 @@ function OddActivity() {
     }
   };
 
+
   return (
+    <><NavBar />
+    
+    {showPopup && (
+                <div className="popup-game-overlay">
+                    <div className="popup-game-box">
+                        <h2 className='game-title'>Odd-One-Out</h2>
+                        <p className='instruction'> Three words will be displayed on the screen. Drag 
+                                          the word that does not rhyme into the box below! </p>
+                        <div className="popup-button">
+                            <button onClick={handleAccept} className="next-button purple-button">Next</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+      <TrackerSquares />
+    
+    
     <div className="odd-one-out-container">
-      <h1>Odd Activity ({type}) - Level {level}</h1>
-      <h2>Find the Odd One Out!</h2>
+      <h1 className='purple-text'>Odd-One-Out </h1>
+
+      {/*TODO tutorial button to click will retrigger tutorial */}
+      {/*TODO little game description box, maybe can use the popup text box and just squish it? */}
 
       <div className='plate-container'>
         <div className="dot">
 
-        <div className="boxes">
-        {gameWords.map((word, index) => (
-          <div
-            key={word.word}
-            className={`box box-${index} ${selectedBox === index ? 'selected' : ''}`}
-            onClick={() => setSelectedBox(index)}
-          >
-            {word.word} {/* Display just the word */}
+          <div className="boxes">
+            {gameWords.map((word, index) => (
+              <div
+                key={word.word}
+                
+                /*TODO pull these box ids and use them for the dif colours */
+                className={`box box-${index} ${selectedBox === index ? 'selected' : ''}`}
+                onClick={() => setSelectedBox(index)} /*TODO do ondrag not click */
+              >
+                {word.word} {/* Display just the word */}
+              </div>
+            ))}
           </div>
-        ))}
+          {/*TODO add the drag container under plate */}
+        </div>
       </div>
-      </div>
-      </div>
-  
-  
-      <button onClick={checkAnswer}>Check</button>
+
+
+      <button className='done-button' onClick={checkAnswer}>Check</button>
       <Link to="/PlayPage">
-       <button className="back-button">Go Back!</button>
+        {/*TODO remove the back button and idk have the arrow?? make nav bar clickable */}
+        <button className="back-button">Go Back!</button>
       </Link>
     </div>
+    <BottomSprinkles className="landing-sprinkles" />
+    </>
   );
   
 }

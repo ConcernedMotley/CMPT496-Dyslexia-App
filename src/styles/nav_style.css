@@ -1,19 +1,14 @@
-/* style for nab-bar component */
+/* style for nav-bar component */
 /*TODO this is def off...*/
 .nav-container{
     box-sizing: border-box;
     position: fixed;/*TODO keep at top even if scroll??*/
-
     width: 100%;/*go across the entire page*/
     height: 7.2%; /*the height of the bar*/
-
     background: #F9F5EB;
     border-bottom: 2px solid #959595;
-
     display: flex; /* Makes it responsive */
-    
     align-items: center; /* Centers items vertically */
-    
     z-index: 1000; /*make sure it is infront of everything*/
 }
 .LumoLearn{
@@ -21,7 +16,21 @@
     position: inherit;
 
 }
+.cog{
+    position: inherit;
+    left: 82%;
+
+}
 .logo{
     position: inherit;
     left: 90%;
+}
+
+@media (max-width: 700px) {
+    .logo{
+        transform: translateX(-20%) scale(.8);
+    }
+    .cog{
+        transform: translateX(-30%) scale(.8);
+    }
 }

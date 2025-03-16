@@ -1,0 +1,104 @@
+/*CSS for the level library page*/
+/*../styles/library_style.css*/
+
+/*TODO no responsiveness in here...*/
+
+.library-container{
+    overflow-y: auto;
+    width: 100%;
+    padding: 20px;
+}
+
+.game-greet{
+    /* Level X Games */
+
+    position: relative;
+    width: auto;
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(60px, 6vw, 70px); /* Scales between 32px and 64px */
+    line-height: 1.2;
+    text-align: center;
+    margin: clamp(20px, 5vh, 40px) auto;
+    transform: translate(-10%, 70%);
+
+}
+
+.tile-container{
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);/*2 by 3 grid*/
+    grid-template-rows: repeat(3, auto);
+    gap: 10px; /* Adjust spacing between tiles */
+    align-items: center;
+    justify-content: center; 
+    transform: translate(0%, 5%);
+    width: 80%; /*this moved it to middle ish*/
+    margin: auto;
+    
+    margin-bottom: 10%; /*this gave more space so it wasnt cutting button off*/
+    max-width: 900px; /* Prevents it from getting too wide */
+}
+
+.library-button{
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(25px, 5vw, 35px); 
+    line-height: 1.0;
+    color: #FFFFFF;
+    justify-content: center;
+    border-radius: 30px;
+
+    width: 95%;
+    max-width: 304px;
+    height: auto;
+    min-height: 256px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+/*this is for (eng-words) and (non-words)*/
+.odd-desc{
+    font-size: clamp(17px, 4vw, 23px);
+}
+
+.library-button span {
+   transform: translate(10%, 50%);
+   word-wrap: break-word; /* Forces text to break if too long */
+    max-width: 90%; /* Ensures text doesn’t go beyond button width */
+}
+
+/*TODO idk i was thinking i just pull from gen but those 2 have hover
+will these have hovers will those hovers change*/
+.orange-b{
+    background: #EE755D;
+}
+.turq-b{
+    background: #1F7E8E;
+}
+.green-b{
+    background: #AFC901;
+}
+.purp-b{
+    background: #6447A1;
+}
+
+/*TODO media query for XS screens */
+@media (max-width: 700px) {
+   .game-greet{
+    transform: translate(-10%, 5%);
+   }
+   .tile-container{
+    transform: translate(-5%, -2%);
+   }
+   .library-button{
+    height: auto; /* Allows the button to expand */
+    min-height: 150px; /* Ensures it doesn’t get too small */
+    padding: 10px; /* Adds breathing room */
+
+   }
+   
+}

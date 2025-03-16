@@ -100,19 +100,8 @@
 
 .login-button {
   /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 28px 75px;
   gap: 8px;
-  /*position: absolute;*/
-  width: 275px;
-  height: 93px;
-  left: calc(50% - 275px/2 - 158.5px);
-  top: 999px;
   border-radius: 20px;
-  
 
   /*Text values*/
   font-family: 'Lexend', sans-serif;
@@ -134,19 +123,8 @@
 
 .register-button {
   /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
-  /*position: absolute;*/
-  width: 283px;
-  height: 93px;
-  left: calc(50% - 283px/2 + 164.5px);
-  top: 999px;
   border-radius: 20px;
-  /* Remove excessive padding */
-  padding: 10px; 
 
   /* Prevent text from breaking into two lines */
   white-space: nowrap;

@@ -1,0 +1,96 @@
+.play-container{
+    /*extend it */
+}
+.play-text{
+    /* Play Page */
+
+    position: absolute;
+    /*width: 368px;
+    height: 90px;
+    left: 231px;
+    top: 154px;*/
+    width: clamp(250px, 40vw, 500px);
+    height: auto;
+    left: 50%;
+    top: clamp(100px, 15vh, 200px); /* Adjusts based on viewport height */
+    transform: translate(-50%, -100%); /* Centers properly */
+
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(70px, 9vw, 80px); /* TODO idk is this too small */
+    line-height: 1.2; /* Keeps spacing consistent */
+    white-space: nowrap; /* Prevent text from breaking */
+    
+
+}
+.play-desc{
+    /* Select a level difficulty below */
+
+    position: absolute;
+    height: auto;
+
+    width: clamp(250px, 40vw, 340px);
+    
+    left: 50%;
+    top: clamp(100px, 15vh, 200px); /* Adjusts based on viewport height */
+    transform: translate(-45%, 190%); /* Centers properly */
+
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+    white-space: nowrap; /* Prevent text from breaking */
+
+    color: #000000;
+}
+
+.play-rac{
+    transform: translate(70%, 130%); /* Centers properly */
+}
+
+.level-select-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /*this moved it to middle ish*/
+    /*min-height: 100vh; /* Allow content to extend beyond the viewport */ /*TODO will make the page longer or not so will shift things*/
+    /*overflow-y: auto; /* Allow scrolling */
+  
+    justify-content: space-between; /* Push buttons down */
+    transform: translate(0%, 50%);
+    
+
+    margin-bottom: 50%; /*this gave more space so it wasnt cutting button off*/
+}
+
+.level-select-button{
+    /*padding-left: 50%;*/
+    padding: 30px 250px;
+    margin-bottom: 5%;
+
+    font-family: 'Century Gothic',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+}
+
+/*TODO media query for small screens*/
+
+@media (max-width: 700px) {
+    .play-rac{
+        transform: translate(30%, 80%) scale(.8);
+    }
+    .level-select-container{
+        transform: translate(0%, 15%) scale(.8);
+
+    }
+   
+}
