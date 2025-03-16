@@ -16,6 +16,7 @@ export default function DraggingGame() {
   const [dragOverMessage, setDragOverMessage] = useState("");
   const [boxContents, setBoxContents] = useState(Array(4).fill(''));
   const [popupMessage, setPopupMessage] = useState("");
+  const [boxColors, setBoxColors] = useState(Array(4).fill('')); // New state for box colors
 
   useEffect(() => {
     setCurrentWord(RandomWord()); // Set a new word when the component mounts
@@ -26,6 +27,11 @@ export default function DraggingGame() {
       const newContents = [...prevContents];
       newContents[index] = content;
       return newContents;
+    });
+    setBoxColors(prevColors => {
+      const newColors = [...prevColors];
+      newColors[index] = '#1F7E8E'; // Change color when letter is dropped (lightgreen color code)
+      return newColors;
     });
   };
 
@@ -78,6 +84,7 @@ export default function DraggingGame() {
           maxCount={6}
           boxContents={boxContents}
           updateBoxContent={updateBoxContent}
+          boxColors={boxColors} // Pass the box colors to DroppableBox
         />
         <p>{dragOverMessage}</p> {/* Display drag over message */}
         <button onClick={handleDoneClick}>Done</button>
