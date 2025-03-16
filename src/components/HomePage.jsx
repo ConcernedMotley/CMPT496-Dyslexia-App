@@ -1,4 +1,5 @@
 // src/components/HomePage.jsx
+//css for the most part done
 import { Link } from 'react-router-dom';
 import '../styles/general_style.css';
 import '../styles/home_style.css';

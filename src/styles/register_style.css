@@ -332,17 +332,15 @@ margin-bottom: 10px; /* Adds spacing */
 
 /*TODO ask if buttons are supposed to both be just the border and on click fill?*/
 .accept-button, .decline-button {
-  /*padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;*/
   width: 182px;
-  height: 50px;
+  height: 81px;
   font-family: 'Lexend', sans-serif;
-  font-size: 18px;
+  font-style: normal;
+  font-size: 30px;
   font-weight: 700;
+  line-height: 38px;
   border-radius: 20px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -351,19 +349,6 @@ margin-bottom: 10px; /* Adds spacing */
 }
 
 .accept-button {
-  /*width: 51px;
-height: 38px;*/
-
-font-family: 'Lexend', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 30px;
-line-height: 38px;
-/* identical to box height */
-
-color: #FFFFFF;
-
-
 /* Inside auto layout */
 flex: none;
 order: 0;
@@ -376,95 +361,70 @@ justify-content: center;
 align-items: center;
 /*padding: 28px 203px 28px 205px;*/
 gap: 8px;
-
-/*position: absolute;
-left: 436px;
-top: 702px;*/
-width: 182px;
-height: 81px;
 
 /* Turquise */
 background: #1F7E8E;
-border-radius: 20px;
-
-
 }
 
 .decline-button {
-  width: 44px;
-height: 38px;
+  color: #3D7B8C;
+  background-color: #F9F5EB;
+  border: 5px solid #3D7B8C;
 
-font-family: 'Lexend', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 30px;
-line-height: 38px;
-/* identical to box height */
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 
-color: #3D7B8C;
-background-color: #F9F5EB;
+  box-sizing: border-box;
 
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-box-sizing: border-box;
-
-/* Auto layout */
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-/*padding: 28px 203px 28px 205px;*/
-gap: 8px;
-
-/*position: absolute;
-left: 216px;
-top: 702px;*/
-width: 182px;
-height: 81px;
-
-border: 5px solid #3D7B8C;
-border-radius: 20px;
-
-
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /*padding: 28px 203px 28px 205px;*/
+  gap: 8px;
 }
 
 @media (max-width: 700px) { /* Adjust for smaller screens */
+  
   .reg-desc {
     top: clamp(0vh, 2vh, 6vh); /* Raise it up */
+    margin-bottom: 5px; /* Adjust spacing */
   }
 
-  .greeting-container {
-     /* TODO Move it slightly right */
-    transform: translate(0%, 0%);
-  }
+ 
   .registration-container{
     transform: translate(-10%, 0%);
   }
   
-  .apple-button, .google-button {
-    transform: translateX(-40%);
-
+  .form-buttons {
+    width: 130%; /* Fit within container */
+    justify-content: center; /* Center the buttons */
+    gap: 20px; /* Reduce spacing */
   }
+
+  
   .terms-link {
-    transform: translateX(60%);
+    transform: translateX(75%);
   }
  
   .other-reg-desc {
     transform: translate(30%, 10%);
   }
-  .form-buttons{
-    transform: translate(5%, 10%);
-  }
+ 
+
   .popup-box{
     transform: translate(-44%, -60%);
   }
   .popup-overlay{
     transform: translate(-20%, -20%);
 
+  }
+
+  .register-sprinkles{
+    transform: translate(-500%, 5%);
   }
 
 }
