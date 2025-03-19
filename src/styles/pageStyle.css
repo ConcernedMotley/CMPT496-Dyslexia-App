@@ -16,3 +16,36 @@
     width: fit-content;
     justify-self: center;
 }
+
+.title-font {
+
+    font-family: lexend, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #60489C;
+}
+
+.audio-card {
+    display: flex;
+    gap: auto;
+    align-items: justify;
+    width: auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 18px;
+}
+
+.audio-card p {
+    width: 24ch;
+    color: #60489C;
+    font-size: 16px;
+}
+
+.sound-slider {
+    width: 400px;
+    height: 160px;
+    padding: 16px;
+    background-color: #60489C;
+    border-radius: 25px;
+    border: #DF7C64 solid 4px;
+}

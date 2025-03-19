@@ -8,6 +8,7 @@
   /*font-family: 'Times New Roman', Times, serif;*/
 }
 
+
 .icon {
   display: flex; /* Ensures proper alignment */
   justify-content: center;
@@ -17,6 +18,11 @@
   background-color: black; /* Black background */
   border-radius: 50%; /* Makes it fully circular */
 }
+
+.audio-card .icon {
+  background-color: #60489C;
+}
+
 
 .icon img {
   width: 32px; /* Smaller to fit inside */

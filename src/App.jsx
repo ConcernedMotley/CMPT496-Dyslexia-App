@@ -17,6 +17,7 @@ import SoundActivity from './components/SoundActivity';
 import OddActivity from './components/OddActivity';
 import WordCollection from './components/WordCollection';
 import DraggingGame from './components/DraggingGame';
+import TickTally from './components/tickTally/TickTally';
 
 
 // Detect if the device supports touch
@@ -39,6 +40,7 @@ function App() {
           <Route path="/OddActivity/:level/:type" element={<OddActivity />} />
           <Route path="/WordCollection" element={<WordCollection />} />
           <Route path="/DraggingGame/:level" element={<DraggingGame />}/> 
+          <Route path="/TickTally/:level" element={<TickTally />}/> 
         </Routes>
       </Router>
     </DndProvider>

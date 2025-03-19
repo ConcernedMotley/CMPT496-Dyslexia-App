@@ -20,8 +20,7 @@ function LevelLibrary() {
 
     <div className='tile-container'>
       {/*Button to 'Tick-Tally' (drag to match sounds game) */}
-      {/*TODO will need to replace this Dragactivity with the actual path to the game if we use this or other */}
-      <Link to={`/DragActivity/${level}`}>
+      <Link to={`/TickTally/${level}`}>
         <button className="library-button orange-b"><span>Tick-Tally</span></button>
       </Link>
 
