@@ -49,3 +49,35 @@
     border-radius: 25px;
     border: #DF7C64 solid 4px;
 }
+
+.tick-tally-slider {
+    width: 300px;
+    margin: auto;
+}
+
+.tick-tally-slider-track {
+
+    top: 8px;
+    height: 8px;
+    background: white;
+}
+
+.tick-tally-slider-track.tick-tally-slider-track-0 {
+    background-color: orange;
+}
+
+.tick-tally-slider-thumb {
+    cursor: pointer;
+    background-color: orange;
+    width: 20px;
+    height: 40px;
+    top: -5px;
+}
+
+.tick-tally-slider-mark {
+    cursor: pointer;
+      top: 6px;
+      width: 1.5px;
+      height: 8px;
+      background-color: green;
+}

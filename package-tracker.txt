@@ -19,3 +19,7 @@ npm install @dnd-kit/sortable
 
 Mar 10th:
 npm i reactjs-popup
+
+Mar 19th:
+npm install react-slider
+
