@@ -62,8 +62,9 @@ const handleSubmit = (e) => {
         </form>
 
       </div></><div>
-        <p className='other-reg-desc other-sign-desc'>Or sign in with</p>
-        <div className="form-buttons sign-buttons">
+      <p className='other-reg-desc other-sign-desc'>Or sign in with</p>
+        <div className="sign-buttons ">
+        
           <button type="button" className="apple-button">
             <img className="apple-img" src={appleIcon} alt="Sign in with Apple" />
           </button>

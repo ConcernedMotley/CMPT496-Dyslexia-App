@@ -311,6 +311,11 @@ a {
     align-items: center; /* ✅ Centers text vertically */
     justify-content: center; /* ✅ Centers text horizontally */
   }
+  .tut-symb{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 50%; /* Makes it a perfect circle */
+
+  }
   .game-desc-box{
     transform: translate(0%, -50%);
     display: flex;
@@ -332,7 +337,133 @@ a {
     line-height: 20px;
 
     color: #60489C;
-
     
+  }
+
+  /***STYLES FOR THE TUTORIAL***/
+  .tutorial-container {
+    position: relative;
+  }
+  
+  /* Overlay for blurring the background */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
+    backdrop-filter: blur(8px); /* Blurs everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    
+    /*TODO if want a blur around with circle cut out would need an svg
+    and would prob need one made for each of the tutorials so for now this will due..*/
+    /*clip-path: polygon(
+        0% 0%, 100% 0%, 100% 100%, 0% 100%, 
+        50% 30%, 60% 30%, 60% 40%, 50% 40% 
+      );*/
+    /*clip-path: circle(150px at center);*/
+  }
+  
+  
+  /* Focused Elements */
+  .focus {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.8);
+
+    z-index: 200; /* Above the blur */
+    /*background: none; /* No extra background */
+    
+  }
+  
+  .focus-plate {
+    position: absolute;
+    width: 490px; /*i didnt want it super tight to the element incase they scrolled a bit*/
+    height: 490px;
+    left: calc(48.7% - 476px/2);
+    top: 415px;
+    border-radius: 50%;
+    transform: translate(2%, -20%);
+    backdrop-filter: none;
+    
+  }
+  
+  .focus-dropzone {
+    top: 76%;
+    left: 33%;
+    width: 280px;
+    height: 100px;
+  }
+  
+  .focus-check {
+    bottom: 4.6%;
+    right: 36.5%;
+    width: 220px;
+    height: 100px;
+    border-radius: 20px;
+  }
+  
+  /* Speech Bubble */
+  .speech-bubble {
+    position: absolute;
+    background: #60489C;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+    max-height: 150px;
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+    
+    color: #F9F5EB;
+
+  }
+  /* Speech Bubble Triangle (Tail) */
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -70px; /* Places the triangle below the bubble */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 40px;
+    border-style: solid;
+    border-color: #60489C transparent transparent transparent; /* White triangle pointing down */
+  }
+  .speech-header{
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 10px;
+    letter-spacing: 0.02em;
+
+    color: #F9F5EB;
+
+
+  }
+  
+  .focus-plate + .speech-bubble { top: 15%; left: 30%; }
+  .focus-dropzone + .speech-bubble { top: 60%; left: 20%; }
+  .focus-check + .speech-bubble { bottom: 18%; right: 30%; }
+  
+  /* Button */
+  button {
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
