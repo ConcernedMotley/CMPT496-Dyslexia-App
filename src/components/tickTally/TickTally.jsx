@@ -1,5 +1,5 @@
 import { func } from 'prop-types';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ProgressTracker from '../ProgressTracker';
 import PlaySoundCard from './PlaySoundCard';
@@ -44,13 +44,33 @@ export default function TickTally(){
 
     const { level } = useParams();
     const [sliderValue, setSliderValue] = useState(0);
+    const [selectedWord, setSelectedWord] = useState(null);
+
+    useEffect(() => {
+        const words = placeholderWords[level] || [];
+        if (words.length > 0) {
+            const randomWord = words[Math.floor(Math.random() * words.length)]; // Pick a random word
+            setSelectedWord(randomWord);
+        }
+    }, [level]); // Run when level changes
+
+    useEffect(() => {
+        if (selectedWord) {
+            console.log(`Selected Word: ${selectedWord.word}`);
+            console.log(`Sound Count: ${selectedWord.soundCount}`);
+            console.log(`Slider Value: ${sliderValue}`);
+            console.log(`Match: ${selectedWord.soundCount === sliderValue}`);
+        }
+    }, [sliderValue, selectedWord]);
 
     return (
         <div className='horizontal-flex'> 
             <div className='vertical-flex'>
                 {/* <ProgressTracker /> */}
-                <h1 className='title-font'>Tick Tally Level: {level}</h1>
-                <PlaySoundCard />
+                <h1 className="title-font">Tick Tally Level: {level}</h1>
+                {selectedWord && <PlaySoundCard word={selectedWord.word} />}
+                <p>Selected Word: <strong>{selectedWord ? selectedWord.word : "Loading..."}</strong></p>
+
                 <SoundSlider value={sliderValue} onChange={setSliderValue} />
 
                 <button className='tally-done-btn' >Done</button>
