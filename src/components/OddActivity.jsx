@@ -20,6 +20,7 @@ import tutSymbol from '../assets/tut.svg'
 import BottomSprinkles from '../components/BottomSprinkles';
 import NavBar from '../components/NavBar'
 import TrackerSquares from '../components/TrackerSquares';
+import OddTutorial from './tutorials/OddTutorial';
 
 import API_BASE_URL from '../config'; //for connecting to backend
 
@@ -266,7 +267,8 @@ const checkAnswer = () => {
       <div className='title-help-container'>
         <h1 className='purple-text game-header'>Odd-One-Out </h1>
         {/*TODO tutorial button to click will retrigger tutorial */}
-        <img className='tut-symb' src={tutSymbol} alt="Help Button" />
+        <OddTutorial />
+        {/*<img className='tut-symb' src={tutSymbol} alt="Help Button" />*/}
         </div>
       <p className='game-desc-box'>Drag the word that does not rhyme into the box below! Score 7/10 or higher to get the next round. </p>
       
@@ -301,7 +303,7 @@ const checkAnswer = () => {
 
            
     </div>
-    <button className='check-button' onClick={checkAnswer}>Check</button>
+    <button className='check-button' onClick={checkAnswer}>Done</button>
 
         {/*<Link to="/PlayPage">
           TODO remove the back button and idk have the arrow?? make nav bar clickable 

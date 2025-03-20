@@ -93,8 +93,9 @@ const RegisterPage = () => {
 
 
         <div >
-          <p className='other-reg-desc'>Or sign up with</p>
+          
           <div className="form-buttons">
+          <p className='other-reg-desc'>Or sign up with</p>
           <button type="button" className="apple-button">
           <img className="apple-img" src={appleIcon} alt="Sign in with Apple" />
           </button>

@@ -14,17 +14,23 @@
 
 }
 
+.login-button{
+  bottom: 35%;
+}
+
 .other-sign-desc{
-    transform: translateX(2%);/*TODO move the desc left and right*/
+    transform: translate(2%, 200%);/*TODO move the desc left and right*/
 
 }
 
 .sign-buttons{
-  margin-top: 40px; /* Space below "Or sign in with" */
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px; /* Space below "Or sign in with" */
   width: 80%; /* Make sure it stretches *//*TODO i just jacked this up to get the buttons larger length LOL*/
-  max-width: 1000px; /* Prevents it from being too wide */ 
-  transform: translate(15%, -10%);
-
+  max-width: 100px; /* Prevents it from being too wide */ 
+  gap: 20px; /* Space between buttons */
+  transform: translateX(200%);
 }
 .login-sprinkles{
     transform: translate(45%, 0%); /* adjust into the corner */
