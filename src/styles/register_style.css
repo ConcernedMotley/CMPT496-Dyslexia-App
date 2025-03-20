@@ -124,10 +124,12 @@
 .signup-button {
 /*TODO on the small screen it is right leaning fields and button, or maybe the header is idk*/
   /*TODO width of the button idk giving it the same as the fields it wasnt the same so???*/
-  width: clamp(525px, 100%, 1000px); /* Shrinks down on small screens */
+  width: clamp(525px, 50%, 1000px); /* Shrinks down on small screens */
   height: clamp(50px, 9vh, 91px);
   /*right: clamp(4vw, 3vw, 10vw); /* TODO move it slightly right?? */
   margin-bottom: clamp(20px, 5vh, 100px); /* TODO Space between fields seems off */
+
+  bottom: 270px;
 
   font-family: 'Lexend', sans-serif;
   font-style: normal;
@@ -147,12 +149,13 @@
   line-height: 31px;
   color: #696969;
 
-  width: 100%; /* Allow it to take full width */
+  /*width: 100%; /* Allow it to take full width */
   max-width: 500px; /* Prevent it from stretching too wide */
   text-align: center; /* Center the text */
   font-size: clamp(20px, 5vw, 23px);/*TODO adjust size of font*/
-  margin: -40px auto 0; /* Space it below the button */
-  transform: translateX(20%); /* TODO move it right seems off ish */
+  margin: 10px auto 0; /* Space it below the button */
+  transform: translate(100%, 380%); /* TODO move it right seems off ish */
+  
 }
 
 /*ask here**************************************
@@ -175,14 +178,22 @@
 
 
 .apple-button, .google-button {
-  width: clamp(280px, 50%, 500px);
-  height: clamp(60px, 7vh, 100px);
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: clamp(280px, 50%, 500px);
+  height: clamp(60px, 7vh, 100px);
+  transform: translate(60%, 300%);
+}
+.apple-button{
+  right: 60%;
+} 
+.google-button {
+  left: 60%;
 }
 
 /* Flex container for Apple & Google buttons */
@@ -190,10 +201,10 @@
   display: flex;
   flex-direction: row;
   justify-content: center; /* Centers the buttons */
-  gap: 40px; /* Space between buttons */
-  margin-top: 20px; /* Space below "Or sign up with" */
   align-items: center;
-  width: 150%; /* Make sure it stretches *//*TODO i just jacked this up to get the buttons larger length LOL*/
+  gap: 20px; /* Space between buttons */
+  /*margin-top: 20px; /* Space below "Or sign up with" */
+  width: 100%; /* Make sure it stretches *//*TODO i just jacked this up to get the buttons larger length LOL*/
   max-width: 1000px; /* Prevents it from being too wide */ 
   transform: translateX(0%);
 }
@@ -207,8 +218,9 @@
   /* Links and other buttons */
 .terms-link {
   /* Our Policy and Terms & Conditions */
-
-  position: relative;
+  
+  position: absolute;
+  bottom: 8% !important;
   width: auto;
   font-family: 'Lexend', sans-serif;
   font-style: normal;
@@ -217,7 +229,7 @@
   color: #696969;
   text-align: center;
   font-size: clamp(14px, 2vw, 24px);
-  margin-top: clamp(20px, 5vh, 40px);
+  /*margin-top: clamp(20px, 5vh, 40px);*/
   transform: translateX(50%); /* TODO move it right seems very off ish */
 }
 
@@ -254,7 +266,7 @@ input[type="password"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px; /* Adds space inside the box */
   text-align: center;
 }
@@ -275,7 +287,8 @@ font-size: 25px;
 line-height: 31px;
 color: #60489C;
 
-margin-bottom: 10px; /* Adds spacing */
+margin-top: 20px; /* Adds spacing */
+
 
 }
 
@@ -327,7 +340,8 @@ margin-bottom: 10px; /* Adds spacing */
   justify-content: space-between;
   width: 100%;
   max-width: 400px;
-  margin-top: 20px;
+  margin-top: 10px;
+  
 }
 
 /*TODO ask if buttons are supposed to both be just the border and on click fill?*/
@@ -345,6 +359,7 @@ margin-bottom: 10px; /* Adds spacing */
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 40px; /**moving the buttons up idk everything keeps shifting aaaa*/
 
 }
 
@@ -364,9 +379,11 @@ gap: 8px;
 
 /* Turquise */
 background: #1F7E8E;
+right: 60px; /**for some reason yes is deciding to sit on top of no*/
 }
 
 .decline-button {
+  
   color: #3D7B8C;
   background-color: #F9F5EB;
   border: 5px solid #3D7B8C;
