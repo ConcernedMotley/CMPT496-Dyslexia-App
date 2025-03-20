@@ -189,18 +189,65 @@ a {
   }
 
   .tracker-container {
+    width: 100%;
     display: flex;
     gap: 10px; /* Spacing between squares */
     padding: 10px;
+    flex-direction: column; /* Stack squares and text */
+    align-items: flex-start; 
+    
+}
+.tracker-row {
+    display: flex;
+    gap: 10px; /* Keep spacing between squares */
+    padding-bottom: 30px;
 }
 
-.tracker {
-    width: 30px; /* Adjust square size */
-    height: 30px;
-    background-color: rgb(183, 9, 9);
-    border: 2px solid black;
-}
+.tracker-square {
+    box-sizing: border-box;
 
+    width: 65px; /* Adjust square size */
+    height: 28px;
+    background-color: #F9F5EB;
+    border: 4px dashed #6D6D6D;
+    border-radius: 4px;
+    
+
+    transform: skewX(-5deg) skewY(-3deg) translate(50%, 290%); /*TODO trying to stretch them but figma doesnt show so guessing!*/
+}
+.tracker-square.correct {
+    background-color: #34C759;
+    border: none;
+  }
+  .tracker-square.wrong {
+    background-color: #FF5837;
+    border: none;
+  }
+
+.tracker-text {
+    position: absolute;
+    width: 43px;
+    height: 25px;
+    left: 44px;
+    top: 70px;
+
+    display: flex;
+    margin-top: 8px;
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #6D6D6D;
+
+    text-align: left; /* Align left under squares */
+    transform: translateY(200%);
+  }
+  
+
+/*forgot to use this tbh....*/
 .done-button{
     /*BUTTON for game submission general style*/
     display: flex;
@@ -243,6 +290,49 @@ a {
     order: 0;
     flex-grow: 0;
 
-
 }
+/*TODO these are the styles for each game titel/tutbutton/description*/
+.title-help-container{
+    display: flex;
+    align-items: center; /* Aligns text and image vertically */
+    justify-content: center; /* Center the whole group */
+    gap: 10px; /* Adds spacing between elements */
+  }
+  .game-header{
+    width: 442px;
+  
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 80px;
+    
+    display: flex; /* ✅ Enables flexbox */
+    align-items: center; /* ✅ Centers text vertically */
+    justify-content: center; /* ✅ Centers text horizontally */
+  }
+  .game-desc-box{
+    transform: translate(0%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;/*TODO idk it refuses to move over*/
+    align-items: center;
+    padding: 20px 30px;
+    gap: 8px;
+    background: #FFFFFF;
+    border-radius: 18px;
+
+    width: 326px;
+    height: 60px;
+
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #60489C;
+
+    
+  }
   

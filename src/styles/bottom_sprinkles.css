@@ -4,6 +4,7 @@
     height: auto; /* Adjust as needed */
     bottom: 0;
     z-index: 1000; /*sends them behind */ 
+    pointer-events: none; /*AAAAAAAAA i was stuck having my button blocked for hours */
     /*right now they are above the overlay for disclaimer but i kind like it*/
   }
   .left-sprinkle{
