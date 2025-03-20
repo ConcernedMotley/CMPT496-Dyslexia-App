@@ -7,6 +7,7 @@
     align-items: center;
     width: fit-content;
     justify-self: center;
+    justify-content: center;
 }
 
 .horizontal-flex {
@@ -41,7 +42,7 @@
     font-size: 16px;
 }
 
-.sound-slider {
+.slider-card {
     width: 400px;
     height: 160px;
     padding: 16px;
@@ -50,34 +51,46 @@
     border: #DF7C64 solid 4px;
 }
 
-.tick-tally-slider {
-    width: 300px;
-    margin: auto;
+.sound-slider {
+    
+    width: 340px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+
 }
 
-.tick-tally-slider-track {
-
-    top: 8px;
-    height: 8px;
+.sound-slider-track {
     background: white;
+    height: 100%;
 }
 
-.tick-tally-slider-track.tick-tally-slider-track-0 {
-    background-color: orange;
-}
-
-.tick-tally-slider-thumb {
-    cursor: pointer;
-    background-color: orange;
+.sound-slider-thumb {
     width: 20px;
-    height: 40px;
-    top: -5px;
+    height: 80px;
+    background: rgb(255, 166, 0);
+    cursor: grab;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.tick-tally-slider-mark {
-    cursor: pointer;
-      top: 6px;
-      width: 1.5px;
-      height: 8px;
-      background-color: green;
+.sound-slider-mark {
+    width: 10px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.tally-done-btn {
+    background-color: #60489C;
+    color: white;
+    font-family: lexend, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 16px 24px;
 }
