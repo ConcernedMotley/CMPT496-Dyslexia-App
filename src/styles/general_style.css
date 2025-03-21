@@ -205,13 +205,11 @@ a {
 
 .tracker-square {
     box-sizing: border-box;
-
     width: 65px; /* Adjust square size */
     height: 28px;
     background-color: #F9F5EB;
     border: 4px dashed #6D6D6D;
     border-radius: 4px;
-    
 
     transform: skewX(-5deg) skewY(-3deg) translate(50%, 290%); /*TODO trying to stretch them but figma doesnt show so guessing!*/
 }
@@ -374,11 +372,8 @@ a {
     position: absolute;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.8);
-
+    box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.6);
     z-index: 200; /* Above the blur */
-    /*background: none; /* No extra background */
-    
   }
   
   .focus-plate {
@@ -390,7 +385,6 @@ a {
     border-radius: 50%;
     transform: translate(2%, -20%);
     backdrop-filter: none;
-    
   }
   
   .focus-dropzone {
@@ -431,7 +425,7 @@ a {
 .speech-bubble::after {
     content: "";
     position: absolute;
-    bottom: -70px; /* Places the triangle below the bubble */
+    bottom: -70px; 
     left: 50%;
     transform: translateX(-50%);
     border-width: 40px;
@@ -467,3 +461,140 @@ a {
     cursor: pointer;
   }
   
+  /*BADGE STYLES*/
+  .badge-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Fully transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .badge-content {
+    position: absolute;
+    top: 60%;
+    right: 5%; /* Adjust as needed */
+    transform: translateY(-50%);
+    padding: 15px;
+    border-radius: 10px;
+    
+  }
+
+  .correct-answer-text{
+    position: absolute;
+    bottom: 120px; /* Stick to bottom */
+    left: 30%;
+    transform: translateX(-50%); /* Center horizontally */
+
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: min(8vw, 60px); /* Scales with screen size */
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: #FFFFFF;
+
+    transform: matrix(0.97, 0.23, -0.27, 0.96, 0, 0);
+
+  }
+
+  /*End game popups/screens*/
+  
+  .full-screen-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black; /* Fallback in case image doesn't cover */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+  }
+  
+  .full-screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the full screen */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Sends the image behind buttons */
+  }
+  
+  .replay-buttons {
+    position: absolute;
+    bottom: 10%; /* Moves buttons to the bottom quarter */
+    left: 50%;
+    transform: translateX(-50%); /* Centers buttons horizontally */
+    display: flex;
+    flex-direction: row;
+    /*flex-direction: row !important;*/
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    z-index: 1; /* Ensures buttons stay above the image */
+  }
+  
+  .again, .quit {
+    
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 75px;
+
+    width: 250px;
+    height: 120px;
+
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+    color: #FFFFFF;
+    white-space: nowrap;
+    
+  }
+
+  .again{
+    left: 15%;
+    background-color: rgba(31,126,142,1);
+
+  }
+  .quit{
+    right: 15%;
+    background: #6447A1;
+
+  }
+  .final-score{
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 63px;
+    /* identical to box height */
+    text-align: center;
+    position: absolute;
+    bottom: 27%;
+    color: #60489C;
+
+  }
+  .red-text {
+    color: #FF5837;
+    
+  }
+  .green-text{
+    color: #AFC901;
+  }

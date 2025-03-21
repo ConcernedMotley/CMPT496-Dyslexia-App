@@ -11,15 +11,13 @@ const TrackerSquares = ({ trackerResults }) => {
         {Array.from({ length: 10 }).map((_, index) => (
           <div 
             key={index} 
-            className={`tracker-square ${trackerResults[index] === true ? 'correct' : ''} ${trackerResults[index] === false ? 'wrong' : ''}`}
+            className={`tracker-square ${trackerResults[index] === true ? 'correct' : ''} 
+              ${trackerResults[index] === false ? 'wrong' : ''}`}
           />
         ))}
         </div>
-
-        <p className="tracker-text">{trackerResults.length}/10</p> {/* Dynamically update count */}
-        
+        <p className="tracker-text">{trackerResults.length}/10</p> 
       </div>
-
     );
   };
         
