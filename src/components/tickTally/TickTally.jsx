@@ -54,15 +54,6 @@ export default function TickTally(){
         }
     }, [level]); // Run when level changes
 
-    useEffect(() => {
-        if (selectedWord) {
-            console.log(`Selected Word: ${selectedWord.word}`);
-            console.log(`Sound Count: ${selectedWord.soundCount}`);
-            console.log(`Slider Value: ${sliderValue}`);
-            console.log(`Match: ${selectedWord.soundCount === sliderValue}`);
-        }
-    }, [sliderValue, selectedWord]);
-
     return (
         <div className='horizontal-flex'> 
             <div className='vertical-flex'>
@@ -73,9 +64,18 @@ export default function TickTally(){
 
                 <SoundSlider value={sliderValue} onChange={setSliderValue} />
 
-                <button className='tally-done-btn' >Done</button>
+                <button className='tally-done-btn' onClick={() => selectedWord && checkCountOnClick(selectedWord.soundCount, sliderValue)} >Done</button>
                 
             </div>
         </div>
     );
 };
+
+function checkCountOnClick(soundCount, sliderValue) {
+
+    console.log(`Selected Word: ${soundCount}`);
+            console.log(`Sound Count: ${soundCount}`);
+            console.log(`Slider Value: ${sliderValue}`);
+            console.log(`Match: ${soundCount === sliderValue}`);
+    
+}
