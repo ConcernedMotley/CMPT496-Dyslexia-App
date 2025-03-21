@@ -36,7 +36,7 @@ html, body {
 .box {
   position: absolute;
   
-  width: 140px;/*just made them all bigger to accom for the larger words*/
+  width: 200px;/*just made them all bigger to accom for the larger words*/
   height: 44.09px;
   cursor: grab;
   user-select: none; /* Prevents accidental selection */
@@ -89,7 +89,7 @@ html, body {
   align-items: center;
   bottom: 80px; /* Adjust as needed */
   left: 50%;
-  transform: translate(-50%, 25%);
+  transform: translate(-40%, 25%);
   z-index: 10;
   pointer-events: auto;
 
@@ -169,7 +169,7 @@ in awkwardly will have to see how to streamline it idk maybe no spin if cant fig
   }
 
   .drop-zone {
-    width: 220px;
+    width: 270px;
     height: 70px;
     border: 5.18182px dashed #969696;
     border-radius: 7.4026px;

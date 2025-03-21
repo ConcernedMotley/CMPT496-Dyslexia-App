@@ -304,12 +304,11 @@ const checkAnswer = () => {
       correctAnswer={badgeInfo.correctWord} 
       onClose={() => {
         setShowBadge(false);
-         // Start new round
         if (roundCount + 1 >= 11) { 
-          //PUT the resets here so that they maintain for the game and each round but new game reset
           setShowEndPopup(true); // Show popup after 10 rounds
-         
+          //don't reset yet or the endgame popup wont display the score/10 
         }
+        // Start new round
         generateNewGame();
       }}
     />
