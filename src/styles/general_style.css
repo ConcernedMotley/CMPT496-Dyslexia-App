@@ -487,26 +487,41 @@ a {
 
   .correct-answer-text{
     position: absolute;
-    bottom: 120px; /* Stick to bottom */
-    left: 30%;
     transform: translateX(-50%); /* Center horizontally */
 
     font-family: 'Lexend', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: min(8vw, 60px); /* Scales with screen size */
+    
     line-height: 1.2;
     text-align: center;
+    /*justify-content: center;    TODO trying to fix the text idk maybe inline */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 
+    max-width: 50%;
+
     color: #FFFFFF;
 
     transform: matrix(0.97, 0.23, -0.27, 0.96, 0, 0);
-
+  }
+  .long-answer-text{
+    bottom: 38%; /* Stick to bottom */
+    left: 30%;
+    font-size: min(8vw, 35px); /* Scales with screen size */
+  }
+  .short-answer-text{
+    bottom: 35%; /* Stick to bottom */
+    left: 33%;
+    font-size: min(8vw, 52px); /* Scales with screen size */
   }
 
+  .med-answer-text{
+    bottom: 35%; /* Stick to bottom */
+    left: 30%;
+    font-size: min(8vw, 45px); /* Scales with screen size */
+  }
   /*End game popups/screens*/
   
   .full-screen-popup {
