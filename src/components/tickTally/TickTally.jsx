@@ -24,18 +24,18 @@ const placeholderWords = {
         { "word": "winter", "soundCount": 5, "difficulty": 2 }
     ],
     "3": [
-        { "word": "elephant", "soundCount": 7, "difficulty": 3 },
-        { "word": "umbrella", "soundCount": 7, "difficulty": 3 },
-        { "word": "butterfly", "soundCount": 7, "difficulty": 3 },
-        { "word": "dinosaur", "soundCount": 7, "difficulty": 3 },
-        { "word": "mountain", "soundCount": 7, "difficulty": 3 }
+        { "word": "elephant", "soundCount": 6, "difficulty": 3 },
+        { "word": "umbrella", "soundCount": 6, "difficulty": 3 },
+        { "word": "butterfly", "soundCount": 6, "difficulty": 3 },
+        { "word": "mountain", "soundCount": 6, "difficulty": 3 },
+        { "word": "dinosaur", "soundCount": 6, "difficulty": 3 },
     ],
     "4": [
-        { "word": "football", "soundCount": 7, "difficulty": 4 },
-        { "word": "airplane", "soundCount": 7, "difficulty": 4 },
-        { "word": "popcorn", "soundCount": 7, "difficulty": 4 },
-        { "word": "sunshine", "soundCount": 7, "difficulty": 4 },
-        { "word": "firework", "soundCount": 7, "difficulty": 4 }
+        { "word": "football", "soundCount": 6, "difficulty": 4 },
+        { "word": "airplane", "soundCount": 6, "difficulty": 4 },
+        { "word": "popcorn", "soundCount": 6, "difficulty": 4 },
+        { "word": "sunshine", "soundCount": 6, "difficulty": 4 },
+        { "word": "firework", "soundCount": 6, "difficulty": 4 }
     ]
 };
 
@@ -46,19 +46,35 @@ export default function TickTally(){
     const [sliderValue, setSliderValue] = useState(0);
     const [selectedWord, setSelectedWord] = useState(null);
 
-    useEffect(() => {
+    const pickRandomWord = () => {
         const words = placeholderWords[level] || [];
         if (words.length > 0) {
-            const randomWord = words[Math.floor(Math.random() * words.length)]; // Pick a random word
-            setSelectedWord(randomWord);
+            return words[Math.floor(Math.random() * words.length)];
         }
+        return null;
+    };
+
+    function checkCountOnClick() {
+        if (!selectedWord) return;
+
+        const isCorrect = selectedWord.soundCount === sliderValue;
+        alert(isCorrect ? "Correct!" : "Incorrect!");
+
+        if (isCorrect) {
+            setSelectedWord(pickRandomWord()); // Pick a new word
+            setSliderValue(0); // Reset slider
+        }
+    };
+
+    useEffect(() => {
+        setSelectedWord(pickRandomWord());
     }, [level]); // Run when level changes
 
     return (
         <div className='horizontal-flex'> 
             <div className='vertical-flex'>
                 {/* <ProgressTracker /> */}
-                <h1 className="title-font">Tick Tally Level: {level}</h1>
+                <h1 className="title-font">Tick Tally</h1>
                 {selectedWord && <PlaySoundCard word={selectedWord.word} />}
                 <p>Selected Word: <strong>{selectedWord ? selectedWord.word : "Loading..."}</strong></p>
 
@@ -70,12 +86,3 @@ export default function TickTally(){
         </div>
     );
 };
-
-function checkCountOnClick(soundCount, sliderValue) {
-
-    console.log(`Selected Word: ${soundCount}`);
-            console.log(`Sound Count: ${soundCount}`);
-            console.log(`Slider Value: ${sliderValue}`);
-            console.log(`Match: ${soundCount === sliderValue}`);
-    
-}
