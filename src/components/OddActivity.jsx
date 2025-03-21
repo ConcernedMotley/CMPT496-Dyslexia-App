@@ -3,9 +3,6 @@
 /**** TODO *************
 - random algorithm could be better 
 - clean up comments
-- css 
-- tracker communication
-- popup for success/fail/new level
 ***********/
 import React, { useState, useEffect, useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
@@ -15,12 +12,12 @@ import { getEmptyImage } from "react-dnd-html5-backend";
 import '../styles/odd_style.css';
 import '../styles/general_style.css';
 
-import tutSymbol from '../assets/tut.svg'
-
 import BottomSprinkles from '../components/BottomSprinkles';
 import NavBar from '../components/NavBar'
 import TrackerSquares from '../components/TrackerSquares';
 import OddTutorial from './tutorials/OddTutorial';
+import AnswerBadge from "./repeated-components/AnswerBadge";
+import EndGamePopup from "./repeated-components/EndGamePopup"
 
 import API_BASE_URL from '../config'; //for connecting to backend
 
@@ -109,6 +106,9 @@ function OddActivity() {
   const [droppedWord, setDroppedWord] = useState(null);
 
   const [trackerResults, setTrackerResults] = useState([]); // Track past results
+
+  const [showBadge, setShowBadge] = useState(false);//display right or wrong badge 
+  const [badgeInfo, setBadgeInfo] = useState({ isCorrect: 0, correctWord: "" });//word to be displayed when wrong
 
   //close popup
   const handleAccept = () => {
@@ -219,26 +219,19 @@ const checkAnswer = () => {
     let isCorrect = droppedWord.index === oddOneOutIndex;
     setTrackerResults(prev => [...prev, isCorrect]); // Add result to tracker
     
+    setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: gameWords[oddOneOutIndex].word });
+    setShowBadge(true);
+
     if (isCorrect) {
       setCorrectCount(prev => prev + 1);
-      alert('Correct! You found the odd one out.');
+      //alert('Correct! You found the odd one out.');
     } else {
       setWrongCount(prev => prev + 1);
-      alert('Incorrect. Try again!');
+      //alert('Incorrect. Try again!');
     }
 
     setRoundCount(prev => prev + 1); // Increment total rounds
 
-    if (roundCount + 1 >= 10) { 
-      //PUT the resets here so that they maintain for the game and each round but new game reset
-      setShowEndPopup(true); // Show popup after 10 rounds
-      setRoundCount(0);      // Reset round count
-    setCorrectCount(0);    // Reset correct answers
-    setWrongCount(0);      // Reset wrong answers
-    setTrackerResults([]); // Reset tracker results
-    } else {
-      generateNewGame(); // Start new round if <10 rounds
-    }
   }
 };
 
@@ -305,54 +298,39 @@ const checkAnswer = () => {
     </div>
     <button className='check-button' onClick={checkAnswer}>Done</button>
 
-        {/*<Link to="/PlayPage">
-          TODO remove the back button and idk have the arrow?? make nav bar clickable 
-          <button className="back-button done-button">Go Back!</button>
-        </Link>*/}
-      
-   
-
-
-              {/* ✅ SCOREBOARD 
-      <div className="scoreboard">
-        <p>Rounds: {roundCount} / 10</p>
-        <p>✅ Correct: {correctCount}</p>
-        <p>❌ Wrong: {wrongCount}</p>
-      </div>*/}
-
-    
-
-    {/* ✅ END-OF-GAME POPUP (PLACED HERE) */}
-    {showEndPopup && (
-      <div className="popup-game-overlay">
-        <div className="popup-game-box">
-          <h2 className='game-title'>Game Over!</h2>
-          <p className='instruction'>
-            You played 10 rounds! 🎉<br />
-            ✅ Correct Answers: {correctCount} <br />
-            ❌ Wrong Answers: {wrongCount}
-          </p>
-          <div className="popup-button">
-            <button 
-              onClick={() => {
-                setRoundCount(0);
-                setCorrectCount(0);
-                setWrongCount(0);
-                setShowEndPopup(false);
-                generateNewGame(); // Restart game
-              }} 
-              className="next-button purple-button"
-            >
-              Play Again
-            </button>
-            <Link to="/PlayPage">
-              <button className="back-button">Quit</button>
-            </Link>
-          </div>
-        </div>
-      </div>
+    {showBadge && (
+      <AnswerBadge 
+      result={badgeInfo.isCorrect} 
+      correctAnswer={badgeInfo.correctWord} 
+      onClose={() => {
+        setShowBadge(false);
+         // Start new round
+        if (roundCount + 1 >= 11) { 
+          //PUT the resets here so that they maintain for the game and each round but new game reset
+          setShowEndPopup(true); // Show popup after 10 rounds
+         
+        }
+        generateNewGame();
+      }}
+    />
     )}
 
+{showEndPopup && (
+  <EndGamePopup
+    correctCount={correctCount}
+    wrongCount={wrongCount}
+    onPlayAgain={() => {
+      setRoundCount(0);
+      setCorrectCount(0);
+      setWrongCount(0);
+      setTrackerResults([]); // Reset tracker results
+      setShowEndPopup(false);
+      generateNewGame(); // Restart game
+    }}
+  />
+)}
+
+  
 
 
     <BottomSprinkles className="landing-sprinkles" />
