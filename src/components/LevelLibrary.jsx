@@ -22,12 +22,12 @@ function LevelLibrary() {
       {/*Button to 'Tick-Tally' (drag to match sounds game) */}
       {/*TODO will need to replace this Dragactivity with the actual path to the game if we use this or other */}
       <Link to={`/DragActivity/${level}`}>
-        <button className="library-button orange-b"><span>Tick-Tally</span></button>
+        <button className="library-button orange-b orange-button"><span>Tick-Tally</span></button>
       </Link>
 
       {/*Button to 'Word Snap' (letter drag game) */}
       <Link to={`/DraggingGame/${level}`}>
-        <button className="library-button turq-b"><span>Word Snap</span></button>
+        <button className="library-button turq-b turquise-button"><span>Word Snap</span></button>
       </Link>
 
       {/*TODO I think dont need this anymore since it was for sound testing??*/}
@@ -37,26 +37,27 @@ function LevelLibrary() {
 
       {/*Button to 'Odd one out' (English words) */}
       <Link to={`/OddActivity/${level}/odd-one-out`}>
-        <button className="library-button green-b"><span>Odd one Out <span className='odd-desc'>(English-Words)</span></span></button>
+        <button className="library-button green-b green-button"><span>Odd one Out <span className='odd-desc'>(English-Words)</span></span></button>
         {/*TODO add the desc of the high score (would be dynamic maybe have some mock data above to pull)*/}
       </Link>
 
       {/*Button to 'Odd one out' (non words) */}
       <Link to={`/OddActivity/${level}/odd-non-word`}>
-        <button className="library-button purp-b"><span>Odd one Out <span className='odd-desc'>(Non-Words)</span></span></button>
+        <button className="library-button purp-b purple-button"><span>Odd one Out <span className='odd-desc'>(Non-Words)</span></span></button>
         {/*TODO add the desc of the high score (would be dynamic maybe have some mock data above to pull)*/}
       </Link>
 
       {/*Button to 'Card Game' (STT game that we will prob not have time to code the css) */}
 
-      <Link to={`/OddActivity/${level}/odd-non-word`}>
-        <button className="library-button turq-b"><span>Card Game</span></button>
+      {/*Since not done just link to the same page.... ALSO this will show the hover effects cause button clicks and stays*/}
+      <Link to={`/LevelLibrary/${level}`}>
+        <button className="library-button turq-b turquise-button"><span>Card Game</span></button>
         {/*TODO add the desc of the high score (would be dynamic maybe have some mock data above to pull)*/}
       </Link>
 
       {/*TODO leaving this button here so it is even amount of game tiles  */}
       <Link to="/PlayPage">
-        <button className="library-button orange-b"><span>Back to Play Page!</span></button>
+        <button className="library-button orange-b orange-button"><span>Back to Play Page!</span></button>
         {/*TODO add the desc of idk return home (would be dynamic maybe have some mock data above to pull)*/}
       </Link>
       </div>
