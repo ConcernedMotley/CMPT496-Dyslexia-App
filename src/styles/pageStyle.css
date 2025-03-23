@@ -7,6 +7,7 @@
     align-items: center;
     width: fit-content;
     justify-self: center;
+    justify-content: center;
 }
 
 .horizontal-flex {
@@ -15,4 +16,81 @@
     align-items: center;
     width: fit-content;
     justify-self: center;
+}
+
+.title-font {
+
+    font-family: lexend, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #60489C;
+}
+
+.audio-card {
+    display: flex;
+    gap: auto;
+    align-items: justify;
+    width: auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 18px;
+}
+
+.audio-card p {
+    width: 24ch;
+    color: #60489C;
+    font-size: 16px;
+}
+
+.slider-card {
+    width: 400px;
+    height: 160px;
+    padding: 16px;
+    background-color: #60489C;
+    border-radius: 25px;
+    border: #DF7C64 solid 4px;
+}
+
+.sound-slider {
+    
+    width: 340px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+
+}
+
+.sound-slider-track {
+    background: white;
+    height: 100%;
+}
+
+.sound-slider-thumb {
+    width: 20px;
+    height: 80px;
+    background: rgb(255, 166, 0);
+    cursor: grab;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sound-slider-mark {
+    width: 10px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.tally-done-btn {
+    background-color: #60489C;
+    color: white;
+    font-family: lexend, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 16px 24px;
 }
