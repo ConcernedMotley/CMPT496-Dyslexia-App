@@ -9,14 +9,41 @@ import '../styles/pageStyle.css';
 import Popup from 'reactjs-popup';
 import { set } from 'mongoose';
 
+import BottomSprinkles from '../components/BottomSprinkles';
+import NavBar from '../components/NavBar'
+import TrackerSquares from '../components/TrackerSquares';
+import OddTutorial from './tutorials/OddTutorial';
+import AnswerBadge from "./repeated-components/AnswerBadge";
+import EndGamePopup from "./repeated-components/EndGamePopup"
+
+ //close popup
+ const handleAccept = () => {
+  setShowPopup(false);
+}
+
 export default function DraggingGame() {
   const { level } = useParams();
+  const [showPopup, setShowPopup] = useState(true);
+
+  const [trackerResults, setTrackerResults] = useState([]); // Track past results
+  const [roundCount, setRoundCount] = useState(0); // Track rounds played
+  const [correctCount, setCorrectCount] = useState(0); // Track correct answers
+  const [wrongCount, setWrongCount] = useState(0); // Track wrong answers
+  const [showEndPopup, setShowEndPopup] = useState(false); // Control end-of-game popup (ask to continue give score etc)
+  const [showBadge, setShowBadge] = useState(false);//display right or wrong badge 
+  const [badgeInfo, setBadgeInfo] = useState({ isCorrect: 0, correctWord: "" });//word to be displayed when wrong
+
   const [activeLetter, setActiveLetter] = useState(null);
   const [currentWord, setCurrentWord] = useState("");
   const [dragOverMessage, setDragOverMessage] = useState("");
   const [boxContents, setBoxContents] = useState(Array(4).fill(''));
   const [popupMessage, setPopupMessage] = useState("");
   const [boxColors, setBoxColors] = useState(Array(4).fill('')); // New state for box colors
+
+    //close popup
+    const handleAccept = () => {
+      setShowPopup(false);
+    }  
 
   useEffect(() => {
     setCurrentWord(RandomWord()); // Set a new word when the component mounts
@@ -62,20 +89,52 @@ export default function DraggingGame() {
 
   const handleDoneClick = () => {
     const formedWord = boxContents.join('').toLowerCase();
-    if (formedWord === currentWord) {
-      setPopupMessage("Correct word");
-      alert("Correct word");
+    const isCorrect = formedWord === currentWord;
+    setTrackerResults(prev => [...prev, isCorrect]); // Add result to tracker
+    
+    
+    setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: currentWord});
+    setShowBadge(true); 
+    console.log(isCorrect);
+
+    console.log("correct word:");
+    console.log(currentWord);
+    if (isCorrect) {
+      //setPopupMessage("Correct word");
+      //alert("Correct word");
+      /************
       setCurrentWord(RandomWord());
       setBoxContents(Array(4).fill(''));
+      *******************/
       // window.location.reload();
+      setCorrectCount(prev => prev + 1);//tracker correct
     } else {
-      alert("Incorrect word");
+      setWrongCount(prev => prev + 1); //tracker wrong
+      //alert("Incorrect word");
     }
+    setRoundCount(prev => prev + 1); // Increment total rounds
   };
 
   return (
+    <><NavBar />
+
+  {showPopup && (
+                  <div className="popup-game-overlay">
+                      <div className="popup-game-box">
+                          <h2 className='game-title'>Word Snap</h2>
+
+                          <p className='instruction'>Get ready to listen, snap, and match! Hear the words, grab the letters,
+                                                  and drop them where they belong. Let's go! </p>
+                          <div className="popup-button">
+                              <button onClick={handleAccept} className="next-button purple-button">Next</button>
+                          </div>
+                      </div>
+                  </div>
+              )}
+    <TrackerSquares trackerResults={trackerResults} />
+
     <DndContext onDragStart={handleDragStart} onDragOver={handleDragOver} onDragEnd={handleDragEnd}>
-      <h1>Drag Activity - Level {level}</h1>
+      <h1>Word-Snap</h1>
       <div className="vertical-flex" style={{ touchAction: 'none' }}>
         <AudioIcon word={currentWord} /> {/* Pass the current word */}
         <LetterGrid currentWord={currentWord} arraySize={9} />
@@ -99,6 +158,43 @@ export default function DraggingGame() {
         ) : null}
       </DragOverlay>
     </DndContext>
+
+    {showBadge && (
+      <AnswerBadge 
+      result={badgeInfo.isCorrect} 
+      correctAnswer={badgeInfo.correctWord} 
+      onClose={() => {
+        setShowBadge(false);
+        if (roundCount + 1 >= 11) { 
+          setShowEndPopup(true); // Show popup after 10 rounds
+          //don't reset yet or the endgame popup wont display the score/10 
+        }
+        // Start new round
+        //generateNewGame();
+        //TODO is this how the game is reset
+        setCurrentWord(RandomWord());
+        setBoxContents(Array(4).fill(''));
+      }}
+    />
+    )}
+
+    {showEndPopup && (
+      <EndGamePopup
+        correctCount={correctCount}
+        wrongCount={wrongCount}
+        onPlayAgain={() => {
+          setRoundCount(0);
+          setCorrectCount(0);
+          setWrongCount(0);
+          setTrackerResults([]); // Reset tracker results
+          setShowEndPopup(false);
+          generateNewGame(); // Restart game
+        }}
+      />
+    )}
+
+    <BottomSprinkles className="landing-sprinkles" />
+    </>
   );
 }
 
