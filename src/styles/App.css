@@ -29,6 +29,7 @@
   height: 32px;
   border-radius: 50%; /* Ensures image is circular */
   object-fit: contain; /* Keeps entire image visible */
+  
 }
 
 
@@ -37,6 +38,7 @@ button {
   width: fit-content;
   border-radius: 10px;
   border-width: 0px;
+  transform: translate(0%, 250%); /*button for tick tally*/
 }
 
 @media only screen and (max-width: 600px) {

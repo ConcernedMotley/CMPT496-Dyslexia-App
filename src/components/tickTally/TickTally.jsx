@@ -125,13 +125,17 @@ export default function TickTally(){
         <div className='horizontal-flex'>
             <div className='vertical-flex'>
                 {/* <ProgressTracker /> */}
-                <h1 className="title-font">Tick Tally</h1>
+                <div className='title-help-container'>
+                <h1 className="title-font purple-text game-header'">Tick-Tally</h1>
+                <OddTutorial />
+                </div>
                 {selectedWord && <PlaySoundCard word={selectedWord.word} />}
+                {/*TODO remove the selected word?? */}
                 <p>Selected Word: <strong>{selectedWord ? selectedWord.word : "Loading..."}</strong></p>
 
                 <SoundSlider value={sliderValue} onChange={setSliderValue} />
 
-                <button className='tally-done-btn' onClick={() => selectedWord && checkCountOnClick(selectedWord.soundCount, sliderValue)}>Done</button>
+                <button className='tally-done-btn ' onClick={() => selectedWord && checkCountOnClick(selectedWord.soundCount, sliderValue)}>Done</button>
 
             </div>
         </div>
