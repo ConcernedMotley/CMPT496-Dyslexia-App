@@ -126,7 +126,7 @@ export default function TickTally(){
             <div className='vertical-flex'>
                 {/* <ProgressTracker /> */}
                 <div className='title-help-container'>
-                <h1 className="title-font purple-text game-header'">Tick-Tally</h1>
+                <h1 className="title-font purple-text game-header">Tick-Tally</h1>
                 <OddTutorial />
                 </div>
                 {selectedWord && <PlaySoundCard word={selectedWord.word} />}

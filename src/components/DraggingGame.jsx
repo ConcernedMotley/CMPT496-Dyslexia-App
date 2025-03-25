@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DndContext, DragOverlay } from '@dnd-kit/core';
+import { DndContext, DragOverlay, closestCenter } from '@dnd-kit/core';
 import { Link, useParams } from 'react-router-dom';
 import LetterGrid from './draggingGame/LetterGrid';
 import DroppableBox from './draggingGame/DroppableBox';
@@ -8,6 +8,7 @@ import '../styles/DraggingGame.css';
 import '../styles/pageStyle.css';
 import Popup from 'reactjs-popup';
 import { set } from 'mongoose';
+import PlaySoundCard from './draggingGame/PlaySoundCard';
 
 import BottomSprinkles from '../components/BottomSprinkles';
 import NavBar from '../components/NavBar'
@@ -67,6 +68,9 @@ export default function DraggingGame() {
   };
 
   const handleDragOver = (event) => {
+    if (event.over) {
+      console.log("Drop Zone ID:", event.over.id, "Position:", event.over.rect);
+    }
     // if (event.over) {
     //   if (event.over.id.split('-')[0] === "dropBox")
     //     setDragOverMessage(`Dragging over ${event.over.id}`);
@@ -133,10 +137,21 @@ export default function DraggingGame() {
               )}
     <TrackerSquares trackerResults={trackerResults} />
 
-    <DndContext onDragStart={handleDragStart} onDragOver={handleDragOver} onDragEnd={handleDragEnd}>
-      <h1>Word-Snap</h1>
-      <div className="vertical-flex" style={{ touchAction: 'none' }}>
-        <AudioIcon word={currentWord} /> {/* Pass the current word */}
+    <DndContext 
+        collisionDetection={closestCenter} 
+        onDragStart={handleDragStart} onDragOver={handleDragOver} onDragEnd={handleDragEnd}>
+    <div className='title-help-container'>
+      <h1 className='title-font purple-text game-header spacing'>Word-Snap</h1>
+      <OddTutorial />
+                </div>
+                <div className='horizontal-flex'>
+      <div className="vertical-flex drag-flex" style={{ touchAction: 'none' }}>
+        {currentWord && (
+        <div className="card-wrapper-drag"> 
+        <PlaySoundCard word={currentWord} />
+        </div>)}
+            
+        {/* <AudioIcon word={currentWord} /> {/* Pass the current word */}
         <LetterGrid currentWord={currentWord} arraySize={9} />
         <DroppableBox
           count={4}
@@ -146,7 +161,8 @@ export default function DraggingGame() {
           boxColors={boxColors} // Pass the box colors to DroppableBox
         />
         <p>{dragOverMessage}</p> {/* Display drag over message */}
-        <button onClick={handleDoneClick}>Done</button>
+        <button className='snap-done-btn' onClick={handleDoneClick}>Done</button>
+      </div>
       </div>
 
       {/* Drag overlay for better movement */}
