@@ -16,7 +16,7 @@ export default function DraggingGame() {
   const [dragOverMessage, setDragOverMessage] = useState("");
   const [boxContents, setBoxContents] = useState(Array(4).fill(''));
   const [popupMessage, setPopupMessage] = useState("");
-  const [boxColors, setBoxColors] = useState(Array(4).fill('').fill('#F9F5EB;')); // New state for box colors
+  const [boxColors, setBoxColors] = useState(Array(4).fill('')); // New state for box colors
 
   useEffect(() => {
     setCurrentWord(RandomWord()); // Set a new word when the component mounts
@@ -34,11 +34,6 @@ export default function DraggingGame() {
       return newColors;
     });
   };
-    // Reset box colors to default on badge close
-    const resetColors = () => {
-      setBoxColors(Array(4).fill('#F9F5EB')); // Reset colors to default (white or any other color you prefer)
-    };
-  
 
   const handleDragStart = (event) => {
     setActiveLetter(event.active.id.split('-')[1]);
@@ -104,45 +99,6 @@ export default function DraggingGame() {
         ) : null}
       </DragOverlay>
     </DndContext>
-
-    {showBadge && (
-      <AnswerBadge 
-      result={badgeInfo.isCorrect} 
-      correctAnswer={badgeInfo.correctWord} 
-      onClose={() => {
-        setShowBadge(false);
-        if (roundCount + 1 >= 11) { 
-          setShowEndPopup(true); // Show popup after 10 rounds
-          //don't reset yet or the endgame popup wont display the score/10 
-        }
-        // Start new round
-        //generateNewGame();
-        //TODO is this how the game is reset
-        resetColors(); // Reset box colors when the badge is closed
-        setCurrentWord(RandomWord());
-        setBoxContents(Array(4).fill(''));
-      }}
-    />
-    )}
-
-    {showEndPopup && (
-      <EndGamePopup
-        correctCount={correctCount}
-        wrongCount={wrongCount}
-        onPlayAgain={() => {
-          setRoundCount(0);
-          setCorrectCount(0);
-          setWrongCount(0);
-          setTrackerResults([]); // Reset tracker results
-          setShowEndPopup(false);
-          generateNewGame(); // Restart game
-        }}
-      />
-    )}
-
-    <BottomSprinkles className="landing-sprinkles" />
-    </>
-
   );
 }
 
