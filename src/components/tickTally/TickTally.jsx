@@ -11,6 +11,7 @@ import TrackerSquares from '../../components/TrackerSquares';
 import OddTutorial from '.././tutorials/OddTutorial';
 import AnswerBadge from ".././repeated-components/AnswerBadge";
 import EndGamePopup from ".././repeated-components/EndGamePopup"
+import PopUpBox from '../PopUpBox';
 
 // Placeholder JSON data
 const placeholderWords = {
@@ -106,17 +107,10 @@ export default function TickTally(){
     return (
         <><NavBar />
 
-        {showPopup && (
-            <div className="popup-game-overlay">
-            <div className="popup-game-box">
-                <h2 className='game-title'>Tick-Tally</h2>
-
-                <p className='instruction'> Hear a word, count its sounds (phonemes), and mark the right number. Let's go! </p>
-                <div className="popup-button">
-                    <button onClick={handleAccept} className="next-button purple-button">Next</button>
-                </div>
-            </div>
-        </div>
+        {showPopup && ( 
+            <PopUpBox handleAccept={handleAccept} 
+            gameTitle="Tick-Tally" 
+            instructions={"Hear a word, count its sounds (phonemes), and mark the right number. Let's go!"}/>
 
         )}
         <TrackerSquares trackerResults={trackerResults} />

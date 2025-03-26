@@ -9,6 +9,7 @@ import '../styles/pageStyle.css';
 import Popup from 'reactjs-popup';
 import { set } from 'mongoose';
 import PlaySoundCard from './draggingGame/PlaySoundCard';
+import PopUpBox from './PopUpBox';
 
 import BottomSprinkles from '../components/BottomSprinkles';
 import NavBar from '../components/NavBar'
@@ -71,12 +72,6 @@ export default function DraggingGame() {
     if (event.over) {
       console.log("Drop Zone ID:", event.over.id, "Position:", event.over.rect);
     }
-    // if (event.over) {
-    //   if (event.over.id.split('-')[0] === "dropBox")
-    //     setDragOverMessage(`Dragging over ${event.over.id}`);
-    // } else {
-    //   setDragOverMessage("");
-    // }
   };
 
   const handleDragEnd = (event) => {
@@ -123,18 +118,10 @@ export default function DraggingGame() {
     <><NavBar />
 
   {showPopup && (
-                  <div className="popup-game-overlay">
-                      <div className="popup-game-box">
-                          <h2 className='game-title'>Word Snap</h2>
-
-                          <p className='instruction'>Get ready to listen, snap, and match! Hear the words, grab the letters,
-                                                  and drop them where they belong. Let's go! </p>
-                          <div className="popup-button">
-                              <button onClick={handleAccept} className="next-button purple-button">Next</button>
-                          </div>
-                      </div>
-                  </div>
-              )}
+    <PopUpBox instructions="Get ready to listen, snap, and match! Hear the words, grab the letters,
+                                                  and drop them where they belong. Let's go!"
+      handleAccept={handleAccept} gameTitle="Word Snap"  />)}
+      
     <TrackerSquares trackerResults={trackerResults} />
 
     <DndContext 
