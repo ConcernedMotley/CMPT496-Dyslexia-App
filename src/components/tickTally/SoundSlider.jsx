@@ -19,8 +19,8 @@ export default function SoundSlider({value, onChange}) {
                 thumbClassName="sound-slider-thumb"
                 markClassName="sound-slider-mark"
                 value={value}
-                min={min}
-                max={max}
+                min={0}
+                max={6}
                 step={1}
                 onChange={onChange}
                 marks={1}

@@ -94,16 +94,3 @@
     font-weight: bold;
     padding: 16px 24px;
 }
-
-.slider-values {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.slider-value {
-    text-align: center;
-    flex: 1;
-}
