@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DndContext, DragOverlay, closestCenter } from '@dnd-kit/core';
+import { DndContext, DragOverlay } from '@dnd-kit/core';
 import { Link, useParams } from 'react-router-dom';
 import LetterGrid from './draggingGame/LetterGrid';
 import DroppableBox from './draggingGame/DroppableBox';
@@ -8,43 +8,15 @@ import '../styles/DraggingGame.css';
 import '../styles/pageStyle.css';
 import Popup from 'reactjs-popup';
 import { set } from 'mongoose';
-import PlaySoundCard from './draggingGame/PlaySoundCard';
-
-import BottomSprinkles from '../components/BottomSprinkles';
-import NavBar from '../components/NavBar'
-import TrackerSquares from '../components/TrackerSquares';
-import OddTutorial from './tutorials/OddTutorial';
-import AnswerBadge from "./repeated-components/AnswerBadge";
-import EndGamePopup from "./repeated-components/EndGamePopup"
-
- //close popup
- const handleAccept = () => {
-  setShowPopup(false);
-}
 
 export default function DraggingGame() {
   const { level } = useParams();
-  const [showPopup, setShowPopup] = useState(true);
-
-  const [trackerResults, setTrackerResults] = useState([]); // Track past results
-  const [roundCount, setRoundCount] = useState(0); // Track rounds played
-  const [correctCount, setCorrectCount] = useState(0); // Track correct answers
-  const [wrongCount, setWrongCount] = useState(0); // Track wrong answers
-  const [showEndPopup, setShowEndPopup] = useState(false); // Control end-of-game popup (ask to continue give score etc)
-  const [showBadge, setShowBadge] = useState(false);//display right or wrong badge 
-  const [badgeInfo, setBadgeInfo] = useState({ isCorrect: 0, correctWord: "" });//word to be displayed when wrong
-
   const [activeLetter, setActiveLetter] = useState(null);
   const [currentWord, setCurrentWord] = useState("");
   const [dragOverMessage, setDragOverMessage] = useState("");
   const [boxContents, setBoxContents] = useState(Array(4).fill(''));
   const [popupMessage, setPopupMessage] = useState("");
   const [boxColors, setBoxColors] = useState(Array(4).fill('').fill('#F9F5EB;')); // New state for box colors
-
-    //close popup
-    const handleAccept = () => {
-      setShowPopup(false);
-    }  
 
   useEffect(() => {
     setCurrentWord(RandomWord()); // Set a new word when the component mounts
@@ -73,9 +45,6 @@ export default function DraggingGame() {
   };
 
   const handleDragOver = (event) => {
-    if (event.over) {
-      console.log("Drop Zone ID:", event.over.id, "Position:", event.over.rect);
-    }
     // if (event.over) {
     //   if (event.over.id.split('-')[0] === "dropBox")
     //     setDragOverMessage(`Dragging over ${event.over.id}`);
@@ -98,65 +67,22 @@ export default function DraggingGame() {
 
   const handleDoneClick = () => {
     const formedWord = boxContents.join('').toLowerCase();
-    const isCorrect = formedWord === currentWord;
-    setTrackerResults(prev => [...prev, isCorrect]); // Add result to tracker
-    
-    
-    setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: currentWord});
-    setShowBadge(true); 
-    console.log(isCorrect);
-
-    console.log("correct word:");
-    console.log(currentWord);
-    if (isCorrect) {
-      //setPopupMessage("Correct word");
-      //alert("Correct word");
-      /************
+    if (formedWord === currentWord) {
+      setPopupMessage("Correct word");
+      alert("Correct word");
       setCurrentWord(RandomWord());
       setBoxContents(Array(4).fill(''));
-      *******************/
       // window.location.reload();
-      setCorrectCount(prev => prev + 1);//tracker correct
     } else {
-      setWrongCount(prev => prev + 1); //tracker wrong
-      //alert("Incorrect word");
+      alert("Incorrect word");
     }
-    setRoundCount(prev => prev + 1); // Increment total rounds
   };
 
   return (
-    <><NavBar />
-
-  {showPopup && (
-                  <div className="popup-game-overlay">
-                      <div className="popup-game-box">
-                          <h2 className='game-title'>Word Snap</h2>
-
-                          <p className='instruction'>Get ready to listen, snap, and match! Hear the words, grab the letters,
-                                                  and drop them where they belong. Let's go! </p>
-                          <div className="popup-button">
-                              <button onClick={handleAccept} className="next-button purple-button">Next</button>
-                          </div>
-                      </div>
-                  </div>
-              )}
-    <TrackerSquares trackerResults={trackerResults} />
-
-    <DndContext 
-        collisionDetection={closestCenter} 
-        onDragStart={handleDragStart} onDragOver={handleDragOver} onDragEnd={handleDragEnd}>
-    <div className='title-help-container'>
-      <h1 className='title-font purple-text game-header spacing'>Word-Snap</h1>
-      <OddTutorial />
-                </div>
-                <div className='horizontal-flex'>
-      <div className="vertical-flex drag-flex" style={{ touchAction: 'none' }}>
-        {currentWord && (
-        <div className="card-wrapper-drag"> 
-        <PlaySoundCard word={currentWord} />
-        </div>)}
-            
-        {/* <AudioIcon word={currentWord} /> {/* Pass the current word */}
+    <DndContext onDragStart={handleDragStart} onDragOver={handleDragOver} onDragEnd={handleDragEnd}>
+      <h1>Drag Activity - Level {level}</h1>
+      <div className="vertical-flex" style={{ touchAction: 'none' }}>
+        <AudioIcon word={currentWord} /> {/* Pass the current word */}
         <LetterGrid currentWord={currentWord} arraySize={9} />
         <DroppableBox
           count={4}
@@ -166,8 +92,7 @@ export default function DraggingGame() {
           boxColors={boxColors} // Pass the box colors to DroppableBox
         />
         <p>{dragOverMessage}</p> {/* Display drag over message */}
-        <button className='snap-done-btn' onClick={handleDoneClick}>Done</button>
-      </div>
+        <button onClick={handleDoneClick}>Done</button>
       </div>
 
       {/* Drag overlay for better movement */}
@@ -217,6 +142,7 @@ export default function DraggingGame() {
 
     <BottomSprinkles className="landing-sprinkles" />
     </>
+
   );
 }
 

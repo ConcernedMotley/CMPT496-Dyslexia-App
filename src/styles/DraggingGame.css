@@ -7,22 +7,19 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(3, auto);
-  gap: 15px;
+  gap: 10px;
   justify-content: center;
-
-  transform: translate(40%, 0%);
 }
 
 .letter-box {
   display: flex;
-  width: 60px;
-  height: 60px;
+  width: 32px;
+  height: 32px;
   background-color: var(--letter-unselected-background);
   padding: 16px;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  
 }
 
 .letter-font {
@@ -30,52 +27,18 @@
   font-size: 32px;
   color: #F9F5EB;
 }
-.drop-box-container {
-  max-width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: -150px; /* Adjust positioning */
-  
-}
+
 .drop-box {
-  margin-right: -430px;
   display: flex;
-  width: 90px;
-  height: 90px;
-  
-  background-color: #F9F5EB;
-  padding: 0px;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  padding: 16px;
   align-items: center;
   justify-content: center;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 4px dashed grey;
-  transform: translate(0%, 0%); /*TODO need to move the drop box over but idk can get it over this much then it registers wrong */
-
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 32px;
-  color: #F9F5EB;
-  
 }
-
-
-.snap-done-btn{
-    background-color: #60489C;
-    color: white;
-    font-family: "Lexend", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 50px;
-    /* identical to box height */
-    text-align: center;
-    letter-spacing: 0.02em;
-    border-radius: 20px;
-    padding: 20px 56px;
-    left: 50%;
-    bottom: 20%;
-}
-
 
 /* Free movement for dragged elements */
 .dragging {
@@ -98,10 +61,4 @@
 /* Change the background of the drop box when occupied */
 .drop-box.occupied {
   background-color: #d3f8d3; 
-}
-
-.horizontal-flex {
-  display: flex;
-  justify-content: center; /* Ensures even spacing */
-  gap: 10px; /* Adjust spacing between drop zones */
 }
