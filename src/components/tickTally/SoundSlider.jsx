@@ -8,7 +8,6 @@ export default function SoundSlider({value, onChange}) {
     const max = 6;
     const step = 1;
 
-
     
     return (
         <div className="vertical-flex slider-card">
@@ -26,18 +25,15 @@ export default function SoundSlider({value, onChange}) {
                 marks={1}
 
             />
-
                         {/* Number labels under the slider */}
                         <div className="slider-labels">
                 {Array.from({ length: max - min + 1 }, (_, i) => (
                     <span key={i} className="slider-label">
                         {i + min}
-
-
-
                     </span>
                 ))}
             </div>
+
 
         </div>
     );

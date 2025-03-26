@@ -1,5 +1,5 @@
 /*TODO not sure if can delete*/
-
+/*Tick-Tally*/
 .vertical-flex {
     display: flex;
     flex-direction: column;
@@ -8,6 +8,7 @@
     width: fit-content;
     justify-self: center;
     justify-content: center;
+    transform: translate(-10%, 10%);
 }
 
 .horizontal-flex {
@@ -16,12 +17,13 @@
     align-items: center;
     width: fit-content;
     justify-self: center;
+    transform: translate(40%, 0%);
 }
 
 .title-font {
 
-    font-family: lexend, sans-serif;
-    font-size: 40px;
+    font-family: "Lexend", sans-serif;
+    font-size: 60px;
     font-weight: bold;
     color: #60489C;
 }
@@ -34,12 +36,26 @@
     background-color: white;
     padding: 10px;
     border-radius: 18px;
+    transform: scale(1.2) translate(-0%, -40%); /*move the card on tick tally and word snap*/
+}
+
+.drag-flex{
+    display: flex;
+    transform: translate(0%, 0%); /*move the card on word snap but it moves EVERYTHING*/
+}
+.card-wrapper-drag{
+    margin-left: 70%;
+}
+.spacing{ /*adding padding to just word-snap*/
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .audio-card p {
     width: 24ch;
     color: #60489C;
     font-size: 16px;
+    
 }
 
 .slider-card {
@@ -49,6 +65,7 @@
     background-color: #60489C;
     border-radius: 25px;
     border: #DF7C64 solid 4px;
+    transform: scale(1.2) translate(0%, -5%);
 }
 
 .sound-slider {
@@ -68,7 +85,7 @@
 .sound-slider-thumb {
     width: 20px;
     height: 80px;
-    background: rgb(255, 166, 0);
+    background: #EE755D;
     cursor: grab;
     position: absolute;
     top: 50%;
@@ -89,8 +106,34 @@
 .tally-done-btn {
     background-color: #60489C;
     color: white;
-    font-family: lexend, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 16px 24px;
+    font-family: "Lexend", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.02em;
+    border-radius: 20px;
+    padding: 20px 56px;
+    bottom: -50%;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px; /* Adjust spacing */
+    width: 95%;
+    transform: translate(-3%, 20%);
+
+    color: white;
+    font-family: "Lexend", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.slider-label {
+    text-align: center;
+    flex: 1;
 }
