@@ -552,7 +552,7 @@ a {
   
   .replay-buttons {
     position: absolute;
-    bottom: 10%; /* Moves buttons to the bottom quarter */
+    bottom: 37%; /* Moves buttons to the bottom quarter */
     left: 50%;
     transform: translateX(-50%); /* Centers buttons horizontally */
     display: flex;
@@ -561,7 +561,7 @@ a {
     justify-content: center;
     gap: 10px;
     width: 100%;
-    z-index: 1; /* Ensures buttons stay above the image */
+    z-index: 100; /* Ensures buttons stay above the image */
   }
   
   .again, .quit {

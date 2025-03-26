@@ -89,7 +89,7 @@ html, body {
   align-items: center;
   bottom: 80px; /* Adjust as needed */
   left: 50%;
-  transform: translate(-40%, 25%);
+  transform: translate(-50%, 25%);
   z-index: 10;
   pointer-events: auto;
 
