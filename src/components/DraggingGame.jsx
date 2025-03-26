@@ -39,7 +39,7 @@ export default function DraggingGame() {
   const [dragOverMessage, setDragOverMessage] = useState("");
   const [boxContents, setBoxContents] = useState(Array(4).fill(''));
   const [popupMessage, setPopupMessage] = useState("");
-  const [boxColors, setBoxColors] = useState(Array(4).fill('')); // New state for box colors
+  const [boxColors, setBoxColors] = useState(Array(4).fill('').fill('#F9F5EB;')); // New state for box colors
 
     //close popup
     const handleAccept = () => {
@@ -62,6 +62,11 @@ export default function DraggingGame() {
       return newColors;
     });
   };
+    // Reset box colors to default on badge close
+    const resetColors = () => {
+      setBoxColors(Array(4).fill('#F9F5EB')); // Reset colors to default (white or any other color you prefer)
+    };
+  
 
   const handleDragStart = (event) => {
     setActiveLetter(event.active.id.split('-')[1]);
@@ -188,6 +193,7 @@ export default function DraggingGame() {
         // Start new round
         //generateNewGame();
         //TODO is this how the game is reset
+        resetColors(); // Reset box colors when the badge is closed
         setCurrentWord(RandomWord());
         setBoxContents(Array(4).fill(''));
       }}

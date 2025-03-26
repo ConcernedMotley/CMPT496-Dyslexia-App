@@ -116,6 +116,7 @@
     letter-spacing: 0.02em;
     border-radius: 20px;
     padding: 20px 56px;
+    bottom: -50%;
 }
 
 .slider-labels {

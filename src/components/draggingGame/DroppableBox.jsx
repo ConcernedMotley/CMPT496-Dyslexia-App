@@ -29,13 +29,14 @@ function DropBox({ boxId, content, updateContent, color }) {
 
   return (
     <div className="drop-box-container">
-    <div className="drop-box" id={boxId} key={boxId} ref={setNodeRef} 
-    style={{ 
-      backgroundColor: color, 
-      /*transform: `translateX(-150%)`,*/
-     }}>
-      {content}
+    <div className="drop-box" id={boxId} key={boxId} ref={setNodeRef}
+    style={{
+    backgroundColor: color,
+    /*transform: `translateX(-150%)`,*/
+    }}>
+    {content}
     </div>
-   </div>
-  );
-}
+    </div>
+    );
+    }
+    
