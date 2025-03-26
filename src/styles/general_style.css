@@ -356,7 +356,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
+    background: rgba(0, 0, 0, 0.6); /* Dark transparent overlay */
     /*backdrop-filter: blur(8px); /* Blurs everything */
     display: flex;
     justify-content: center;
@@ -394,15 +394,15 @@ a {
   }
   
   .focus-dropzone {
-    top: 75%;
+    top: 76%;
     left: 33%;
     width: 290px;
     height: 100px;
   }
   
   .focus-check {
-    bottom: 5.6%;
-    right: 35.1%;
+    bottom: 4.5%;
+    right: 36.5%;
     width: 217px;
     height: 100px;
     border-radius: 20px;
@@ -561,7 +561,7 @@ a {
   
   .replay-buttons {
     position: absolute;
-    bottom: 37%; /* Moves buttons to the bottom quarter */
+    bottom: 10%; /* Moves buttons to the bottom quarter */
     left: 50%;
     transform: translateX(-50%); /* Centers buttons horizontally */
     display: flex;
