@@ -101,8 +101,8 @@ function OddActivity() {
   const [words, setWords] = useState([]);
   const [gameWords, setGameWords] = useState([]); //stores the three selected words
   //const [selectedBox, setSelectedBox] = useState(null); //tracks the box user selects, null at init
-  //const [oddOneOutIndex, setOddOneOutIndex] = useState(null); //stores the index of the random "odd" box, init null
-  const [oddOneOutWord, setOddOneOutWord] = useState(null);
+  const [oddOneOutIndex, setOddOneOutIndex] = useState(null); //stores the index of the random "odd" box, init null
+
   const [droppedWord, setDroppedWord] = useState(null);
 
   const [trackerResults, setTrackerResults] = useState([]); // Track past results
@@ -207,9 +207,7 @@ function OddActivity() {
     //combine and shuffle words
     const selectedWords = [...sameTagWords, oddWord].sort(() => Math.random() - 0.5);
     setGameWords(selectedWords);
-    setOddOneOutWord(oddWord); // Store the word, not the index
-    //setOddOneOutIndex(selectedWords.indexOf(oddWord));
-    
+    setOddOneOutIndex(selectedWords.indexOf(oddWord));
     //setSelectedBox(null);
     setDroppedWord(null);
     //setPreviousWord(null);
@@ -218,19 +216,10 @@ function OddActivity() {
 
 const checkAnswer = () => {
   if (droppedWord) {
-    console.log("Dropped Word:", droppedWord.word.word);
-    console.log("Odd One Out Word:", oddOneOutWord.word);
-
-    //let isCorrect = droppedWord.index === oddOneOutIndex; //for some reason erroring
-    //let isCorrect = droppedWord.word === gameWords[oddOneOutIndex]?.word;
-    let isCorrect = droppedWord.word.word === oddOneOutWord.word;
-    //console.log(droppedWord.word);
-    //console.log(gameWords[oddOneOutIndex]?.word)
-    console.log('Is Answer Correct?', isCorrect);
+    let isCorrect = droppedWord.index === oddOneOutIndex;
     setTrackerResults(prev => [...prev, isCorrect]); // Add result to tracker
     
-    //setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: gameWords[oddOneOutIndex].word });
-    setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: oddOneOutWord.word });
+    setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: gameWords[oddOneOutIndex].word });
     setShowBadge(true);
 
     if (isCorrect) {
