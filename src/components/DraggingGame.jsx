@@ -92,7 +92,7 @@ export default function DraggingGame() {
   };
 
   const handleDoneClick = () => {
-    const formedWord = boxContents.join('').toLowerCase();
+    const formedWord = boxContents.reverse().join('').toLowerCase();
     const isCorrect = formedWord === currentWord;
     setTrackerResults(prev => [...prev, isCorrect]); // Add result to tracker
     
