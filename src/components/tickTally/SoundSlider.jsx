@@ -11,7 +11,7 @@ export default function SoundSlider({value, onChange}) {
 
     
     return (
-        <div className="vertical-flex slider-card">
+        <div className="slider-card">
             <ReactSlider
             
                 className="sound-slider"
