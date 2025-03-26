@@ -105,36 +105,34 @@ export default function TickTally(){
     }, [level]); // Run when level changes
 
     return (
-        <>
-            <NavBar />
+        <><NavBar />
 
-            {showPopup && ( 
-                <PopUpBox handleAccept={handleAccept} 
-                gameTitle="Tick-Tally" 
-                instructions={"Hear a word, count its sounds (phonemes), and mark the right number. Let's go!"}/>)}
-            <TrackerSquares trackerResults={trackerResults} />
+        {showPopup && ( 
+            <PopUpBox handleAccept={handleAccept} 
+            gameTitle="Tick-Tally" 
+            instructions={"Hear a word, count its sounds (phonemes), and mark the right number. Let's go!"}/>
+
+        )}
+        <TrackerSquares trackerResults={trackerResults} />
         
         
-            <div className='horizontal-flex'>
-                <div className='vertical-flex'>
-                    {/* <ProgressTracker /> */}
-                    <div className='title-help-container'>
-                    <h1 className="title-font purple-text game-header">Tick-Tally</h1>
-                    <OddTutorial />
-                    </div>
-                    {selectedWord && <PlaySoundCard word={selectedWord.word} />}
-                    {/*TODO remove the selected word?? */}
-                    <p>Selected Word: <strong>{selectedWord ? selectedWord.word : "Loading..."}</strong></p>
-
-                    <SoundSlider value={sliderValue} onChange={setSliderValue} />
-
-                    <button className='tally-done-btn ' 
-                    onClick={() => selectedWord && checkCountOnClick(selectedWord.soundCount, sliderValue)}>
-                        Done
-                    </button>
-
+        <div className='horizontal-flex'>
+            <div className='vertical-flex'>
+                {/* <ProgressTracker /> */}
+                <div className='title-help-container'>
+                <h1 className="title-font purple-text game-header">Tick-Tally</h1>
+                <OddTutorial />
                 </div>
+                {selectedWord && <PlaySoundCard word={selectedWord.word} />}
+                {/*TODO remove the selected word?? */}
+                <p>Selected Word: <strong>{selectedWord ? selectedWord.word : "Loading..."}</strong></p>
+
+                <SoundSlider value={sliderValue} onChange={setSliderValue} />
+
+                <button className='tally-done-btn ' onClick={() => selectedWord && checkCountOnClick(selectedWord.soundCount, sliderValue)}>Done</button>
+
             </div>
+        </div>
 
         {showBadge && (
             <AnswerBadge 
@@ -149,8 +147,10 @@ export default function TickTally(){
                 // Start new round
                 //generateNewGame();
                 setSelectedWord(pickRandomWord()); // Pick a new word
-                setSliderValue(0); // Reset slider 
-                }} /> )}
+                setSliderValue(0); // Reset slider
+            }}
+            />
+            )}
 
             {showEndPopup && (
                 <EndGamePopup
@@ -163,9 +163,11 @@ export default function TickTally(){
                     setTrackerResults([]); // Reset tracker results
                     setShowEndPopup(false);
                     generateNewGame(); // Restart game
-                    }} /> )}
+                    }}
+                />
+                )}
         
-            <BottomSprinkles className="landing-sprinkles" />
+        <BottomSprinkles className="landing-sprinkles" />
         </>
     );
 };
