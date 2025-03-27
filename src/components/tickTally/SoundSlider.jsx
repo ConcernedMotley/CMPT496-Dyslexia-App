@@ -7,12 +7,10 @@ export default function SoundSlider({value, onChange}) {
     const min = 0;
     const max = 6;
     const step = 1;
-
     
     return (
         <div className="vertical-flex slider-card">
             <ReactSlider
-            
                 className="sound-slider"
                 trackClassName="sound-slider-track"
                 thumbClassName="sound-slider-thumb"
@@ -23,8 +21,8 @@ export default function SoundSlider({value, onChange}) {
                 step={1}
                 onChange={onChange}
                 marks={1}
-
             />
+            
                         {/* Number labels under the slider */}
                         <div className="slider-labels">
                 {Array.from({ length: max - min + 1 }, (_, i) => (
@@ -33,8 +31,6 @@ export default function SoundSlider({value, onChange}) {
                     </span>
                 ))}
             </div>
-
-
         </div>
     );
 }

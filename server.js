@@ -5,7 +5,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './backend/config/database.js';
-//import moviesRoutes from './backend/routes/movies.js'; // Import movies route
 
 //TODO routes to add as stuff is added to DB
 import oddOneOutRoutes from './backend/routes/oddOneOutRoutes.js';
@@ -24,9 +23,6 @@ app.use(cors()); //this enables cors for all origins (temp)
 
 const PORT = process.env.PORT || 5001; // Use 5001 if PORT is not set in .env
 
-//use the movies API route 
-//TODO will need to change once doing other collection
-//app.use('/api/movies', moviesRoutes);
 
 //TODO routes for each game and user data etc...
 //new route for odd one out 

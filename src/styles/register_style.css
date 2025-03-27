@@ -77,23 +77,9 @@
 
   width: clamp(480px, 100%, 1000px); /* Shrinks down on small screens */
   height: clamp(50px, 9vh, 91px);
-  /*right: clamp(4vw, 3vw, 10vw); /* TODO move it slightly right?? */
   margin-bottom: clamp(20px, 4vh, 100px); /* TODO Space between fields seems off */
 
 }
-
-/* i think i dont need any of this?
-.input-background {
-  width: 0%;/*anything above 0 it has a box far left ???
-  height: 100%; /* TODO not really sure Adjust based on input size 
-  background: white;
-  border-radius: 20px;
-  border: 1px solid #5B5B5B;
-  position: absolute;
-  top: 0;
-  left: 0;
-  /*z-index: 1; /* Ensure it's behind the text 
-}*/
 
 /* Input field styling */
 .field input {
@@ -158,25 +144,6 @@
   
 }
 
-/*ask here**************************************
-.other-reg-desc .first-part {
-  color: #696969;
-  font-size: 25px;
-  font-family: Lexend;
-  font-weight: 600;
-  word-wrap: break-word;
- 
-}
-
-.other-reg-desc .second-part {
-  color: #959595;
-  font-size: 25px;
-  font-family: Century Gothic; 
-  font-weight: 700;
-  word-wrap: break-word;
-}*********************************************/
-
-
 .apple-button, .google-button {
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -203,7 +170,6 @@
   justify-content: center; /* Centers the buttons */
   align-items: center;
   gap: 20px; /* Space between buttons */
-  /*margin-top: 20px; /* Space below "Or sign up with" */
   width: 100%; /* Make sure it stretches *//*TODO i just jacked this up to get the buttons larger length LOL*/
   max-width: 1000px; /* Prevents it from being too wide */ 
   transform: translateX(0%);
@@ -229,7 +195,6 @@
   color: #696969;
   text-align: center;
   font-size: clamp(14px, 2vw, 24px);
-  /*margin-top: clamp(20px, 5vh, 40px);*/
   transform: translateX(50%); /* TODO move it right seems very off ish */
 }
 
@@ -273,12 +238,6 @@ input[type="password"] {
 
 .disclaimer{
 /* Privacy Disclaimer */
-/*position: absolute;
-width: 240px;
-height: 31px;
-left: 297px;
-top: 417px;*/
-
 /* Lexend Bold */
 font-family: 'Lexend', sans-serif;
 font-style: normal;
@@ -293,12 +252,6 @@ margin-top: 20px; /* Adds spacing */
 }
 
 .terms{
-  /*position: absolute;
-  width: 409px;
-  height: 143px;
-  left: 212px;
-  top: 469px;*/
-
   font-family: 'Lexend', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -315,13 +268,6 @@ margin-top: 20px; /* Adds spacing */
 
 .do-you{
   /* Do you accept? */
-
-  /*position: absolute;
-  width: 409px;
-  height: 23px;
-  left: calc(50% - 409px/2 + 0.5px);
-  top: 641px;*/
-
   font-family: 'Lexend', sans-serif;
   font-style: normal;
   font-weight: 700;

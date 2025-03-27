@@ -105,6 +105,7 @@ const RegisterPage = () => {
           </div>
         </div>
         <div className="terms-link">
+          {/*TODO have this show a popup of terms and conditions or have it link to a full page with more in depth*/}
           <Link to="/terms-and-conditions">Our Policy and Terms & Conditions</Link>
         </div>
         

@@ -20,7 +20,6 @@ const AnswerBadge = ({ result, correctAnswer, onClose }) => {
         {result === 0 && (
           <p className= {correctAnswer.length == 1 ? 'correct-answer-text digit-answer-text' :correctAnswer.length >= 6 ? 'correct-answer-text long-answer-text' : 
                 correctAnswer.length == 5 ? 'correct-answer-text med-answer-text' : 'correct-answer-text short-answer-text'}>
-          {/*<p className="correct-answer-text ">*/}
             {correctAnswer}
           </p>
         )}

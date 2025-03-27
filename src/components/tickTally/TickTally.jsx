@@ -1,7 +1,6 @@
 import { func } from 'prop-types';
 import React, {useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ProgressTracker from '../ProgressTracker';
 import PlaySoundCard from './PlaySoundCard';
 import SoundSlider from './SoundSlider';
 
@@ -81,16 +80,12 @@ export default function TickTally(){
 
         const isCorrect = selectedWord.soundCount === sliderValue;
         setTrackerResults(prev => [...prev, isCorrect]); // Add result to tracker
-        //alert(isCorrect ? "Correct!" : "Incorrect!");
-        //TODO middle of getting badge to show
         console.log(selectedWord.soundCount);
         setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: selectedWord.soundCount.toString() });
         
         setShowBadge(true);
 
         if (isCorrect) {
-            //setSelectedWord(pickRandomWord()); // Pick a new word
-            //setSliderValue(0); // Reset slider
             setCorrectCount(prev => prev + 1);//tracker correct
         } else{
             setWrongCount(prev => prev + 1); //tracker wrong
@@ -130,8 +125,6 @@ export default function TickTally(){
                 <OddTutorial />
                 </div>
                 {selectedWord && <PlaySoundCard word={selectedWord.word} />}
-                {/*TODO remove the selected word?? */}
-                <p>Selected Word: <strong>{selectedWord ? selectedWord.word : "Loading..."}</strong></p>
 
                 <SoundSlider value={sliderValue} onChange={setSliderValue} />
 
@@ -151,7 +144,6 @@ export default function TickTally(){
                 //don't reset yet or the endgame popup wont display the score/10 
                 }
                 // Start new round
-                //generateNewGame();
                 setSelectedWord(pickRandomWord()); // Pick a new word
                 setSliderValue(0); // Reset slider
             }}

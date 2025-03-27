@@ -1,3 +1,5 @@
+//TODO left this incase we want to swap movie stuff out for a table of game words
+
 // src/components/WordCollection.jsx
 import React, { useState, useEffect } from 'react';
 
