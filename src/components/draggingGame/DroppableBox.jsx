@@ -32,7 +32,6 @@ function DropBox({ boxId, content, updateContent, color }) {
     <div className="drop-box" id={boxId} key={boxId} ref={setNodeRef}
     style={{
     backgroundColor: color,
-    /*transform: `translateX(-150%)`,*/
     }}>
     {content}
     </div>

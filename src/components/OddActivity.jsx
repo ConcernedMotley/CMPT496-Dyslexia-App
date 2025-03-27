@@ -2,7 +2,6 @@
 
 /**** TODO *************
 - random algorithm could be better 
-- clean up comments
 ***********/
 import React, { useState, useEffect, useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
@@ -43,11 +42,11 @@ const DraggableBox = ({ word, index, isHidden }) => {
       ref={drag} 
       className={`box box-${index} ${isDragging ? 'dragging' : ''}`} //added the classname here as below it wouldnt apply?
       style={{ 
+        //TODO fix the ghost animation so it renders and follows finger 
         opacity: isDragging ? 0.0 : isHidden ? 0 : 1, //TODO drag image IDK aAAAA
         boxShadow: isDragging || isHidden ? 'none' : '0px 4px 10px rgba(0, 0, 0, 0.3)',
         transition: "opacity 0.0s ease-in-out",//so you dont see it in the corner made it 0
         touchAction: "none", // Prevents scrolling interference 
-
       }}
     >
       {word.word} 
@@ -56,28 +55,15 @@ const DraggableBox = ({ word, index, isHidden }) => {
 };
 
 const DropZone = ({ droppedWord, setDroppedWord }) => {
-  //const DropZone = ({ onDrop }) => {
-  //const [droppedItem, setDroppedItem] = useState(null);
-  //const [isOver, setIsOver] = useState(false);
-
   const [{ isOver }, drop] = useDrop(() => ({
-  //const [{ isOverCurrent }, drop] = useDrop(() => ({
     accept: ItemType,
     drop: (item) => {
       setDroppedWord(item); // Only update droppedWord state, don't modify gameWords
-      //onDrop(item.index); // Notify parent that a box was dropped
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
-      //isOverCurrent: monitor.isOver(),
-
     }),
   }));
-
-  /*useEffect(() => {
-    setIsOver(isOverCurrent);
-  }, [isOverCurrent]);*/
-
 
   return (
     <div ref={drop} className={` drop-zone ${isOver ? "hover" : ''}`}>
@@ -100,8 +86,6 @@ function OddActivity() {
 
   const [words, setWords] = useState([]);
   const [gameWords, setGameWords] = useState([]); //stores the three selected words
-  //const [selectedBox, setSelectedBox] = useState(null); //tracks the box user selects, null at init
-  //const [oddOneOutIndex, setOddOneOutIndex] = useState(null); //stores the index of the random "odd" box, init null
   const [oddOneOutWord, setOddOneOutWord] = useState(null);
   const [droppedWord, setDroppedWord] = useState(null);
 
@@ -116,38 +100,6 @@ function OddActivity() {
   }
 
   //get the words from backend
-  /*const fetchWords = async () => {
-    try {
-      //this works when accessing on the same device 
-      //const response = await fetch('http://localhost:5001/api/movies');
-
-      //trying to add my IP in so it goes to the network i am hosting on not local
-      //const response = await fetch('http://192.168.1.71:5001/api/odd-one-out?level=1'); //update level dynamically?
-      //const response = await fetch('http://10.60.71.195:5001/api/odd-one-out?level=4');
-
-      //odd path
-      //const response = await fetch('http://192.168.1.71:5001/api/odd-non-word?level=4');
-
-      //const response = await fetch(`http://192.168.1.71:5001/api/${type}?level=${level}`);
-
-      //for hosted backend on render
-      //https://cmpt496-dyslexia-app.onrender.com
-      //const response = await fetch(`https://cmpt496-dyslexia-app.onrender.com/api/${type}?level=${level}`);
-      //using the define
-      console.log(import.meta.env.VITE_API_URL);
-      const response = await fetch(`${API_BASE_URL}/api/${type}?level=${level}`);
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch words');
-      }
-      const data = await response.json();
-      setWords(data);
-    } catch (error) {
-        console.error('Error fetching words:', error);
-      }
-  };*/
-
-
   useEffect(() => {
     const fetchWords = async () => {
       try {
@@ -207,13 +159,8 @@ function OddActivity() {
     //combine and shuffle words
     const selectedWords = [...sameTagWords, oddWord].sort(() => Math.random() - 0.5);
     setGameWords(selectedWords);
-    setOddOneOutWord(oddWord); // Store the word, not the index
-    //setOddOneOutIndex(selectedWords.indexOf(oddWord));
-    
-    //setSelectedBox(null);
+    setOddOneOutWord(oddWord); // Store the word
     setDroppedWord(null);
-    //setPreviousWord(null);
-
 };
 
 const checkAnswer = () => {
@@ -221,24 +168,17 @@ const checkAnswer = () => {
     console.log("Dropped Word:", droppedWord.word.word);
     console.log("Odd One Out Word:", oddOneOutWord.word);
 
-    //let isCorrect = droppedWord.index === oddOneOutIndex; //for some reason erroring
-    //let isCorrect = droppedWord.word === gameWords[oddOneOutIndex]?.word;
     let isCorrect = droppedWord.word.word === oddOneOutWord.word;
-    //console.log(droppedWord.word);
-    //console.log(gameWords[oddOneOutIndex]?.word)
     console.log('Is Answer Correct?', isCorrect);
     setTrackerResults(prev => [...prev, isCorrect]); // Add result to tracker
     
-    //setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: gameWords[oddOneOutIndex].word });
     setBadgeInfo({ isCorrect: isCorrect ? 1 : 0, correctWord: oddOneOutWord.word });
     setShowBadge(true);
 
     if (isCorrect) {
       setCorrectCount(prev => prev + 1);
-      //alert('Correct! You found the odd one out.');
     } else {
       setWrongCount(prev => prev + 1);
-      //alert('Incorrect. Try again!');
     }
 
     setRoundCount(prev => prev + 1); // Increment total rounds
@@ -265,18 +205,13 @@ const checkAnswer = () => {
             )}
       <TrackerSquares trackerResults={trackerResults} />
 
-    
-    
     <div className="odd-one-out-container">
       <div className='title-help-container'>
         <h1 className='purple-text game-header'>Odd-One-Out </h1>
-        {/*TODO tutorial button to click will retrigger tutorial */}
+        {/*TODO tutorial play on first time user play game, button to click will retrigger tutorial */}
         <OddTutorial />
-        {/*<img className='tut-symb' src={tutSymbol} alt="Help Button" />*/}
         </div>
       <p className='game-desc-box'>Drag the word that does not rhyme into the box below! Score 7/10 or higher to get the next round. </p>
-      
-      {/*TODO little game description box, maybe can use the popup text box and just squish it? */}
 
       <div className='plate-container'>
         <div className="dot">
@@ -284,12 +219,10 @@ const checkAnswer = () => {
             {/* Only render words that are NOT in the drop zone */}
             {gameWords.map((word, index) => (
               <DraggableBox 
-                
                 key={word.word} 
                 word={word} 
                 index={index} 
                 isHidden={droppedWord && droppedWord.word.word === word.word} 
-                //className={`box box-${index}`} THIS DOESNT WORK
               />
             ))}
           </div>
@@ -300,9 +233,7 @@ const checkAnswer = () => {
           setDroppedWord={setDroppedWord} 
           setGameWords={setGameWords}
           />
-         
           </div>
-
           </div>
 
            
@@ -339,9 +270,6 @@ const checkAnswer = () => {
     }}
   />
 )}
-
-  
-
 
     <BottomSprinkles className="landing-sprinkles" />
     </>

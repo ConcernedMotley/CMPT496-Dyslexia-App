@@ -12,8 +12,6 @@ import LoginPage from './components/LoginPage';
 import LandingPage from './components/LandingPage';
 import PlayPage from './components/PlayPage';
 import LevelLibrary from './components/LevelLibrary';
-import DragActivity from './components/DragActivity';
-import SoundActivity from './components/SoundActivity';
 import OddActivity from './components/OddActivity';
 import WordCollection from './components/WordCollection';
 import DraggingGame from './components/DraggingGame';
@@ -35,8 +33,6 @@ function App() {
           <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/PlayPage" element={<PlayPage />} />
           <Route path="/LevelLibrary/:level" element={<LevelLibrary />} />
-          <Route path="/DragActivity/:level" element={<DragActivity />} />
-          <Route path="/SoundActivity/:level" element={<SoundActivity />} />
           <Route path="/OddActivity/:level/:type" element={<OddActivity />} />
           <Route path="/WordCollection" element={<WordCollection />} />
           <Route path="/DraggingGame/:level" element={<DraggingGame />}/> 

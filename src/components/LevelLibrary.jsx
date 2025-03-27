@@ -20,7 +20,6 @@ function LevelLibrary() {
 
     <div className='tile-container'>
       {/*Button to 'Tick-Tally' (drag to match sounds game) */}
-
       <Link to={`/TickTally/${level}`}>
         <button className="library-button orange-b orange-button"><span>Tick-Tally</span></button>
       </Link>
@@ -29,11 +28,6 @@ function LevelLibrary() {
       <Link to={`/DraggingGame/${level}`}>
         <button className="library-button turq-b turquise-button"><span>Word Snap</span></button>
       </Link>
-
-      {/*TODO I think dont need this anymore since it was for sound testing??*/}
-      {/*<Link to={`/SoundActivity/${level}`}>
-        <button className="library-button">Go to Sound Activity Page</button>
-      </Link>*/}
 
       {/*Button to 'Odd one out' (English words) */}
       <Link to={`/OddActivity/${level}/odd-one-out`}>
@@ -48,7 +42,6 @@ function LevelLibrary() {
       </Link>
 
       {/*Button to 'Card Game' (STT game that we will prob not have time to code the css) */}
-
       {/*Since not done just link to the same page.... ALSO this will show the hover effects cause button clicks and stays*/}
       <Link to={`/LevelLibrary/${level}`}>
         <button className="library-button turq-b turquise-button"><span>Card Game</span></button>

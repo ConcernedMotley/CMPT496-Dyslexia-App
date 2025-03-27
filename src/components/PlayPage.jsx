@@ -33,11 +33,6 @@ function PlayPage() {
           <button className="level-select-button purple-button">Level 4</button>
         </Link>
       </div>
-
-      {/*<Link to="/LandingPage">
-        <button className="play-button purple-button">Back to Landing Page!</button>
-      </Link>*/}
-
     </div>
     <BottomSprinkles className="landing-sprinkles" />
     </>

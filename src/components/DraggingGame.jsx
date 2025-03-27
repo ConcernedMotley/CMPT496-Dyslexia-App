@@ -17,10 +17,6 @@ import OddTutorial from './tutorials/OddTutorial';
 import AnswerBadge from "./repeated-components/AnswerBadge";
 import EndGamePopup from "./repeated-components/EndGamePopup"
 
- //close popup
- const handleAccept = () => {
-  setShowPopup(false);
-}
 
 export default function DraggingGame() {
   const { level } = useParams();
@@ -39,7 +35,7 @@ export default function DraggingGame() {
   const [dragOverMessage, setDragOverMessage] = useState("");
   const [boxContents, setBoxContents] = useState(Array(4).fill(''));
   const [popupMessage, setPopupMessage] = useState("");
-  const [boxColors, setBoxColors] = useState(Array(4).fill('').fill('#F9F5EB;')); // New state for box colors
+  const [boxColors, setBoxColors] = useState(Array(4).fill('').fill('#F9F5EB')); // New state for box colors
 
     //close popup
     const handleAccept = () => {
@@ -58,13 +54,13 @@ export default function DraggingGame() {
     });
     setBoxColors(prevColors => {
       const newColors = [...prevColors];
-      newColors[index] = '#1F7E8E'; // Change color when letter is dropped (lightgreen color code)
+      newColors[index] = '#1F7E8E'; // Change color when letter is dropped 
       return newColors;
     });
   };
     // Reset box colors to default on badge close
     const resetColors = () => {
-      setBoxColors(Array(4).fill('#F9F5EB')); // Reset colors to default (white or any other color you prefer)
+      setBoxColors(Array(4).fill('#F9F5EB')); // Reset colors to default 
     };
   
 
@@ -76,12 +72,6 @@ export default function DraggingGame() {
     if (event.over) {
       console.log("Drop Zone ID:", event.over.id, "Position:", event.over.rect);
     }
-    // if (event.over) {
-    //   if (event.over.id.split('-')[0] === "dropBox")
-    //     setDragOverMessage(`Dragging over ${event.over.id}`);
-    // } else {
-    //   setDragOverMessage("");
-    // }
   };
 
   const handleDragEnd = (event) => {
@@ -109,13 +99,8 @@ export default function DraggingGame() {
     console.log("correct word:");
     console.log(currentWord);
     if (isCorrect) {
-      //setPopupMessage("Correct word");
-      //alert("Correct word");
-      /************
-      setCurrentWord(RandomWord());
-      setBoxContents(Array(4).fill(''));
-      *******************/
-      // window.location.reload();
+   
+     // window.location.reload();
       setCorrectCount(prev => prev + 1);//tracker correct
     } else {
       setWrongCount(prev => prev + 1); //tracker wrong
@@ -191,8 +176,6 @@ export default function DraggingGame() {
           //don't reset yet or the endgame popup wont display the score/10 
         }
         // Start new round
-        //generateNewGame();
-        //TODO is this how the game is reset
         resetColors(); // Reset box colors when the badge is closed
         setCurrentWord(RandomWord());
         setBoxContents(Array(4).fill(''));

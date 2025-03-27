@@ -13,7 +13,7 @@ import mascRac from '../assets/landing-masc.svg';
 import mascBack from '../assets/landing-back.svg';
 
 function LandingPage() {
-  const streakTotal = 4; /*TODO this is hard coded now but in the future pulling from user DB would be nice! */
+  const streakTotal = 0; /*TODO this is hard coded now but in the future pulling from user DB would be nice! */
   return (
     <>
     <NavBar  />
