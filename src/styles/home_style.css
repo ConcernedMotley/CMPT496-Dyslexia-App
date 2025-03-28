@@ -54,7 +54,6 @@
   left: clamp(6vw, 8vw, 10vw);
   top: clamp(60vh, 64.5vh, 66vh);
  /*Trying to make it work for the screens BUT the tails on the raccoons make it tough to hide behind buttons*/
-
 }
 
 /* purple raccoon TODO need the png */
@@ -90,12 +89,8 @@
   border: none; /* Remove normal border */
   outline: 6px solid rgba(250, 245, 234, 1); /* Adds a border effect outside */
   outline-offset: 0px; /* Adjust spacing from the button */
-
-
   white-space: nowrap; /* Prevent text from breaking */
   flex-shrink: 0; /* Prevent buttons from resizing too much */
-  
-
 }
 
 .login-button {
