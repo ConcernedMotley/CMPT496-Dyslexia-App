@@ -9,10 +9,6 @@
   width: 100%;
   position: relative;
   overflow: hidden; /* Prevents content from overflowing */
-
-  /*margin-top: clamp(20px, 5vh, 50px);
-  flex-wrap: wrap; /* Allows items to wrap if needed */
-  
   }
 .welcome{
   /* Welcome Back! */
@@ -37,8 +33,6 @@
   min-height: 60vh; /* Ensures it has enough space */
   margin-top: clamp(30px, 6vh, 60px);
   padding-bottom: 50px; /* Adds space for elements at the bottom */
-  
-  /*margin-top: clamp(30px, 6vh, 60px); /* Adjust spacing below Welcome Back */
 }
 .masc-rac{
   position: absolute;
@@ -61,7 +55,7 @@
   /*top: calc(100% - 20px);  /* Places it right below mascot */
   left: 50%;
   transform: translate(-45%, -70%);/*idk positioning maybe off*/
-  font-family: 'Lexend';
+  font-family: 'Lexend', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: clamp(18px, 2.5vw, 24px);
@@ -77,7 +71,7 @@
   left: clamp(10px, 20vw, 262px);   /* Adjusts based on viewport width */
   top: clamp(50px, 20vh, 287px);    /* Adjusts based on viewport height */
   transform: translate(-63%, 17%);/*idk positioning maybe off*/
-  font-family: 'Lexend';
+  font-family: 'Lexend', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -115,19 +109,12 @@
 
 .streak-desc{
   /* Practice each day so your streak won’t reset */
-  /*position: absolute;
-  width: 397px;
-  height: 62px;
-  left: calc(50% - 397px/2 + 9.5px);
-  top: 867px;*/
-
   position: relative;
   width: clamp(200px, 50vw, 397px);  /* Scales between 200px and 314px */
   height: clamp(0px, 50vh, 62px); /* Scales between 200px and 323px */
-  /*left: clamp(10px, 20vw, 262px);   /* Adjusts based on viewport width */
-  /*top: clamp(50px, 20vh, 287px);    /* Adjusts based on viewport height */
+
   transform: translate(0%, 0%);/*idk positioning maybe off*/
-  font-family: 'Lexend';
+  font-family: 'Lexend', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: clamp(16px, 7vw, 25px);

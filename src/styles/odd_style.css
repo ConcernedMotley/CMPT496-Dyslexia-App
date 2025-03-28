@@ -6,7 +6,7 @@ html, body {
 
 .odd-one-out-container {
   display: flex;
-  flex-direction: column; /* ✅ Stack items vertically */
+  flex-direction: column; /*  Stack items vertically */
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
 
@@ -89,7 +89,7 @@ html, body {
   align-items: center;
   bottom: 80px; /* Adjust as needed */
   left: 50%;
-  transform: translate(-50%, 25%);
+  transform: translate(-50%, 55%);
   z-index: 10;
   pointer-events: auto;
 

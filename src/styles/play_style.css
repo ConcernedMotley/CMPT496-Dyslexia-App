@@ -5,17 +5,13 @@
     /* Play Page */
 
     position: absolute;
-    /*width: 368px;
-    height: 90px;
-    left: 231px;
-    top: 154px;*/
     width: clamp(250px, 40vw, 500px);
     height: auto;
     left: 50%;
     top: clamp(100px, 15vh, 200px); /* Adjusts based on viewport height */
     transform: translate(-50%, -100%); /* Centers properly */
 
-    font-family: 'Lexend';
+    font-family: 'Lexend', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: clamp(70px, 9vw, 80px); /* TODO idk is this too small */
@@ -36,7 +32,7 @@
     top: clamp(100px, 15vh, 200px); /* Adjusts based on viewport height */
     transform: translate(-45%, 190%); /* Centers properly */
 
-    font-family: 'Lexend';
+    font-family: 'Lexend', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -56,13 +52,9 @@
     flex-direction: column;
     align-items: center;
     width: 100%; /*this moved it to middle ish*/
-    /*min-height: 100vh; /* Allow content to extend beyond the viewport */ /*TODO will make the page longer or not so will shift things*/
-    /*overflow-y: auto; /* Allow scrolling */
-  
+
     justify-content: space-between; /* Push buttons down */
     transform: translate(0%, 50%);
-    
-
     margin-bottom: 50%; /*this gave more space so it wasnt cutting button off*/
 }
 
@@ -76,7 +68,6 @@
     font-weight: 700;
     font-size: 30px;
     line-height: 37px;
-    /* identical to box height */
 
     color: #FFFFFF;
 
